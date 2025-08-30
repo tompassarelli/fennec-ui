@@ -6,7 +6,7 @@ A clean, minimal Firefox CSS theme designed for **first-class Sideberry support*
 
 Transform Firefox into a distraction-free browsing experience that prioritizes:
 
-- **Seamless Sideberry Integration** - The sidebar becomes a natural part of the interface
+- **Seamless Sideberry Integration** - no native horizontal or vertical tabs collision problems
 - **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
 - **Zen-Inspired Design** - Clean, purposeful aesthetics focused on content
 - **Distraction-Free Browsing** - Let your content and workflow take center stage
@@ -21,9 +21,7 @@ Transform Firefox into a distraction-free browsing experience that prioritizes:
 
 - Streamlined tab bar integration with Sideberry
 - Reduced visual noise from Firefox's default interface
-- Cohesive color scheme that doesn't compete with content
 - Optimized spacing for comfortable reading and navigation
-- Tab management that works harmoniously with Sideberry's tree structure
 
 ## Installation
 
