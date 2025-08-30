@@ -1,4 +1,4 @@
-# ![Fennec CSS Logo](fennec-logo.png) Fennec CSS - Zen Browser Inspired Theme
+![Fennec CSS Logo](fennec-logo.png)
 
 A clean, minimal Firefox CSS theme designed for **first-class Sideberry support** without the typical Firefox UI baggage. Inspired by the elegant UX philosophy of Zen Browser.
 
