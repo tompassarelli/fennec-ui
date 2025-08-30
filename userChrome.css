@@ -1,0 +1,116 @@
+/* #navigator-toolbox {
+  height: 0px;
+}
+ */
+
+#TabsToolbar {
+  display: none;
+}
+
+#PersonalToolbar {
+  display: none;
+}
+
+/* extension icon area & URL bar */
+/* #nav-bar {
+    display: none;
+} */
+
+
+/* Remove the "Sideberry", "History", etc. sidepanel header  */
+#sidebar-header {
+  display: none;
+}
+
+/* #customizableui-special-spring1 {
+  display: none !important;
+} */
+
+#customizableui-special-spring1 {
+  display: block !important;
+  margin: auto;
+}
+
+@media (min-width: 800px) {
+  #customizableui-special-spring1 {
+    min-width: 27.1% !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+}
+
+#customizableui-special-spring2 {
+  margin: auto;
+}
+
+#sidebar-button {
+  display: none;
+}
+
+/* 
+#forward-button {
+  display: none;
+} */
+
+/* #back-button {
+  display: none
+} */
+
+/* #stop-reload-button {
+  display: none;
+} */
+
+#home-button {
+  display: none;
+}
+
+#sidebar-splitter {
+  margin: 0px !important;
+  background-color: #36363a !important;
+  border: 0px !important;
+}
+
+
+/* Pin Search Bar / Url bar above the sideberry tabs, and below the zen-sidebar top buttons */
+/* #urlbar-container {
+  position: absolute;
+  top: 40px;
+  width: 214px !important;
+}
+ */
+
+#urlbar-container {
+  max-width: 400px !important;
+}
+
+@media (min-width: 800px) {
+  #urlbar-container {
+    max-width: 500px !important;
+  }
+}
+
+/* 
+#urlbar-input {
+  padding-left: 4px !important;
+} */
+/* #urlbar-searchmode-switcher {
+  display: none !important;
+} */
+
+
+/* START Create more space / remove useless icon in address bar */
+#identity-icon-label {
+  display: none !important;;
+}
+#page-action-buttons {
+  display: none !important;
+}
+/* END */
+
+
+.urlbar-input-container #tracking-protection-icon-container {
+  display: none;
+}
+/* .urlbar-input-container #identity-box {
+} */
+
