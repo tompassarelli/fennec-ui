@@ -15,7 +15,7 @@ Transform Firefox into a distraction-free browsing experience that prioritizes:
 
 ![Demo Screenshot](demo.png)
 
-*Clean Hacker News browsing with integrated Sideberry sidebar - no visual clutter, just pure functionality.*
+*Clean browsing with integrated Sideberry sidebar - no visual clutter, just pure functionality.*
 
 ## What This Theme Provides
 
