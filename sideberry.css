@@ -1,8 +1,3 @@
-#root::before {
-    content: "";
-    display: block;
-    height: 10px;                 /* change as needed */
-    width: 100%;
-    pointer-events: none;         /* doesn't block clicks; change to 'auto' if you want clicks to land here */
-    box-sizing: border-box;
-  }
+#root {
+  padding-left: 3px;
+}

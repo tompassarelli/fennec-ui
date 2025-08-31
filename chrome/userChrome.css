@@ -1,116 +1,256 @@
-/* #navigator-toolbox {
-  height: 0px;
-}
- */
+/* 
+navigator toolbox is the root container, contains all
 
+the #nav-bar contains nav buttons, urlbar, extensions
+
+target structure (like zen browser):
+
+[ header ] - #nav-bar subset: nav buttons, extensions, settings
+[ urlbar ] - #nav-bar.urlbar is moved out of header and put below
+[ sideberry ] 
+
+a normal challenge without the userchrome toggle extension
+is that we can't set a hotkey to hide both the sidebar
+and the #nav-bar at the same time. thats a key objective.
+
+What we can do with the userChrome toggle is we are able
+to apply the css changes required to hide the sidebar
+AND the #nav-bar at the same time. 
+
+
+this css code is organized 
+  from top-bottom as elements appear
+  then left-right
+*/
+
+:root {
+  --fennec-color: #36363a;
+}
+
+/* root node of everything mozilla - set height small value while testing
+   around 30px is normal */
+#navigator-toolbox {
+  position: absolute !important;
+  z-index: 2 !important;  /* 3 spills extensions on page*/
+/*   width: 13vw; */
+  border: none !important;
+  margin-top: 4px;
+  margin-left: 2px;
+}
+
+:root[titlepreface*="᠎"] {
+  #navigator-toolbox {
+    display: none;
+  }
+}
+
+#toolbar-menubar {
+  display: none;
+}
+
+/* Firefox's native tabs - always disable */
 #TabsToolbar {
   display: none;
 }
 
+
+/* ---- s:header ---- */
+
+/*  #nav-bar is the root of the header section, just for reference*/
+/* #nav-bar {
+} */
+
+#nav-bar-customization-target {
+  background-color: var(--fennec-color);
+}
+
+/* 
+   #nav-bar.children (below) 
+   note: we free nav-bar.urlbar with position absolute
+*/
+
+/* sidebar toggle - hide this */
+#sidebar-button {
+  display: none;
+}
+
+#back-button {
+  margin-left: 37px !important;
+}
+
+/* #forward-button {
+  display: none;
+}  */
+
+/* #stop-reload-button {
+} */
+
+/* home button - hide this */
+#home-button {
+  display: none;
+}
+
+/* START: spring1 (deprecated)
+
+  #customizableui-special-spring1 and 2 are spacers 
+  nav buttons - spring1 - url bar - spring2 - extensions/settings
+*/
+
+#customizableui-special-spring1 {
+  display: none;
+}
+
+/* END: spring1 (deprecated) */
+
+
+/* child: urlbar is here, we modify it later, just reference */
+/* #urlbar-container{} */
+
+
+/* START: spring2 (deprecated) */
+
+
+#customizableui-special-spring2 {
+  display: none;
+} 
+
+/* END: spring2 (deprecated) */
+
+/* #downloads-button {
+} */
+
+/* #unified-extensions-button {
+} */
+
+/* all pinnned extensions overflow here... */
+
+/* settings menu */ 
+#PanelUI-button {
+  position: absolute !important;
+}
+
+/* bookmarks area - always disable */
 #PersonalToolbar {
   display: none;
 }
 
-/* extension icon area & URL bar */
-/* #nav-bar {
-    display: none;
+/* ---- [e:header] ---- */
+
+
+
+/* ---- [s:urlbar] ---- */
+
+/* Pin Search Bar / Url bar above the sideberry tabs, and below the zen-sidebar top buttons */
+#urlbar-container {
+  position: absolute;
+  top: 38px;
+  width: 14.1vw !important;
+}
+
+/* deprecated, this was relevant when url bar was ontop */
+/* @media (min-width: 800px) {
+  #urlbar-container {
+    max-width: 500px !important;
+  }
 } */
 
+/*
+  START: create more space for urlbar text
+  
+  try to remove non essential icons in address bar 
+*/
+
+/*
+  -- START: left side of url bar icons 
+*/
+
+/* remove google icon crowding search bar */
+#urlbar-searchmode-switcher {
+  display: none !important;
+}
+/* after removing search move switcher, adjust padding */
+#urlbar-input {
+  padding-left: 4px !important;
+}
+
+
+/* I forgot what identity-icon-label is, enable until I remember  */
+/* #identity-icon-label {
+  display: none !important;;
+} */
+
+/* shield icon for tracking protections, don't need */
+/* TODO make this shown on hover, rather than always hide */
+.urlbar-input-container #tracking-protection-icon-container {
+  display: none;
+}
+
+/* https security padlock icon, always shown */
+/* .urlbar-input-container #identity-box {
+  display: none !important
+} */
+
+/* -- END: left side of url bar icons */
+
+/* favorite button, some other things I don't care */
+#page-action-buttons {
+  display: none !important;
+}
+
+/* END: create more space for urlbar text */
+
+/* ---- e:urlbar ---- */
+
+
+
+/* ---- s:sidebar ---- */
+
+/* #sidebar-box {
+  padding-top: 80px
+} */
+
+:root[titlepreface*="᠎"] {
+  #sidebar-box {
+    display: none;
+  }
+}
+
+#sidebar-box::before {
+  content: "";
+  display: block;
+  height: 96px;                 /* change as needed */
+  width: 100%;
+  pointer-events: none;         /* doesn't block clicks; change to 'auto' if you want clicks to land here */
+  box-sizing: border-box;
+  background-color: #36363a;
+}
 
 /* Remove the "Sideberry", "History", etc. sidepanel header  */
 #sidebar-header {
   display: none;
 }
 
-/* #customizableui-special-spring1 {
-  display: none !important;
-} */
+/* ------ s:sidebar-frame ---- */ 
 
-#customizableui-special-spring1 {
-  display: block !important;
-  margin: auto;
-}
-
-@media (min-width: 800px) {
-  #customizableui-special-spring1 {
-    min-width: 27.1% !important;
-    display: block !important;
-    margin: 0 !important;
-  }
-}
-
-#customizableui-special-spring2 {
-  margin: auto;
-}
-
-#sidebar-button {
-  display: none;
-}
-
-/* 
-#forward-button {
-  display: none;
-} */
-
-/* #back-button {
-  display: none
-} */
-
-/* #stop-reload-button {
-  display: none;
-} */
-
-#home-button {
-  display: none;
-}
-
+/* the gutter between the sidebar and page */
 #sidebar-splitter {
   margin: 0px !important;
-  background-color: #36363a !important;
+  background-color: var(--fennec-color) !important;
   border: 0px !important;
 }
 
-
-/* Pin Search Bar / Url bar above the sideberry tabs, and below the zen-sidebar top buttons */
-/* #urlbar-container {
-  position: absolute;
-  top: 40px;
-  width: 214px !important;
-}
- */
-
-#urlbar-container {
-  max-width: 400px !important;
-}
-
-@media (min-width: 800px) {
-  #urlbar-container {
-    max-width: 500px !important;
+:root[titlepreface*="᠎"] {
+  #sidebar-splitter {
+    display: none;
   }
 }
 
-/* 
-#urlbar-input {
-  padding-left: 4px !important;
-} */
-/* #urlbar-searchmode-switcher {
-  display: none !important;
-} */
+/* ------ e:sidebar-frame ---- */ 
 
+/* ------ s:sideberry ---- */
 
-/* START Create more space / remove useless icon in address bar */
-#identity-icon-label {
-  display: none !important;;
-}
-#page-action-buttons {
-  display: none !important;
-}
-/* END */
+/* edits are handled in sideberry css file */
 
+/* ------ e:sideberry ---- */
 
-.urlbar-input-container #tracking-protection-icon-container {
-  display: none;
-}
-/* .urlbar-input-container #identity-box {
-} */
-
+/* ---- e:sidebar ---- */
