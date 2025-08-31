@@ -134,17 +134,17 @@ this css code is organized
   display: none;
 }
 
-/* ---- [e:header] ---- */
+/* ---- e:header ---- */
 
 
 
-/* ---- [s:urlbar] ---- */
+/* ---- s:urlbar ---- */
 
 /* Pin Search Bar / Url bar above the sideberry tabs, and below the zen-sidebar top buttons */
 #urlbar-container {
   position: absolute;
   top: 38px;
-  width: 14.1vw !important;
+  width: 217px !important;
 }
 
 /* deprecated, this was relevant when url bar was ontop */
@@ -156,8 +156,6 @@ this css code is organized
 
 /*
   START: create more space for urlbar text
-  
-  try to remove non essential icons in address bar 
 */
 
 /*
@@ -172,7 +170,6 @@ this css code is organized
 #urlbar-input {
   padding-left: 4px !important;
 }
-
 
 /* I forgot what identity-icon-label is, enable until I remember  */
 /* #identity-icon-label {
