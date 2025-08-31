@@ -1,4 +1,6 @@
-## Preview
+# 🦊 Fennec CSS
+
+## Fennec CSS Preview
 
 ![Demo Screenshot](demo.png)
 
