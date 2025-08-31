@@ -40,7 +40,7 @@ These extensions work together to create a cohesive, keyboard-friendly browsing 
 3. Create a `chrome` folder if it doesn't exist
 4. Copy `userChrome.css` to the `chrome` folder
 5. Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
-6. Use sideberry.css in the sideberry custom css settings, and in Navigation Section set Layout to hidden
+6. Use sideberry.css in the sideberry custom css settings
 7. Install [Userchrome Toggle Extended](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle-extended/)
 8. Change hotkey to ctrl+alt+c if desired in "manage extension shortcuts"
 9. Restart Firefox
