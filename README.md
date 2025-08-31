@@ -10,7 +10,7 @@ A clean, minimal Firefox CSS theme designed for **first-class Sideberry support*
 
 Transform Firefox into a distraction-free browsing experience that prioritizes:
 
-- **Seamless Sideberry Integration** - Hide entire sidebar with ctrl+shift+1 (or whatever hotkey, I use ctrl+alt+c, supported by User Chrome Toggle Extended)
+- **Seamless Sideberry Integration** - Hide entire sidebar with ctrl+shift+1 (or whatever hotkey, I use ctrl+alt+c, supported by Userchrome Toggle Extended)
 - **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
 - **Zen-Inspired Design** - Clean, purposeful aesthetics focused on content
 - **Distraction-Free Browsing** - Let your content and workflow take center stage
