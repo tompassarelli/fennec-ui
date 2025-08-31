@@ -1,3 +1,9 @@
+## Preview
+
+![Demo Screenshot](demo.png)
+
+*Clean browsing with integrated Sideberry sidebar - no visual clutter, just pure functionality.*
+
 A clean, minimal Firefox CSS theme designed for **first-class Sideberry support** without the typical Firefox UI baggage. Inspired by the elegant UX philosophy of Zen Browser.
 
 ## Objective
@@ -9,11 +15,6 @@ Transform Firefox into a distraction-free browsing experience that prioritizes:
 - **Zen-Inspired Design** - Clean, purposeful aesthetics focused on content
 - **Distraction-Free Browsing** - Let your content and workflow take center stage
 
-## Preview
-
-![Demo Screenshot](demo.png)
-
-*Clean browsing with integrated Sideberry sidebar - no visual clutter, just pure functionality.*
 
 ## What This Theme Provides
 
