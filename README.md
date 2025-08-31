@@ -49,4 +49,7 @@ These extensions work together to create a cohesive, keyboard-friendly browsing 
 
 This theme embraces the principle that **the best interface is the one you don't notice**. By removing Firefox's visual baggage and creating seamless integration with Sideberry, we achieve a browsing experience that feels purposeful and distraction-free - much like what Zen Browser aims to provide, but with the flexibility and extensibility of Firefox.
 
-Perfect for users who want the power and stability of Firefox with the clean aesthetics of modern, minimal browsers.
+This was designed in mind of hiding all extension shortcuts and either using
+the extension button, hotkey, or expanding sibebar seems supported.
+
+Perfect for users who want the stability of Firefox with the clean aesthetics of modern, minimal browsers.
