@@ -9,13 +9,10 @@ target structure (like zen browser):
 [ urlbar ] - #nav-bar.urlbar is moved out of header and put below
 [ sideberry ] 
 
-a normal challenge without the userchrome toggle extension
-is that we can't set a hotkey to hide both the sidebar
-and the #nav-bar at the same time. thats a key objective.
-
-What we can do with the userChrome toggle is we are able
-to apply the css changes required to hide the sidebar
-AND the #nav-bar at the same time. 
+Sideberry's built-in sidebar toggle (F1 default hotkey) now controls
+the entire Fennec UI experience. When you toggle Sideberry off,
+both the sidebar AND the navigation bar are hidden for a clean,
+distraction-free browsing experience. 
 
 
 this css code is organized 
@@ -27,6 +24,11 @@ this css code is organized
   --fennec-color: #36363a;
 }
 
+/* toggling sideberry/history toggles the whole ui */
+body:has(#sidebar-box[hidden="true"]) #navigator-toolbox {
+  display: none !important;
+}
+
 /* root node of everything mozilla - set height small value while testing
    around 30px is normal */
 #navigator-toolbox {
@@ -36,12 +38,6 @@ this css code is organized
   border: none !important;
   margin-top: 4px;
   margin-left: 2px;
-}
-
-:root[titlepreface*="᠎"] {
-  #navigator-toolbox {
-    display: none;
-  }
 }
 
 #toolbar-menubar {
@@ -144,36 +140,17 @@ this css code is organized
 #urlbar-container {
   position: absolute;
   top: 38px;
-  width: 217px !important;
+  width: 215px !important;
 }
-
-/* deprecated, this was relevant when url bar was ontop */
-/* @media (min-width: 800px) {
-  #urlbar-container {
-    max-width: 500px !important;
-  }
-} */
-
-/*
-  START: create more space for urlbar text
-*/
-
-/*
-  -- START: left side of url bar icons 
-*/
 
 /* remove google icon crowding search bar */
 #urlbar-searchmode-switcher {
-  display: none !important;
-}
-/* after removing search move switcher, adjust padding */
-#urlbar-input {
-  padding-left: 4px !important;
+  display: none;
 }
 
-/* I forgot what identity-icon-label is, enable until I remember  */
-/* #identity-icon-label {
-  display: none !important;;
+/* TODO after removing search move switcher, urlbar when */
+/* .urlbar-input-container {
+  padding-left: 5px !important;
 } */
 
 /* shield icon for tracking protections, don't need */
@@ -182,19 +159,84 @@ this css code is organized
   display: none;
 }
 
-/* https security padlock icon, always shown */
-/* .urlbar-input-container #identity-box {
-  display: none !important
+/* this will show "Not secure" if the connection is not secure, 
+   there is already an icon, only selectively hide if safe  */
+/* #identity-icon-label {} */
+
+/* shows "Sideberry" if on its extension page, not strictly needed */
+#identity-box.extensionPage #identity-icon-label {
+  display: none;
+}
+
+/* shows Firefox if on settings, not strictly needed */
+#identity-box.chromeUI #identity-icon-label {
+  display: none;
+}
+
+/* SECURE STATES (safe to customize) */
+/* .chromeUI          /* Firefox internal pages */
+/* .extensionPage     /* Extension pages */
+/* .verifiedDomain    /* HTTPS with valid cert */
+/* .verifiedIdentity  /* EV certificates */
+
+/* SECURITY WARNING STATES (preserve these!) */
+/* .notSecure         /* HTTP or broken HTTPS */
+/* .insecureLoginForms /* HTTPS page with HTTP login */
+/* .mixedContentBlocked /* HTTPS with blocked mixed content */
+/* .mixedActiveContent  /* HTTPS with active mixed content */
+
+/* hide the packlock if not hovered and only if site is secure */
+/* `.mixedContentBlocked` could be worth surfacing, for warnings */
+/* but it seems like .notSecure is always concerning, so we will surface that */
+/* #identity-box:not(.notSecure) {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#urlbar:not(:hover) #identity-box:not(.notSecure) {
+  opacity: 0;
+  transform: translateX(-20px); 
+  pointer-events: none;
+  width: 0px;
 } */
 
-/* -- END: left side of url bar icons */
+body:has(#sidebar-box[checked="true"]):has(#identity-box.notSecure)::before {
+  content: "🦊 Fennec CSS Alerts: 🔓 Not Secure";
+  text-align: center;
+  font-size: 24px;
+  margin-left:15%;
+  padding-top: 10px;
+  display: block;
+  position: absolute;
+  z-index: 3;
+  width: 85%;
+  height: 46px;
+  box-sizing: border-box;
+  background-color: #36363a;
+}
 
-/* favorite button, some other things I don't care */
+/* when sidebar is hidden via sideberry toggle - adjust security warning layout */
+body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
+  content: "🦊 Fennec CSS Alerts: 🔓 Not Secure";
+  text-align: center;
+  font-size: 24px;
+  margin-left: 0px;
+  display: block;
+  position: inherit;
+  z-index: 2;
+  width: 100%;
+  height: 46px;
+  padding-top: 10px;
+  box-sizing: border-box;
+  background-color: #36363a;
+}
+
+/* on right-side of urlbar, favorite button, some other things I don't care */
 #page-action-buttons {
   display: none !important;
 }
 
-/* END: create more space for urlbar text */
 
 /* ---- e:urlbar ---- */
 
@@ -202,22 +244,15 @@ this css code is organized
 
 /* ---- s:sidebar ---- */
 
-/* #sidebar-box {
-  padding-top: 80px
-} */
+/* smallest width seems to be 224px */
 
-:root[titlepreface*="᠎"] {
-  #sidebar-box {
-    display: none;
-  }
-}
-
+/* create space for urlbar area inside the sidebar */
 #sidebar-box::before {
   content: "";
   display: block;
-  height: 96px;                 /* change as needed */
+  height: 96px;
   width: 100%;
-  pointer-events: none;         /* doesn't block clicks; change to 'auto' if you want clicks to land here */
+  pointer-events: none;
   box-sizing: border-box;
   background-color: #36363a;
 }
@@ -234,12 +269,6 @@ this css code is organized
   margin: 0px !important;
   background-color: var(--fennec-color) !important;
   border: 0px !important;
-}
-
-:root[titlepreface*="᠎"] {
-  #sidebar-splitter {
-    display: none;
-  }
 }
 
 /* ------ e:sidebar-frame ---- */ 

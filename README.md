@@ -10,7 +10,7 @@ A clean, minimal Firefox CSS theme designed for **first-class Sideberry support*
 
 Transform Firefox into a distraction-free browsing experience that prioritizes:
 
-- **Seamless Sideberry Integration** - Hide entire sidebar with ctrl+shift+1 (or whatever hotkey, I use ctrl+alt+c, supported by Userchrome Toggle Extended)
+- **Seamless Sideberry Integration** - Toggle entire Fennec UI with Sideberry's built-in hotkey
 - **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
 - **Zen-Inspired Design** - Clean, purposeful aesthetics focused on content
 - **Distraction-Free Browsing** - Let your content and workflow take center stage
@@ -25,13 +25,12 @@ Transform Firefox into a distraction-free browsing experience that prioritizes:
 ## Dependencies
 
 ### Required Extensions
-- **[Sideberry](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)** - Essential for sidebar tab management and the core functionality of this theme
-- **[UserChrome Toggle Extended](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle-extended/)** - Enables dynamic CSS toggling for seamless sidebar hiding (ctrl+shift+1 default, zen would be ctrl+alt+c)
+- **[Sideberry](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)** - Essential for sidebar tab management and the core functionality of this theme. Sideberry's toggle hotkey (F1 by default) controls the entire Fennec UI experience.
 
 ### Recommended Extensions
 - **[Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)** - Keyboard-driven navigation that complements the minimal, distraction-free interface
 
-These extensions work together to create a cohesive, keyboard-friendly browsing experience that maximizes screen real estate and minimizes visual distractions.
+These extensions work together to create a cohesive, keyboard-friendly browsing experience that maximizes screen real estate and minimizes visual distractions. When you toggle Sideberry off, both the sidebar and navigation bar disappear for true distraction-free browsing.
 
 ## Installation
 
@@ -41,15 +40,19 @@ These extensions work together to create a cohesive, keyboard-friendly browsing 
 4. Copy `userChrome.css` to the `chrome` folder
 5. Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
 6. Use sideberry.css in the sideberry custom css settings
-7. Install [Userchrome Toggle Extended](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle-extended/)
-8. Change hotkey to ctrl+alt+c if desired in "manage extension shortcuts"
-9. Restart Firefox
+7. Configure Sideberry's toggle hotkey in "Manage Extension Shortcuts" (F1 by default)
+8. Restart Firefox
 
 ## Philosophy
 
 This theme embraces the principle that **the best interface is the one you don't notice**. By removing Firefox's visual baggage and creating seamless integration with Sideberry, we achieve a browsing experience that feels purposeful and distraction-free - much like what Zen Browser aims to provide, but with the flexibility and extensibility of Firefox.
 
-This was designed in mind of hiding all extension shortcuts and either using
-the extension button, hotkey, or expanding sibebar seems supported.
+## How It Works
+
+When you press Sideberry's toggle hotkey:
+- **Sidebar visible**: Normal Fennec UI with navigation bar and URL bar positioned above Sideberry
+- **Sidebar hidden**: Entire navigation interface disappears for distraction-free browsing
+
+This elegant toggle gives you the best of both worlds - organized tab management when you need it, and a clean browsing experience when you don't.
 
 Perfect for users who want the stability of Firefox with the clean aesthetics of modern, minimal browsers.
