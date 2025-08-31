@@ -1,7 +1,5 @@
 # 🦊 Fennec CSS
 
-## Fennec CSS Preview
-
 ![Demo Screenshot](demo.png)
 
 *Clean browsing with integrated Sideberry sidebar - no visual clutter, just pure functionality.*
