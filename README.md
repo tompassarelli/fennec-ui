@@ -26,7 +26,7 @@ Transform Firefox into a distraction-free browsing experience that prioritizes:
 
 ### Required Extensions
 - **[Sideberry](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)** - Essential for sidebar tab management and the core functionality of this theme
-- **[UserChrome Toggle Extended](https://github.com/Naezr/userchrome-toggle-extended-2)** - Enables dynamic CSS toggling for seamless sidebar hiding (ctrl+shift+1 default, zen would be ctrl+alt+c)
+- **[UserChrome Toggle Extended](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle-extended/)** - Enables dynamic CSS toggling for seamless sidebar hiding (ctrl+shift+1 default, zen would be ctrl+alt+c)
 
 ### Recommended Extensions
 - **[Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)** - Keyboard-driven navigation that complements the minimal, distraction-free interface
