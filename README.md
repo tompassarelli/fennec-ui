@@ -57,7 +57,7 @@ like history which defaults to ctrl+h
 
 ## Philosophy
 
-This theme embraces the principle that **the best interface is the one you don't notice**. By removing Firefox's visual baggage and creating seamless integration with Sideberry, we achieve a browsing experience that feels purposeful and distraction-free - much like what Zen Browser aims to provide, but with the flexibility and extensibility of Firefox.
+This theme embraces the principle that **the best interface is the one you don't notice**. By removing Firefox's visual baggage and creating seamless integration with Sideberry, we achieve a browsing experience that feels purposeful and distraction-free - much like what Zen Browser aims to provide, but without having to manage a fork, and some saner security defaults.
 
 ## How It Works
 
