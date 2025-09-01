@@ -56,6 +56,8 @@ When you press Sideberry's toggle hotkey:
 - **Sidebar visible**: Normal Fennec UI with navigation bar and URL bar positioned above Sideberry
 - **Sidebar hidden**: Entire navigation interface disappears for distraction-free browsing
 
-This elegant toggle gives you the best of both worlds - organized tab management when you need it, and a clean browsing experience when you don't.
+**Security Features**: Even when the UI is completely hidden, Fennec CSS will display prominent security warnings for insecure sites (HTTP or broken HTTPS), ensuring you're never browsing unsafely without knowing it.
+
+This elegant toggle gives you the best of both worlds - organized tab management when you need it, a clean browsing experience when you don't, and security awareness at all times.
 
 Perfect for users who want the stability of Firefox with the clean aesthetics of modern, minimal browsers.
