@@ -19,8 +19,8 @@ Transform Firefox into a distraction-free browsing experience that prioritizes:
 
 ![Demo Screenshot](demo-security.png)
 
-when the UI is not hidden we still show this warning, you can easily disable
-this if you wish in the userChrome.css, the author likes the peace of mind. 
+When the UI is not hidden we still show this warning, you can easily disable
+this if you wish in the userChrome.css, the author likes it warnings loud.
 
 ![Demo Screenshot](demo-security-2.png)
 
