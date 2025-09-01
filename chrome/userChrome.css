@@ -1,34 +1,39 @@
 /* 
-navigator toolbox is the root container, contains all
+quick reference:
+#navigator-toolbox is the root container of most firefox elements
+-- #nav-bar contains nav buttons (back.. refresh), urlbar, extensions
+#browser is the other primary container, nav toolbox's sibling, contains sidebar
 
-the #nav-bar contains nav buttons, urlbar, extensions
-
-target structure (like zen browser):
+fennec's target structure:
 
 [ header ] - #nav-bar subset: nav buttons, extensions, settings
 [ urlbar ] - #nav-bar.urlbar is moved out of header and put below
-[ sideberry ] 
+[ sideberry ] - firefox extension
 
-Sideberry's built-in sidebar toggle (F1 default hotkey) now controls
-the entire Fennec UI experience. When you toggle Sideberry off,
-both the sidebar AND the navigation bar are hidden for a clean,
-distraction-free browsing experience. 
-
-
-this css code is organized 
-  from top-bottom as elements appear
-  then left-right
+this css code tends to be ordered with respect to dom top-bottom, left-right 
 */
 
 :root {
   --fennec-color: #36363a;
 }
 
-/* sidebar toggle: sideberry/history toggles the whole ui */
-/* works if you apply it to browser toolbox after load, but trying to load this eagerly seems to break */
+/* ---------------------------------------- */
+
+/* WORK IN PROGRES sidebar toggle:
+   sideberry/history toggles the whole ui 
+   if/when this is integrated, userchrome toggle is not needed */
+
+/* the below css works if applied to browser toolbox after load,
+   but trying to load this eagerly user userChrome.css
+   interferes with Firefox's chrome loading pipeline 
+   because we are hiding the element early, interfering
+   with firefox's javascript loading the UI it seems*/
+
 /* body:has(#sidebar-box[hidden="true"]) #navigator-toolbox {
   display: none !important;
 } */
+
+/* ---------------------------------------- */
 
 /* style 1 - hide when all UI */
 :root[titlepreface*="᠎"] {
@@ -37,8 +42,7 @@ this css code is organized
   }
 }
 
-/* root node of everything mozilla - set height small value while testing
-   around 30px is normal */
+/* root node of everything mozilla */
 #navigator-toolbox {
   position: absolute !important;
   z-index: 2 !important;  /* 3 spills extensions on page*/
@@ -47,20 +51,21 @@ this css code is organized
   margin-left: 2px;
 }
 
+/* the thing that comes up when you hold alt, there's already settings menu */
 #toolbar-menubar {
   display: none;
 }
 
-/* Firefox's native tabs - always disable */
+/* Firefox's native tabs - always disable, depend on sideberry for tabs */
 #TabsToolbar {
   display: none;
 }
 
 /* ---- s:header ---- */
 
-/*  #nav-bar is the root of the header section, just for reference*/
-/* #nav-bar {
-} */
+/*  #nav-bar is basically fennec's header section, stubbed for structural reference */
+
+/* #nav-bar {} */
 
 #nav-bar-customization-target {
   background-color: var(--fennec-color);
@@ -149,6 +154,12 @@ this css code is organized
   width: 215px !important;
 }
 
+/* conservative width adjustments for urlbar as sidebar width changes */
+/* it could be snappier, but holding back until performance testing */
+body:has(#browser > #sidebar-box[width^="3"]) #urlbar-container { width: 291px !important; }
+body:has(#browser > #sidebar-box[width^="4"]) #urlbar-container { width: 391px !important; }
+body:has(#browser > #sidebar-box[width^="5"]) #urlbar-container { width: 491px !important; }
+
 /* remove google icon crowding search bar */
 #urlbar-searchmode-switcher {
   display: none;
@@ -179,6 +190,21 @@ this css code is organized
   display: none;
 }
 
+/*
+FIREFOX SECURITY STATES REFERENCE
+
+Reasonably safe to customize:
+- .chromeUI          - Firefox internal pages
+- .extensionPage     - Extension pages  
+- .verifiedDomain    - HTTPS with valid cert
+- .verifiedIdentity  - EV certificates
+
+Preserve these (security warnings):
+- .notSecure         - HTTP or broken HTTPS
+- .insecureLoginForms - HTTPS page with HTTP login
+- .mixedContentBlocked - HTTPS with blocked mixed content
+- .mixedActiveContent  - HTTPS with active mixed content
+*/
 
 /* hide the packlock if not hovered and only if site is secure */
 /* `.mixedContentBlocked` could be worth surfacing, for warnings */
