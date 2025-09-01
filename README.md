@@ -85,8 +85,8 @@ there is more robust native support (exploring, some progress, may or may not ha
 
 **This is a CSS theme for educational and aesthetic purposes only.** 
 
-- This theme modifies Firefox's user interface, including security indicators
-- While we've made efforts to preserve important security warnings, **no guarantee is provided**
+- This theme modifies Firefox's user interface, which can interfere with security indicators (notably, when the UI is completely hidden)
+- Efforts have been made to preserve important security warnings even when the UI is hidden, **no guarantee is provided**
 - **Use at your own risk** - The author is not liable for any security issues, data breaches, or other damages
 - **You are responsible** for verifying the security of websites you visit
 - This is **not a security tool** - it's purely a visual theme
