@@ -6,6 +6,8 @@
 
 A clean, minimal Firefox CSS theme designed for **first-class Sideberry support** without the typical Firefox UI baggage. Inspired by the elegant UX philosophy of Zen Browser.
 
+📋 **[View Roadmap & Releases](https://github.com/tompassarelli/fennec-css/wiki)** - Check the project wiki for roadmap and release notes.
+
 ## Objective
 
 Transform Firefox into a distraction-free browsing experience that prioritizes:
