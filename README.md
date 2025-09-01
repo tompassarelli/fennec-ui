@@ -20,7 +20,8 @@ Transform Firefox into a distraction-free browsing experience that prioritizes:
 ![Demo Screenshot](demo-security.png)
 
 When the UI is not hidden we still show this warning, you can easily disable
-this if you wish in the userChrome.css, the author likes it warnings loud.
+this if you wish in the userChrome.css. There may be a companion extension
+in the future in which sites can be whitelisted. 
 
 ![Demo Screenshot](demo-security-2.png)
 
