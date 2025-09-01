@@ -58,10 +58,6 @@ like history which defaults to ctrl+h
 8. Change 'style 1' (hide all ui) to preferred hotkey desired in "manage extension shortcuts"
 9. Restart Firefox
 
-## Philosophy
-
-This theme embraces the principle that **the best interface is the one you don't notice**. By removing Firefox's visual baggage and creating seamless integration with Sideberry, we achieve a browsing experience that feels purposeful and distraction-free - much like what Zen Browser aims to provide, but without having to manage a fork, and some saner security defaults.
-
 ## How It Works
 
 Utilizing the chosen hotkey for user chrome toggle hides the whole UI
