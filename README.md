@@ -25,12 +25,6 @@ in the future in which sites can be whitelisted.
 
 ![Demo Screenshot](demo-security-2.png)
 
-## What This Theme Provides
-
-- Streamlined tab bar integration with Sideberry
-- Reduced visual noise from Firefox's default interface
-- Optimized spacing for comfortable reading and navigation
-
 ## Dependencies
 
 ### Required Extensions
