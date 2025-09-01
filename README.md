@@ -52,7 +52,7 @@ like history which defaults to ctrl+h
 4. Copy `userChrome.css` to the `chrome` folder
 5. Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
 6. Use sideberry.css in the sideberry custom css settings
-7. Configure Sideberry's toggle hotkey in "Manage Extension Shortcuts" (F1 by default)
+7. Configure Sideberry's toggle hotkey in "Manage Extension Shortcuts"
 8. Restart Firefox
 
 ## Philosophy
