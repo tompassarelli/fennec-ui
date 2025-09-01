@@ -74,12 +74,12 @@ Perfect for users who want the stability of Firefox with the clean aesthetics of
 
 **Workaround**: Click/hotkey the address bar then retry. 
 
-### I see only the URL bar but the sidebar is hidden
+### I see only the URL bar but the sidebar is hidden, can't seem to reset it correctly.
 **Issue**: You deactivated the sidebar by toggling a sidebar panel, which by default
 in firefox is not joined with the URL bar component, so fennec cannot stop this until
 there is more robust native support (exploring, some progress, may or may not happen)
 
-**Workaround**: Reactivate the sidebar with any sidebar panel (sideberry, history, etc)
+**Workaround**: try toggling the sidebar with any sidebar panel (sideberry, history, etc) and then try the userchrome toggle hotkey to resync state.
 
 ## Disclaimer
 
