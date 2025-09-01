@@ -70,12 +70,26 @@ This elegant toggle gives you the best of both worlds - organized tab management
 
 Perfect for users who want the stability of Firefox with the clean aesthetics of modern, minimal browsers.
 
-## Gotchas
+## Known Issues & Troubleshooting
 
-Notifications will generally hidden when the UI is toggled. 
-This is contextually relevant whenever sharing mic, location.
+### Notifications Hidden When UI Toggled
+**Issue**: Permission notifications (location, microphone, camera) may be hidden when the UI is toggled off.
 
-Workaround: if something isn't working, show UI and retry for missed notifications
+**Context**: This affects situations where websites request permissions while in distraction-free mode.
+
+**Workaround**: Toggle the UI back on and retry the action to see missed notifications.
+
+### UserChrome Toggle Extended Not Responding
+**Issue**: The extension hotkey may not trigger UI toggling.
+
+**Workaround**: Click/hotkey the address bar then retry. 
+
+### I see only the URL bar but the sidebar is hidden
+**Issue**: You deactivated the sidebar by toggling a sidebar panel, which by default
+in firefox is not joined with the URL bar component, so fennec cannot stop this until
+there is more robust native support (exploring, some progress, may or may not happen)
+
+**Workaround**: Reactivate the sidebar with any sidebar panel (sideberry, history, etc)
 
 ## Disclaimer
 
