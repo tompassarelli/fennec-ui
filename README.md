@@ -32,6 +32,9 @@ Transform Firefox into a distraction-free browsing experience that prioritizes:
 
 These extensions work together to create a cohesive, keyboard-friendly browsing experience that maximizes screen real estate and minimizes visual distractions. When you toggle Sideberry off, both the sidebar and navigation bar disappear for true distraction-free browsing.
 
+Reactivating the sidebar can be retoggling sideberry, or other sidebar controls
+like history which defaults to ctrl+h
+
 ## Installation
 
 1. Enable `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
