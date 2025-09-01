@@ -154,11 +154,37 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
   width: 215px !important;
 }
 
-/* conservative width adjustments for urlbar as sidebar width changes */
-/* it could be snappier, but holding back until performance testing */
-body:has(#browser > #sidebar-box[width^="3"]) #urlbar-container { width: 291px !important; }
+/* eager width adjustments for urlbar as sidebar width changes */
+/* math - aesthetically urlbar width of 215 maps to a sidebar width of 224px */
+/* 224 appears to be min-width default for sidebar */
+
+/* 200s */
+body:has(#browser > #sidebar-box[width^="22"]) #urlbar-container { width: 214px !important; }
+body:has(#browser > #sidebar-box[width^="23"]) #urlbar-container { width: 221px !important; }
+body:has(#browser > #sidebar-box[width^="23"]) #urlbar-container { width: 221px !important; }
+body:has(#browser > #sidebar-box[width^="24"]) #urlbar-container { width: 231px !important; }
+body:has(#browser > #sidebar-box[width^="25"]) #urlbar-container { width: 241px !important; }
+body:has(#browser > #sidebar-box[width^="26"]) #urlbar-container { width: 251px !important; }
+body:has(#browser > #sidebar-box[width^="27"]) #urlbar-container { width: 261px !important; }
+body:has(#browser > #sidebar-box[width^="28"]) #urlbar-container { width: 271px !important; }
+body:has(#browser > #sidebar-box[width^="29"]) #urlbar-container { width: 281px !important; }
+
+/* 300s */
+body:has(#browser > #sidebar-box[width^="30"]) #urlbar-container { width: 291px !important; }
+body:has(#browser > #sidebar-box[width^="31"]) #urlbar-container { width: 301px !important; }
+body:has(#browser > #sidebar-box[width^="32"]) #urlbar-container { width: 311px !important; }
+body:has(#browser > #sidebar-box[width^="33"]) #urlbar-container { width: 321px !important; }
+body:has(#browser > #sidebar-box[width^="34"]) #urlbar-container { width: 331px !important; }
+body:has(#browser > #sidebar-box[width^="35"]) #urlbar-container { width: 341px !important; }
+body:has(#browser > #sidebar-box[width^="36"]) #urlbar-container { width: 351px !important; }
+body:has(#browser > #sidebar-box[width^="37"]) #urlbar-container { width: 361px !important; }
+body:has(#browser > #sidebar-box[width^="38"]) #urlbar-container { width: 371px !important; }
+body:has(#browser > #sidebar-box[width^="39"]) #urlbar-container { width: 381px !important; }
+
+/* 400+ */
 body:has(#browser > #sidebar-box[width^="4"]) #urlbar-container { width: 391px !important; }
 body:has(#browser > #sidebar-box[width^="5"]) #urlbar-container { width: 491px !important; }
+body:has(#browser > #sidebar-box[width^="6"]) #urlbar-container { width: 591px !important; }
 
 /* remove google icon crowding search bar */
 #urlbar-searchmode-switcher {
@@ -277,6 +303,11 @@ body:has(#identity-box.notSecure)::before {
   }
 }
 
+/* Remove the "Sideberry", "History", etc. sidepanel header  */
+#sidebar-header {
+  display: none;
+}
+
 /* create space for urlbar area inside the sidebar */
 #sidebar-box::before {
   content: "";
@@ -288,12 +319,20 @@ body:has(#identity-box.notSecure)::before {
   background-color: #36363a;
 }
 
-/* Remove the "Sideberry", "History", etc. sidepanel header  */
-#sidebar-header {
-  display: none;
+/* increase ::before height if notifications are live */
+/* body:has(#notifications-toolbar) {
+  #sidebar-box::before {
+    height: 300px;
+  }
+} */
+
+#notifications-toolbar {
+	position: absolute;
+	top: 90px;
 }
 
-/* ------ s:sidebar-frame ---- */ 
+
+/* ------ s:sidebar-border ---- */ 
 
 /* the gutter between the sidebar and page */
 #sidebar-splitter {
@@ -309,12 +348,12 @@ body:has(#identity-box.notSecure)::before {
   }
 }
 
-/* ------ e:sidebar-frame ---- */ 
+/* ------ e:sidebar-border ---- */ 
+
 
 /* ------ s:sideberry ---- */
-
 /* edits are handled in sideberry css file */
-
 /* ------ e:sideberry ---- */
+
 
 /* ---- e:sidebar ---- */
