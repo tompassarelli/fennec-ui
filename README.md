@@ -35,6 +35,8 @@ in the future in which sites can be whitelisted.
 
 ### Required Extensions
 - **[Sideberry](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)** - Essential for sidebar tab management and the core functionality of this theme. Sideberry's toggle hotkey controls the entire Fennec UI experience.
+- **[UserChrome Toggle Extended](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle-extended/)** - Enables dynamic CSS toggling for seamless sidebar hiding (ctrl+shift+1 default, zen would be ctrl+alt+c)
+
 
 ### Recommended Extensions
 - **[Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)** - Keyboard-driven navigation that complements the minimal, distraction-free interface
@@ -52,8 +54,9 @@ like history which defaults to ctrl+h
 4. Copy `userChrome.css` to the `chrome` folder
 5. Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
 6. Use sideberry.css in the sideberry custom css settings
-7. Configure Sideberry's toggle hotkey in "Manage Extension Shortcuts"
-8. Restart Firefox
+7. Install [Userchrome Toggle Extended](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle-extended/)
+8. Change 'style 1' (hide all ui) to preferred hotkey desired in "manage extension shortcuts"
+9. Restart Firefox
 
 ## Philosophy
 
