@@ -64,13 +64,18 @@ This theme embraces the principle that **the best interface is the one you don't
 
 ## How It Works
 
-When you press Sideberry's toggle hotkey:
-- **Sidebar visible**: Normal Fennec UI with navigation bar and URL bar positioned above Sideberry
-- **Sidebar hidden**: Entire navigation interface disappears for distraction-free browsing
+Utilizing the chosen hotkey for user chrome toggle hides the whole UI
 
 This elegant toggle gives you the best of both worlds - organized tab management when you need it, a clean browsing experience when you don't, and security awareness at all times.
 
 Perfect for users who want the stability of Firefox with the clean aesthetics of modern, minimal browsers.
+
+## Gotchas
+
+Notifications will generally hidden when the UI is toggled. 
+This is contextually relevant whenever sharing mic, location.
+
+Workaround: if something isn't working, show UI and retry for missed notifications
 
 ## Disclaimer
 
