@@ -169,6 +169,7 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
   position: absolute;
   top: 38px;
   width: 215px !important;
+  max-width: 587px !important;
 }
 
 /* eager width adjustments for urlbar as sidebar width changes */
@@ -201,6 +202,7 @@ body:has(#browser > #sidebar-main[width^="39"]) #urlbar-container { width: 377px
 /* 400+ */
 body:has(#browser > #sidebar-main[width^="4"]) #urlbar-container { width: 387px !important; }
 body:has(#browser > #sidebar-main[width^="5"]) #urlbar-container { width: 487px !important; }
+body:has(#browser > #sidebar-main[width^="6"]) #urlbar-container { width: 587px !important; }
 
 
 /* remove google icon crowding search bar */
@@ -374,8 +376,6 @@ body:has(#browser > #sidebar-main[width^="39"]) #sidebar-box { width: 381px !imp
 body:has(#browser > #sidebar-main[width^="4"]) #sidebar-box  { width: 391px !important; max-width: 391px !important; }
 body:has(#browser > #sidebar-main[width^="5"]) #sidebar-box  { width: 491px !important; max-width: 491px !important; }
 body:has(#browser > #sidebar-main[width^="6"]) #sidebar-box  { width: 591px !important; max-width: 591px !important; }
-
-
 
 #sidebar-box {
 	height: 84.5%;
