@@ -14,7 +14,8 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 */
 
 :root {
-  --fennec-color: #36363a;
+  /* re-export the browser toolbar textcolor under a name the sidebar can use */
+  --sidebar-from-toolbar: var(--toolbar-textcolor, #222);
 }
 
 /* ---------------------------------------- */
@@ -61,15 +62,23 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
   display: none;
 }
 
+#tabbrowser-tabs {
+  display: none !important;
+}
+
+#alltabs-button {
+  display: none !important;
+}
+
 /* ---- s:header ---- */
 
 /*  #nav-bar is basically fennec's header section, stubbed for structural reference */
 
 /* #nav-bar {} */
 
-#nav-bar-customization-target {
-  background-color: var(--fennec-color);
-}
+/* #nav-bar-customization-target {
+  background-color: var(--toolbar-textcolor);
+} */
 
 /* 
    #nav-bar.children (below) 
@@ -110,16 +119,24 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 /* END: spring1 (deprecated) */
 
 
-/* child: urlbar is here, we modify it later, just reference */
+/* urlbar is here, we modify it later, just reference */
 /* #urlbar-container{} */
 
 
 /* START: spring2 (deprecated) */
 
-
 #customizableui-special-spring2 {
   display: none;
 } 
+
+#vertical-spacer {
+  display: none !important;
+}
+
+/* minimize, maximize, close buttons... can be disabled, I use hotkeys */
+#navigator-toolbox .titlebar-buttonbox-container {
+  display: none !important;
+}
 
 /* END: spring2 (deprecated) */
 
@@ -159,32 +176,32 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 /* 224 appears to be min-width default for sidebar */
 
 /* 200s */
-body:has(#browser > #sidebar-box[width^="22"]) #urlbar-container { width: 214px !important; }
-body:has(#browser > #sidebar-box[width^="23"]) #urlbar-container { width: 221px !important; }
-body:has(#browser > #sidebar-box[width^="23"]) #urlbar-container { width: 221px !important; }
-body:has(#browser > #sidebar-box[width^="24"]) #urlbar-container { width: 231px !important; }
-body:has(#browser > #sidebar-box[width^="25"]) #urlbar-container { width: 241px !important; }
-body:has(#browser > #sidebar-box[width^="26"]) #urlbar-container { width: 251px !important; }
-body:has(#browser > #sidebar-box[width^="27"]) #urlbar-container { width: 261px !important; }
-body:has(#browser > #sidebar-box[width^="28"]) #urlbar-container { width: 271px !important; }
-body:has(#browser > #sidebar-box[width^="29"]) #urlbar-container { width: 281px !important; }
+body:has(#browser > #sidebar-main[width^="22"]) #urlbar-container { width: 210px !important; }
+body:has(#browser > #sidebar-main[width^="23"]) #urlbar-container { width: 217px !important; }
+body:has(#browser > #sidebar-main[width^="23"]) #urlbar-container { width: 217px !important; }
+body:has(#browser > #sidebar-main[width^="24"]) #urlbar-container { width: 227px !important; }
+body:has(#browser > #sidebar-main[width^="25"]) #urlbar-container { width: 237px !important; }
+body:has(#browser > #sidebar-main[width^="26"]) #urlbar-container { width: 247px !important; }
+body:has(#browser > #sidebar-main[width^="27"]) #urlbar-container { width: 257px !important; }
+body:has(#browser > #sidebar-main[width^="28"]) #urlbar-container { width: 267px !important; }
+body:has(#browser > #sidebar-main[width^="29"]) #urlbar-container { width: 277px !important; }
 
 /* 300s */
-body:has(#browser > #sidebar-box[width^="30"]) #urlbar-container { width: 291px !important; }
-body:has(#browser > #sidebar-box[width^="31"]) #urlbar-container { width: 301px !important; }
-body:has(#browser > #sidebar-box[width^="32"]) #urlbar-container { width: 311px !important; }
-body:has(#browser > #sidebar-box[width^="33"]) #urlbar-container { width: 321px !important; }
-body:has(#browser > #sidebar-box[width^="34"]) #urlbar-container { width: 331px !important; }
-body:has(#browser > #sidebar-box[width^="35"]) #urlbar-container { width: 341px !important; }
-body:has(#browser > #sidebar-box[width^="36"]) #urlbar-container { width: 351px !important; }
-body:has(#browser > #sidebar-box[width^="37"]) #urlbar-container { width: 361px !important; }
-body:has(#browser > #sidebar-box[width^="38"]) #urlbar-container { width: 371px !important; }
-body:has(#browser > #sidebar-box[width^="39"]) #urlbar-container { width: 381px !important; }
+body:has(#browser > #sidebar-main[width^="30"]) #urlbar-container { width: 287px !important; }
+body:has(#browser > #sidebar-main[width^="31"]) #urlbar-container { width: 297px !important; }
+body:has(#browser > #sidebar-main[width^="32"]) #urlbar-container { width: 307px !important; }
+body:has(#browser > #sidebar-main[width^="33"]) #urlbar-container { width: 317px !important; }
+body:has(#browser > #sidebar-main[width^="34"]) #urlbar-container { width: 327px !important; }
+body:has(#browser > #sidebar-main[width^="35"]) #urlbar-container { width: 337px !important; }
+body:has(#browser > #sidebar-main[width^="36"]) #urlbar-container { width: 347px !important; }
+body:has(#browser > #sidebar-main[width^="37"]) #urlbar-container { width: 357px !important; }
+body:has(#browser > #sidebar-main[width^="38"]) #urlbar-container { width: 367px !important; }
+body:has(#browser > #sidebar-main[width^="39"]) #urlbar-container { width: 377px !important; }
 
 /* 400+ */
-body:has(#browser > #sidebar-box[width^="4"]) #urlbar-container { width: 391px !important; }
-body:has(#browser > #sidebar-box[width^="5"]) #urlbar-container { width: 491px !important; }
-body:has(#browser > #sidebar-box[width^="6"]) #urlbar-container { width: 591px !important; }
+body:has(#browser > #sidebar-main[width^="4"]) #urlbar-container { width: 387px !important; }
+body:has(#browser > #sidebar-main[width^="5"]) #urlbar-container { width: 487px !important; }
+
 
 /* remove google icon crowding search bar */
 #urlbar-searchmode-switcher {
@@ -261,7 +278,7 @@ body:has(#identity-box.notSecure)::before {
   width: 85%;
   height: 46px;
   box-sizing: border-box;
-  background-color: var(--fennec-color);
+  background-color: var(--toolbar-textcolor);
 }
 
 /* when sidebar is hidden show warning on not secure sites */
@@ -279,7 +296,7 @@ body:has(#identity-box.notSecure)::before {
     height: 46px;
     padding-top: 8px;
     box-sizing: border-box;
-    background-color: var(--fennec-color);
+    background-color: var(--toolbar-textcolor);
   }
 }
 
@@ -295,28 +312,92 @@ body:has(#identity-box.notSecure)::before {
 
 /* ---- s:sidebar ---- */
 
+#sidebar-tools-and-extensions-splitter {
+  display: none !important;
+}
+
+#sidebar-launcher-splitter {
+  width: 4px !important;
+}
+
+
 /* smallest width seems to be 224px */
 /* style 1 - hide when all UI */
 :root[titlepreface*="᠎"] {
-  #sidebar-box {
+  #sidebar-main {
     display: none !important;
   }
 }
 
-/* Remove the "Sideberry", "History", etc. sidepanel header  */
-#sidebar-header {
-  display: none;
+@media (hover: hover) {
+  .tools-and-extensions {
+    opacity: 0 !important;
+    transform: translateX(6px) !important;
+    /* NOTE: pointer-events is not set to none here so element can be hovered */
+    transition: opacity .18s ease, transform .18s ease;
+  }
+
+  .tools-and-extensions:hover,
+  .tools-and-extensions:focus-within {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
 }
 
-/* create space for urlbar area inside the sidebar */
-#sidebar-box::before {
-  content: "";
-  display: block;
-  height: 96px;
-  width: 100%;
-  pointer-events: none;
-  box-sizing: border-box;
-  background-color: #36363a;
+#sidebar-box > .sidebar-browser-stack:has(> browser[src*="webext-panels.xhtml"]) {
+  margin-left: 6px !important;
+}
+
+/* 200s (two-digit prefixes) */
+body:has(#browser > #sidebar-main[width^="22"]) #sidebar-box { width: 214px !important; max-width: 214px !important; }
+body:has(#browser > #sidebar-main[width^="23"]) #sidebar-box { width: 221px !important; max-width: 221px !important; }
+body:has(#browser > #sidebar-main[width^="24"]) #sidebar-box { width: 231px !important; max-width: 231px !important; }
+body:has(#browser > #sidebar-main[width^="25"]) #sidebar-box { width: 241px !important; max-width: 241px !important; }
+body:has(#browser > #sidebar-main[width^="26"]) #sidebar-box { width: 251px !important; max-width: 251px !important; }
+body:has(#browser > #sidebar-main[width^="27"]) #sidebar-box { width: 261px !important; max-width: 261px !important; }
+body:has(#browser > #sidebar-main[width^="28"]) #sidebar-box { width: 271px !important; max-width: 271px !important; }
+body:has(#browser > #sidebar-main[width^="29"]) #sidebar-box { width: 281px !important; max-width: 281px !important; }
+
+/* 300s (two-digit prefixes) */
+body:has(#browser > #sidebar-main[width^="30"]) #sidebar-box { width: 291px !important; max-width: 291px !important; }
+body:has(#browser > #sidebar-main[width^="31"]) #sidebar-box { width: 301px !important; max-width: 301px !important; }
+body:has(#browser > #sidebar-main[width^="32"]) #sidebar-box { width: 311px !important; max-width: 311px !important; }
+body:has(#browser > #sidebar-main[width^="33"]) #sidebar-box { width: 321px !important; max-width: 321px !important; }
+body:has(#browser > #sidebar-main[width^="34"]) #sidebar-box { width: 331px !important; max-width: 331px !important; }
+body:has(#browser > #sidebar-main[width^="35"]) #sidebar-box { width: 341px !important; max-width: 341px !important; } /* fixed typo */
+body:has(#browser > #sidebar-main[width^="36"]) #sidebar-box { width: 351px !important; max-width: 351px !important; }
+body:has(#browser > #sidebar-main[width^="37"]) #sidebar-box { width: 361px !important; max-width: 361px !important; }
+body:has(#browser > #sidebar-main[width^="38"]) #sidebar-box { width: 371px !important; max-width: 371px !important; }
+body:has(#browser > #sidebar-main[width^="39"]) #sidebar-box { width: 381px !important; max-width: 381px !important; }
+
+/* 400+ single-digit prefixes (kept last to avoid conflicting with 40–49 two-digit matches) */
+body:has(#browser > #sidebar-main[width^="4"]) #sidebar-box  { width: 391px !important; max-width: 391px !important; }
+body:has(#browser > #sidebar-main[width^="5"]) #sidebar-box  { width: 491px !important; max-width: 491px !important; }
+body:has(#browser > #sidebar-main[width^="6"]) #sidebar-box  { width: 591px !important; max-width: 591px !important; }
+
+
+
+#sidebar-box {
+	height: 84.5%;
+	top: 85px;
+  left: 2px;
+	position: absolute !important;
+	padding: 0px !important;
+/*   background-color: var(--toolbar-textcolor) !important; */
+}
+
+#sidebar {
+  border-radius: 0px !important;
+  box-shadow: none !important;
+  outline: 0px !important;
+  background-color: var(--toolbar-textcolor) !important;
+}
+
+#sidebar-panel-header {
+  display: none !important;
+}
+.sidebar-panel-header {
+  display: none !important;
 }
 
 /* increase ::before height if notifications are live */
@@ -335,10 +416,9 @@ body:has(#identity-box.notSecure)::before {
 /* ------ s:sidebar-border ---- */ 
 
 /* the gutter between the sidebar and page */
+/* on vertical tab mode, hide */
 #sidebar-splitter {
-  margin: 0px !important;
-  background-color: var(--fennec-color) !important;
-  border: 0px !important;
+  display: none;
 }
 
 /* style 1 - hide when all UI */
