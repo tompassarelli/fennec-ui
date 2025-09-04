@@ -1,4 +1,4 @@
-# 🦊 Fennec CSS
+# 🦊 Fennec UI
 
 ![Demo Screenshot](demo.png)
 
@@ -17,7 +17,7 @@ Transform Firefox into a distraction-free browsing experience that prioritizes:
 - **Zen-Inspired Design** - Clean, purposeful aesthetics focused on content
 - **Distraction-Free Browsing** - Let your content and workflow take center stage
 
-**Security Features**: Even when the UI is completely hidden, Fennec CSS will attempt to display prominent security warnings for insecure sites (HTTP or broken HTTPS)
+**Security Features**: Even when the UI is completely hidden, Fennec UI will attempt to display prominent security warnings for insecure sites (HTTP or broken HTTPS)
 
 ![Demo Screenshot](demo-security.png)
 
