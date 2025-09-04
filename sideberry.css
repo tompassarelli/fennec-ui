@@ -1,3 +1,7 @@
-#root {
-  padding-left: 5px;
+.ScrollBox {
+  padding-left: 6px;
+}
+
+.t-box {
+  padding-left: 2px;
 }
