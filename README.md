@@ -45,7 +45,7 @@ like history which defaults to ctrl+h
 ## Installation
 
 1. Enable `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
-2. Navigate to your Firefox profile folder
+2. Navigate to your Firefox profile folder see - https://docs.zen-browser.app/guides/live-editing on the profile section 
 3. Create a `chrome` folder if it doesn't exist
 4. Copy `userChrome.css` to the `chrome` folder
 5. Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
