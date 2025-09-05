@@ -15,6 +15,12 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 
 :root {
   --fennec-color: #36363a;
+  --fennec-navtoolbox-mx-left: 9px;
+  --fennec-panelui-width: 28px;
+  --fennec-nav-icon-width: 36px;
+  --fennec-header-divider-gap: 3px;
+  
+  --fen-urlbar-alignment: calc(3px - var(--fennec-navtoolbox-mx-left));
 }
 
 /* ---------------------------------------- */
@@ -48,7 +54,7 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
   z-index: 2 !important;  /* 3 spills extensions on page*/
   border: none !important;
   margin-top: 4px;
-  margin-left: 2px;
+  margin-left: var(--fennec-navtoolbox-mx-left);
 }
 
 /* the thing that comes up when you hold alt, there's already settings menu */
@@ -69,6 +75,7 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 
 #nav-bar-customization-target {
   background-color: var(--fennec-color);
+  padding-bottom: var(--fennec-header-divider-gap)
 }
 
 /* 
@@ -82,7 +89,11 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 }
 
 #back-button {
-  margin-left: 37px !important;
+  /*each nav btn is typically 32px content, with 2px of padding, 36px total */
+  /*because the first btn is 28px, we will need to correct for that, 
+  and remove left padding to simplify math */
+  margin-left: calc(var(--fennec-nav-icon-width)) !important;
+  padding-left: 0px !important;
 }
 
 /* #forward-button {
@@ -134,6 +145,15 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 /* settings menu */ 
 #PanelUI-button {
   position: absolute !important;
+  width: 28px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+#PanelUI-menu-button {
+  width: 28px !important;
+  margin: 0px !important;
+  padding: 0px !important;
 }
 
 /* bookmarks area - always disable */
@@ -150,8 +170,9 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 /* Pin Search Bar / Url bar above the sideberry tabs, and below the zen-sidebar top buttons */
 #urlbar-container {
   position: absolute;
-  top: 38px;
+  top: 50px;
   width: 215px !important;
+  left: var(--fen-urlbar-alignment) !important;
 }
 
 /* eager width adjustments for urlbar as sidebar width changes */
@@ -206,15 +227,44 @@ body:has(#browser > #sidebar-box[width^="6"]) #urlbar-container { width: 591px !
    there is already an icon, only selectively hide if safe  */
 /* #identity-icon-label {} */
 
+/* shows Firefox if on settings, not strictly needed */
+#identity-box.chromeUI #identity-icon-label {
+  display: none;
+}
+
 /* shows "Sideberry" if on its extension page, not strictly needed */
 #identity-box.extensionPage #identity-icon-label {
   display: none;
 }
 
-/* shows Firefox if on settings, not strictly needed */
-#identity-box.chromeUI #identity-icon-label {
-  display: none;
+/* align tab and url text - on extension page */
+#identity-box.extensionPage {
+  margin-right: 5px !important;
 }
+/* align tab and url text - when label text like not secure is present */
+#identity-box #identity-icon-label {
+  margin-left: 6px !important;
+}
+
+/* keep it dark, except when breakout-extend=true, maps to focused it looks like */
+#urlbar:not([focused]) #identity-icon-box {
+  background-color: #252528 !important;
+}
+#urlbar:is([breakout-extend]) #identity-icon-box {
+  background-color: #38383c !important;
+}
+
+/* align url icon position with sideberry */
+#identity-icon-box {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+/* body:has(#identity-box.notSecure) #identity-icon-label {
+  color: red;
+} */
+
+
 
 /*
 FIREFOX SECURITY STATES REFERENCE
@@ -250,7 +300,7 @@ Preserve these (security warnings):
 /* show a warning if the site is not secure when sidebar is open */
 /* z-index 2 is above #nav-bar, ensure we are above it */
 body:has(#identity-box.notSecure)::before {
-  content: "🦊 Fennec CSS Alerts: 🔓 Not Secure";
+  content: "🦊 Fennec UI Alerts: Not Secure";
   text-align: center;
   font-size: 24px;
   margin-left:15%;
@@ -268,7 +318,7 @@ body:has(#identity-box.notSecure)::before {
 /* style 1 - hide when all UI */
 :root[titlepreface*="᠎"] {
   body:has(#identity-box.notSecure)::before {
-    content: "🦊 Fennec CSS Alerts: 🔓 Not Secure";
+    content: "🦊 Fennec UI Alerts: Not Secure";
     text-align: center;
     font-size: 24px;
     margin-left: 0px;
@@ -316,7 +366,71 @@ body:has(#identity-box.notSecure)::before {
   width: 100%;
   pointer-events: none;
   box-sizing: border-box;
-  background-color: #36363a;
+  background-color: var(--fennec-color);
+}
+
+/* responsive sidebar cleaner solution - work in progress */
+
+/* close the gap of the urlbar to make it consistent with the tab width */
+/* #sidebar-box::after {
+  content: "";
+  position: absolute;
+  top: 58px;
+  left: 8px;
+  height: 32px;
+  width: 97.4%;
+  pointer-events: none;
+  box-sizing: border-box;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 5px;
+} */
+
+/* #urlbar:not(:is(
+  [focused],
+  [editing],
+  [breakout-extend],
+  [open],
+  [aria-expanded="true"],
+  :active,
+  :focus,
+  :focus-within,
+  :focus-visible
+)) #identity-icon-box {
+  background-color: #252528 !important;
+}
+#urlbar:not(:is(
+  [focused],
+  [editing],
+  [breakout-extend],
+  [open],
+  [aria-expanded="true"],
+  :active,
+  :focus,
+  :focus-within,
+  :focus-visible
+)) #urlbar-background {
+  display: none !important;
+}
+vbox.urlbarView {
+  min-width: 500px !important;
+  z-index: 3 !important;
+} */
+
+
+/* end responsive sidebar cleaner solution - work in progress */
+
+/* create a horizontal div before icons */
+.sidebar-browser-stack::before {
+  content: "";
+  position: fixed;
+  top: 38px;
+  left: 9px;
+  height: 2px;
+  width: 96%;
+  pointer-events: none;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(169,169,169,.25) !important;
+  z-index: 3;
 }
 
 /* increase ::before height if notifications are live */
