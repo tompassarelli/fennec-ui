@@ -52,7 +52,7 @@ On the Flatpak version of Zen, the profile folder will be located at ~/.var/app/
     Open Zen Browser.
     Type about:support in the address bar and press Enter.
     Look for the Application Basics section.
-    Click on Open Profile Folder. This will open the folder where Zen Browser stores your user data.
+    Click on Open Profile Folder. This will open the folder which contains your user data.
 
 3. Create a `chrome` folder if it doesn't exist
 4. Copy `userChrome.css` to the `chrome` folder
