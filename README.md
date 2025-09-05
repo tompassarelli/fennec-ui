@@ -45,7 +45,15 @@ like history which defaults to ctrl+h
 ## Installation
 
 1. Enable `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
-2. Navigate to your Firefox profile folder see - https://docs.zen-browser.app/guides/live-editing on the profile section 
+2. Navigate to your Firefox profile folder
+
+On the Flatpak version of Zen, the profile folder will be located at ~/.var/app/app.zen_browser.zen/.zen.
+
+    Open Zen Browser.
+    Type about:support in the address bar and press Enter.
+    Look for the Application Basics section.
+    Click on Open Profile Folder. This will open the folder where Zen Browser stores your user data.
+
 3. Create a `chrome` folder if it doesn't exist
 4. Copy `userChrome.css` to the `chrome` folder
 5. Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
