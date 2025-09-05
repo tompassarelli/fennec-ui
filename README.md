@@ -49,8 +49,8 @@ like history which defaults to ctrl+h
 
 On the Flatpak version of Zen, the profile folder will be located at ~/.var/app/app.zen_browser.zen/.zen.
 
-    Open Zen Browser.
-    Type about:support in the address bar and press Enter.
+    Open Firefox
+    Type about:support in the address bar and submit
     Look for the Application Basics section.
     Click on Open Profile Folder. This will open the folder which contains your user data.
 
