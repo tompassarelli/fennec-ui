@@ -47,7 +47,7 @@ like history which defaults to ctrl+h
 1. Enable `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
 2. Navigate to your Firefox profile folder
 
-On the Flatpak version of Zen, the profile folder will be located at ~/.var/app/app.zen_browser.zen/.zen.
+On the Flatpak version of Firefox, location is different
 
     Open Firefox
     Type about:support in the address bar and press enter
