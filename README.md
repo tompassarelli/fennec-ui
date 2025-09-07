@@ -4,22 +4,22 @@
 
 *Clean browsing with integrated Sideberry sidebar - no visual clutter, just pure functionality.*
 
-A clean, minimal Firefox CSS theme designed for **first-class Sideberry support** without the typical Firefox UI baggage. Inspired by the elegant UX philosophy of Zen Browser.
+A minimal Firefox CSS theme designed for **first-class Sideberry support** without the typical Firefox UI baggage. Inspired by the elegant UX philosophy of Zen Browser.
 
-Perfect for users who want the stability of Firefox with the clean aesthetics of modern, minimal browsers.
+Perfect for users who want the stability of using the Firefox browser with the aesthetics of modern, minimal browsers.
 
-Transform Firefox into a distraction-free browsing experience that prioritizes:
-
-- **Seamless Sideberry Integration** - Urlbar inside the sidebar-box, aligned with tabs
+- **Seamless Sideberry Integration** - Urlbar inside the sidebar-box, aligned url and icons
 
 - **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
 
-- **Zen-Inspired Design** - Clean, purposeful aesthetics focused on content
+- **Zen-Mode** - Toggle the entire ui with UTE addon for focused reading
 
-- **Distraction-Free Mode** - Toggle the entire ui with UTE addon for focused reading
-  - When the UI is completely hidden, fennec will attempt (no garuntee, firefox chrome changes can break logic) to surface some but not all security relevant signals (like http warning). This is not a solution against phishing and many other attacks, users should only toggle the UI after url/content has been verified as secure
+Zen-Mode requires Userchrome Toggle Extended, when configured properly, a "fullscreen" type mode is achieved, but with the unique benefit the window can be tiled.
 
-  - ![Demo Screenshot](demo-security.png)
+![Demo Screenshot](demo-security.png)
+
+When the UI is completely hidden, fennec will attempt (no garuntee, firefox chrome changes can break logic) to surface some but not all security relevant signals (like http warning). This is not a solution against phishing and many other attacks, users should only toggle the UI after url/content has been verified as secure
+
 
 ## Installation
 
