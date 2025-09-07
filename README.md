@@ -24,8 +24,9 @@ When the UI is completely hidden, fennec will attempt (no garuntee, firefox chro
 
 Note: Please see [disclaimer](#disclaimer) before installing
 
-1. Enable `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
-2. Navigate to your Firefox profile folder
+1. In Firefox settings, ensure "Horizontal Tabs" is on, and "Sidebar off"
+2. Enable `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
+3. Navigate to your Firefox profile folder
 
 On the Flatpak version of Firefox, location is different
 
@@ -34,13 +35,13 @@ On the Flatpak version of Firefox, location is different
     Look for the Application Basics section.
     Click on Open Profile Folder. This will open the folder which contains your user data.
 
-3. Create a `chrome` folder if it doesn't exist
-4. Copy `userChrome.css` to the `chrome` folder
-5. Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
-6. Use sideberry.css in the sideberry custom css settings
-7. Install [Userchrome Toggle Extended](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle-extended/)
-8. Change 'style 1' (hide all ui) to preferred hotkey desired in "manage extension shortcuts"
-9. Restart Firefox
+4. Create a `chrome` folder if it doesn't exist
+5. Copy `userChrome.css` to the `chrome` folder
+6. Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
+7. Use sideberry.css in the sideberry custom css settings
+9. Install [Userchrome Toggle Extended](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle-extended/)
+9. Change 'style 1' (hide all ui) to preferred hotkey desired in "manage extension shortcuts"
+10. Restart Firefox
 
 ### Optional Recommended Extensions
 - **[Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)** - Keyboard-driven navigation that complements the minimal, distraction-free interface
