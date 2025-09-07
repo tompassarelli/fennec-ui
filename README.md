@@ -64,4 +64,4 @@ This elegant toggle gives you the best of both worlds - organized tab management
 - Always keep Firefox and your extensions updated
 - Consider the security implications before using any userChrome modifications or extension
 
-**By following the install section, you acknowledge these risks and agree that the author bears no responsibility for any consequences.**
+**By using this theme and mentioned Firefox extensions, you acknowledge these risks and agree that the author bears no responsibility for any consequences.**
