@@ -6,9 +6,7 @@
 
 A clean, minimal Firefox CSS theme designed for **first-class Sideberry support** without the typical Firefox UI baggage. Inspired by the elegant UX philosophy of Zen Browser.
 
-📋 **[Roadmap & Releases](https://github.com/tompassarelli/fennec-css/wiki)** - project wiki for roadmap and release notes as inclined.
-
-## Objective
+Perfect for users who want the stability of Firefox with the clean aesthetics of modern, minimal browsers.
 
 Transform Firefox into a distraction-free browsing experience that prioritizes:
 
@@ -20,21 +18,6 @@ Transform Firefox into a distraction-free browsing experience that prioritizes:
 **Security Features**: Even when the UI is completely hidden, Fennec UI will attempt to display prominent security warnings for insecure sites (HTTP or broken HTTPS)
 
 ![Demo Screenshot](demo-security.png)
-
-## Dependencies
-
-### Required Extensions
-- **[Sideberry](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)** - Essential for sidebar tab management and the core functionality of this theme. Sideberry's toggle hotkey controls the entire Fennec UI experience.
-- **[UserChrome Toggle Extended](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle-extended/)** - Enables dynamic CSS toggling for seamless sidebar hiding (ctrl+shift+1 default, zen would be ctrl+alt+c)
-
-
-### Recommended Extensions
-- **[Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)** - Keyboard-driven navigation that complements the minimal, distraction-free interface
-
-These extensions work together to create a cohesive, keyboard-friendly browsing experience that maximizes screen real estate and minimizes visual distractions. When you toggle Sideberry off, both the sidebar and navigation bar disappear for true distraction-free browsing.
-
-Reactivating the sidebar can be retoggling sideberry, or other sidebar controls
-like history which defaults to ctrl+h
 
 ## Installation
 
@@ -56,15 +39,18 @@ On the Flatpak version of Firefox, location is different
 8. Change 'style 1' (hide all ui) to preferred hotkey desired in "manage extension shortcuts"
 9. Restart Firefox
 
-## How It Works
+### Optional Recommended Extensions
+- **[Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)** - Keyboard-driven navigation that complements the minimal, distraction-free interface
+
+## Usage Guide
 
 Utilizing the chosen hotkey for user chrome toggle hides the whole UI
 
 This elegant toggle gives you the best of both worlds - organized tab management when you need it, a clean browsing experience when you don't, and security awareness at all times.
 
-Perfect for users who want the stability of Firefox with the clean aesthetics of modern, minimal browsers.
+📋 **[Roadmap & Release Notes](https://github.com/tompassarelli/fennec-css/wiki)** - project wiki for roadmap and release notes as inclined.
 
-## 👾 [Known Issues & Troubleshooting](https://github.com/tompassarelli/fennec-ui/wiki/Troubleshooting)
+👾 **[Known Issues & Troubleshooting](https://github.com/tompassarelli/fennec-ui/wiki/Troubleshooting)** - noted some common issues and workarounds 
 
 ## 📜 Disclaimer
 
