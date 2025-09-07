@@ -28,7 +28,7 @@ Note: Please see [disclaimer](#disclaimer) before installing
 2. Enable `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
 3. Navigate to your Firefox profile folder
 
-Note: On the Flatpak version of Firefox the directory is `.var/app/org.mozilla.firefox/.mozilla/firefox/<profile>`
+Note: On the Flatpak version of Firefox the directory is `~/.var/app/org.mozilla.firefox/.mozilla/firefox/<profile>`
 
 - Open Firefox
 - Type about:support in the address bar and press enter
