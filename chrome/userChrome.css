@@ -285,9 +285,9 @@ body:has(#browser > #sidebar-box[width^="5"]) #urlbar:is(
 }
 
 /* shows "Sideberry" if on its extension page, not strictly needed */
-#identity-box.extensionPage #identity-icon-label {
+/* #identity-box.extensionPage #identity-icon-label {
   display: none;
-}
+} */
 
 /* align tab and url text - on extension page */
 #identity-box.extensionPage {

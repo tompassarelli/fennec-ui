@@ -10,14 +10,16 @@ Perfect for users who want the stability of Firefox with the clean aesthetics of
 
 Transform Firefox into a distraction-free browsing experience that prioritizes:
 
-- **Seamless Sideberry Integration** - Toggle entire Fennec UI with Sideberry's built-in hotkey
+- **Seamless Sideberry Integration** - Urlbar inside the sidebar-box, aligned with tabs
+
 - **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
+
 - **Zen-Inspired Design** - Clean, purposeful aesthetics focused on content
-- **Distraction-Free Browsing** - Let your content and workflow take center stage
 
-**Security Guardrails**: Even when the UI is completely hidden, shows Not Secure warning
+- **Distraction-Free Mode** - Toggle the entire ui with UTE addon for focused reading
+  - When the UI is completely hidden, fennec will attempt (no garuntee, firefox chrome changes can break logic) to surface some but not all security relevant signals (like http warning). This is not a solution against phishing and many other attacks, users should only toggle the UI after url/content has been verified as secure
 
-![Demo Screenshot](demo-security.png)
+  - ![Demo Screenshot](demo-security.png)
 
 ## Installation
 
@@ -46,7 +48,7 @@ On the Flatpak version of Firefox, location is different
 
 Utilizing the chosen hotkey for user chrome toggle hides the whole UI
 
-This elegant toggle gives you the best of both worlds - organized tab management when you need it, a clean browsing experience when you don't, and security awareness at all times.
+This elegant toggle gives you the best of both worlds - organized tab management when you need it, a clean browsing experience when you don't
 
 📋 **[Roadmap & Release Notes](https://github.com/tompassarelli/fennec-css/wiki)** - project wiki for roadmap and release notes as inclined.
 
@@ -55,9 +57,10 @@ This elegant toggle gives you the best of both worlds - organized tab management
 ## 📜 Disclaimer
 
 - This theme modifies Firefox's user interface, which can interfere with security indicators (notably, when the UI is completely hidden)
+- This theme install guide directs users to download third party Firefox extensions, which at any time could become security vulnerabilties or actively attempt to steal your data.
 - **Use at your own risk** - The author is not liable for any security issues, data breaches, or other damages
 - **You are responsible** for verifying the security of websites you visit
 - Always keep Firefox and your extensions updated
-- Consider the security implications before using any userChrome modifications
+- Consider the security implications before using any userChrome modifications or extension
 
 **By using this theme, you acknowledge these risks and agree that the author bears no responsibility for any consequences.**
