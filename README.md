@@ -64,33 +64,13 @@ This elegant toggle gives you the best of both worlds - organized tab management
 
 Perfect for users who want the stability of Firefox with the clean aesthetics of modern, minimal browsers.
 
-## Known Issues & Troubleshooting
+## 👾 [Known Issues & Troubleshooting](https://github.com/tompassarelli/fennec-ui/wiki/Troubleshooting)
 
-### Notifications Hidden When UI Toggled
-**Issue**: Permission notifications (location, microphone, camera) may be hidden when the UI is toggled off.
-
-**Context**: This affects situations where websites request permissions while in distraction-free mode.
-
-**Workaround**: Toggle the UI back on and retry the action to see missed notifications.
-
-### UserChrome Toggle Extended Not Responding
-**Issue**: The extension hotkey may not trigger UI toggling.
-
-**Workaround**: Click/hotkey the address bar then retry. 
-
-### I see only the URL bar but the sidebar is hidden, can't seem to reset it correctly.
-**Issue**: You deactivated the sidebar by toggling a sidebar panel, which by default
-in firefox is not joined with the URL bar component, so fennec cannot stop this until
-there is more robust native support (exploring, some progress, may or may not happen)
-
-**Workaround**: try toggling the sidebar with any sidebar panel (sideberry, history, etc) and then try the userchrome toggle hotkey to resync state.
-
-## Disclaimer
+## 📜 Disclaimer
 
 - This theme modifies Firefox's user interface, which can interfere with security indicators (notably, when the UI is completely hidden)
 - **Use at your own risk** - The author is not liable for any security issues, data breaches, or other damages
 - **You are responsible** for verifying the security of websites you visit
-- This is **not a security tool** - it's purely a visual theme
 - Always keep Firefox and your extensions updated
 - Consider the security implications before using any userChrome modifications
 
