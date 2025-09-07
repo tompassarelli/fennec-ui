@@ -57,7 +57,7 @@ This elegant toggle gives you the best of both worlds - organized tab management
 
 ## Disclaimer
 
-- The userChrome.css modifies Firefox's user interface, which can interfere with security indicators (especially when the user toggles UI for "Zen-mode")
+- The userChrome.css and extensions modify Firefox's user interface, which can interfere with security indicators (especially when the user toggles UI for "Zen-mode")
 - The install guide directs users to download third party Firefox extensions, which at any time could become security vulnerabilties or actively attempt to steal your data.
 - **Use at your own risk** - The author is not liable for any security issues, data breaches, or other damages
 - **You are responsible** for verifying the security of websites you visit
