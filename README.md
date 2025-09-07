@@ -24,7 +24,7 @@ When the UI is completely hidden, fennec will attempt (no garuntee, firefox chro
 
 Note: Please see [disclaimer](#disclaimer) before installing
 
-1. In Firefox settings, ensure "Horizontal Tabs" is on, and "Sidebar off"
+1. In Firefox settings, ensure "Horizontal Tabs" is on, "Sidebar off", and the sidebar is configure to be on the left side of the browser
 2. Enable `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
 3. Navigate to your Firefox profile folder
 
