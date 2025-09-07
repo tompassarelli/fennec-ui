@@ -28,14 +28,14 @@ Note: Please see [disclaimer](#disclaimer) before installing
 2. Enable `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
 3. Navigate to your Firefox profile folder
 
-On the Flatpak version of Firefox, location is different
+Note: On the Flatpak version of Firefox the directory is `.var/app/org.mozilla.firefox/.mozilla/firefox/<profile>`
 
-    Open Firefox
-    Type about:support in the address bar and press enter
-    Look for the Application Basics section.
-    Click on Open Profile Folder. This will open the folder which contains your user data.
+- Open Firefox
+- Type about:support in the address bar and press enter
+- Look for the Application Basics section.
+- Click on Open Profile Folder. This will open the folder which contains your user data.
 
-4. Create a `chrome` folder if it doesn't exist
+4. Now create a `chrome` folder in your profile folder if it doesn't exist
 5. Copy `userChrome.css` to the `chrome` folder
 6. Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
 7. Use sideberry.css in the sideberry custom css settings
