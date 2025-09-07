@@ -171,8 +171,16 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 #urlbar-container {
   position: absolute;
   top: 50px;
-  width: 215px !important;
+  width: 215px !important; /* probably need to use a few `has` selectors to ensure its always bigger than sidebar */
   left: var(--fen-urlbar-alignment) !important;
+}
+
+/* hide default url background unless active */
+/* we use a custom background that tracks sidebar width*/
+#urlbar:not(:is(
+  [breakout-extend]
+)) #urlbar-background {
+  display: none !important;
 }
 
 /* eager width adjustments for urlbar as sidebar width changes */
@@ -180,7 +188,6 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 /* 224 appears to be min-width default for sidebar */
 
 /* 200s */
-body:has(#browser > #sidebar-box[width^="22"]) #urlbar-container { width: 214px !important; }
 body:has(#browser > #sidebar-box[width^="23"]) #urlbar-container { width: 221px !important; }
 body:has(#browser > #sidebar-box[width^="23"]) #urlbar-container { width: 221px !important; }
 body:has(#browser > #sidebar-box[width^="24"]) #urlbar-container { width: 231px !important; }
@@ -202,10 +209,55 @@ body:has(#browser > #sidebar-box[width^="37"]) #urlbar-container { width: 361px 
 body:has(#browser > #sidebar-box[width^="38"]) #urlbar-container { width: 371px !important; }
 body:has(#browser > #sidebar-box[width^="39"]) #urlbar-container { width: 381px !important; }
 
-/* 400+ */
-body:has(#browser > #sidebar-box[width^="4"]) #urlbar-container { width: 391px !important; }
-body:has(#browser > #sidebar-box[width^="5"]) #urlbar-container { width: 491px !important; }
+/* 400s */
+body:has(#browser > #sidebar-box[width^="40"]) #urlbar-container { width: 391px !important; }
+body:has(#browser > #sidebar-box[width^="41"]) #urlbar-container { width: 401px !important; }
+body:has(#browser > #sidebar-box[width^="42"]) #urlbar-container { width: 411px !important; }
+body:has(#browser > #sidebar-box[width^="43"]) #urlbar-container { width: 421px !important; }
+body:has(#browser > #sidebar-box[width^="44"]) #urlbar-container { width: 431px !important; }
+body:has(#browser > #sidebar-box[width^="45"]) #urlbar-container { width: 441px !important; }
+body:has(#browser > #sidebar-box[width^="46"]) #urlbar-container { width: 451px !important; }
+body:has(#browser > #sidebar-box[width^="47"]) #urlbar-container { width: 461px !important; }
+body:has(#browser > #sidebar-box[width^="48"]) #urlbar-container { width: 471px !important; }
+body:has(#browser > #sidebar-box[width^="49"]) #urlbar-container { width: 481px !important; }
+
+/* 500s */
+body:has(#browser > #sidebar-box[width^="50"]) #urlbar-container { width: 491px !important; }
+body:has(#browser > #sidebar-box[width^="51"]) #urlbar-container { width: 501px !important; }
+body:has(#browser > #sidebar-box[width^="52"]) #urlbar-container { width: 511px !important; }
+body:has(#browser > #sidebar-box[width^="53"]) #urlbar-container { width: 521px !important; }
+body:has(#browser > #sidebar-box[width^="54"]) #urlbar-container { width: 531px !important; }
+body:has(#browser > #sidebar-box[width^="55"]) #urlbar-container { width: 541px !important; }
+body:has(#browser > #sidebar-box[width^="56"]) #urlbar-container { width: 551px !important; }
+body:has(#browser > #sidebar-box[width^="57"]) #urlbar-container { width: 561px !important; }
+body:has(#browser > #sidebar-box[width^="58"]) #urlbar-container { width: 571px !important; }
+body:has(#browser > #sidebar-box[width^="59"]) #urlbar-container { width: 581px !important; }
+
+/* 600 */
 body:has(#browser > #sidebar-box[width^="6"]) #urlbar-container { width: 591px !important; }
+
+/* set a minimum width for the url search */
+body:has(#browser > #sidebar-box[width^="2"]) #urlbar:is(
+  [focused][breakout-extend]
+) {
+  width: 400px !important;
+}
+
+body:has(#browser > #sidebar-box[width^="3"]) #urlbar:is(
+  [focused][breakout-extend]
+) {
+  width: 400px !important;
+}
+body:has(#browser > #sidebar-box[width^="4"]) #urlbar:is(
+  [focused][breakout-extend]
+) {
+  width: 500px !important;
+}
+body:has(#browser > #sidebar-box[width^="5"]) #urlbar:is(
+  [focused][breakout-extend]
+) {
+  width: 600px !important;
+}
 
 /* remove google icon crowding search bar */
 #urlbar-searchmode-switcher {
@@ -260,11 +312,19 @@ body:has(#browser > #sidebar-box[width^="6"]) #urlbar-container { width: 591px !
   padding-right: 5px !important;
 }
 
-/* body:has(#identity-box.notSecure) #identity-icon-label {
+/* warn if not secure */
+body:has(#identity-box.notSecure) #identity-icon-label {
   color: red;
-} */
+}
 
-
+/* always shown identity-icon label if not secure */
+#identity-box[pageproxystate="valid"].notSecureText #identity-icon-label {
+	display: block !important;
+}
+#identity-box[pageproxystate="valid"].notSecureText #identity-icon-box {
+  flex-shrink: 0 !important;
+  min-width: 125px;
+}
 
 /*
 FIREFOX SECURITY STATES REFERENCE
@@ -297,9 +357,9 @@ Preserve these (security warnings):
   width: 0px;
 } */
 
-/* show a warning if the site is not secure when sidebar is open */
+/* option to show warning if the site is not secure when sidebar is open */
 /* z-index 2 is above #nav-bar, ensure we are above it */
-body:has(#identity-box.notSecure)::before {
+/* body:has(#identity-box.notSecure)::before {
   content: "🦊 Fennec UI Alerts: Not Secure";
   text-align: center;
   font-size: 24px;
@@ -308,11 +368,11 @@ body:has(#identity-box.notSecure)::before {
   display: block;
   position: absolute;
   z-index: 3;
-  width: 85%;
+  min-width: 85%;
   height: 46px;
   box-sizing: border-box;
   background-color: var(--fennec-color);
-}
+} */
 
 /* when sidebar is hidden show warning on not secure sites */
 /* style 1 - hide when all UI */
@@ -347,6 +407,10 @@ body:has(#identity-box.notSecure)::before {
 
 /* smallest width seems to be 224px */
 /* style 1 - hide when all UI */
+#sidebar-box {
+  max-width: 600px !important;
+}
+
 :root[titlepreface*="᠎"] {
   #sidebar-box {
     display: none !important;
@@ -362,64 +426,28 @@ body:has(#identity-box.notSecure)::before {
 #sidebar-box::before {
   content: "";
   display: block;
-  height: 96px;
+  height: 100px;
   width: 100%;
   pointer-events: none;
   box-sizing: border-box;
   background-color: var(--fennec-color);
 }
 
-/* responsive sidebar cleaner solution - work in progress */
-
-/* close the gap of the urlbar to make it consistent with the tab width */
-/* #sidebar-box::after {
+/* custom urlbar background so its aligned with tabs */
+#sidebar-box::after {
   content: "";
   position: absolute;
   top: 58px;
-  left: 8px;
+  left: 6px;
   height: 32px;
-  width: 97.4%;
+  width: calc(100% - 7px);
   pointer-events: none;
   box-sizing: border-box;
   background-color: rgba(0,0,0,0.3);
   border-radius: 5px;
-} */
-
-/* #urlbar:not(:is(
-  [focused],
-  [editing],
-  [breakout-extend],
-  [open],
-  [aria-expanded="true"],
-  :active,
-  :focus,
-  :focus-within,
-  :focus-visible
-)) #identity-icon-box {
-  background-color: #252528 !important;
 }
-#urlbar:not(:is(
-  [focused],
-  [editing],
-  [breakout-extend],
-  [open],
-  [aria-expanded="true"],
-  :active,
-  :focus,
-  :focus-within,
-  :focus-visible
-)) #urlbar-background {
-  display: none !important;
-}
-vbox.urlbarView {
-  min-width: 500px !important;
-  z-index: 3 !important;
-} */
 
-
-/* end responsive sidebar cleaner solution - work in progress */
-
-/* create a horizontal div before icons */
+/* create a horizontal divider before icons */
 .sidebar-browser-stack::before {
   content: "";
   position: fixed;
@@ -429,8 +457,7 @@ vbox.urlbarView {
   width: 96%;
   pointer-events: none;
   box-sizing: border-box;
-  border-bottom: 1px solid rgba(169,169,169,.25) !important;
-  z-index: 3;
+  border-bottom: 1px solid rgba(169,169,169,0.3) !important;
 }
 
 /* increase ::before height if notifications are live */
@@ -453,6 +480,7 @@ vbox.urlbarView {
   margin: 0px !important;
   background-color: var(--fennec-color) !important;
   border: 0px !important;
+  width: 7px !important;
 }
 
 /* style 1 - hide when all UI */
