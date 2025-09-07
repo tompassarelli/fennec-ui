@@ -55,7 +55,7 @@ This elegant toggle gives you the best of both worlds - organized tab management
 
 👾 **[Known Issues & Troubleshooting](https://github.com/tompassarelli/fennec-ui/wiki/Troubleshooting)** - noted some common issues and workarounds 
 
-## 📜 Disclaimer
+## Disclaimer
 
 - This theme modifies Firefox's user interface, which can interfere with security indicators (notably, when the UI is completely hidden)
 - This theme install guide directs users to download third party Firefox extensions, which at any time could become security vulnerabilties or actively attempt to steal your data.
