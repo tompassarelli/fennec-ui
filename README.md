@@ -20,8 +20,9 @@ Zen-Mode requires Userchrome Toggle Extended, when configured properly, a "fulls
 
 When the UI is completely hidden, fennec will attempt (no garuntee, firefox chrome changes can break logic) to surface some but not all security relevant signals (like http warning). This is not a solution against phishing and many other attacks, users should only toggle the UI after url/content has been verified as secure
 
-
 ## Installation
+
+Note: Please see [disclaimer](#disclaimer) before installing
 
 1. Enable `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
 2. Navigate to your Firefox profile folder
