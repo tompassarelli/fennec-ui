@@ -51,6 +51,7 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 /* root node of everything mozilla */
 #navigator-toolbox {
   position: absolute !important;
+  top: 0px;
   z-index: 2 !important;  /* 3 spills extensions on page*/
   border: none !important;
   margin-top: 4px;
@@ -451,14 +452,13 @@ Preserve these (security warnings):
 .sidebar-browser-stack::before {
   content: "";
   position: fixed;
-  top: 38px;
+  top: 4.5%;
   left: 9px;
   height: 2px;
   width: 96%;
   pointer-events: none;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(169,169,169,0.3) !important;
-  z-index: 4;
 }
 
 /* increase ::before height if notifications are live */
