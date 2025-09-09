@@ -6,15 +6,14 @@
 
 A minimal Firefox CSS theme designed for **first-class Sideberry support** without the typical Firefox UI baggage. Inspired by the elegant UX philosophy of Zen Browser.
 
-Perfect for users who want the stability of using the Firefox browser with the aesthetics of modern, minimal browsers.
+Perfect for users who want the stability of using the Firefox with modenr aesthetics
 
 - **Seamless Sideberry Integration** - Urlbar inside the sidebar-box, aligned url and icons
 
 - **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
 
-- **Zen-Mode** - Toggle the entire ui with UTE addon for focused reading
+- **Zen-Mode** - Toggle the entire ui by toggling the sidebar
 
-Zen-Mode requires Userchrome Toggle Extended, when configured properly, a "fullscreen" type mode is achieved, but with the unique benefit the window can be tiled.
 
 ![Demo Screenshot](demo-security.png)
 
@@ -36,9 +35,7 @@ Note: Please see [disclaimer](#disclaimer) before installing
 5. Copy `userChrome.css` to the `chrome` folder, from this repo's chrome folder
 6. Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
 7. Use sideberry.css in the sideberry custom css settings
-9. Install [Userchrome Toggle Extended](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle-extended/). then set style 1 and Default: no toggled, in preferences
-9. Change 'style 1' (hide all ui) to preferred hotkey desired in "manage extension shortcuts"
-10. Restart Firefox
+8. Restart Firefox
 
 ### Optional Recommended Extensions
 - **[Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)** - Keyboard-driven navigation that complements the minimal, distraction-free interface
