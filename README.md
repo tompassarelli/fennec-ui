@@ -36,7 +36,7 @@ Note: Please see [disclaimer](#disclaimer) before installing
 5. Copy `userChrome.css` to the `chrome` folder
 6. Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
 7. Use sideberry.css in the sideberry custom css settings
-9. Install [Userchrome Toggle Extended](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle-extended/)
+9. Install [Userchrome Toggle Extended](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle-extended/). then set style 1 and Default: no toggled, in preferences
 9. Change 'style 1' (hide all ui) to preferred hotkey desired in "manage extension shortcuts"
 10. Restart Firefox
 
