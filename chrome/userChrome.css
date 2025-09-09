@@ -452,13 +452,12 @@ Preserve these (security warnings):
 .sidebar-browser-stack::before {
   content: "";
   position: fixed;
-  top: 5%;
+  top: 4.6%;
   left: 9px;
-  height: 2px;
   width: 96%;
   pointer-events: none;
   box-sizing: border-box;
-  border-bottom: 1px solid rgba(169,169,169,0.3) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.3) !important;
 }
 
 /* increase ::before height if notifications are live */
