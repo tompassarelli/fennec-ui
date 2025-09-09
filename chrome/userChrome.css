@@ -16,7 +16,6 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 :root {
   --fennec-color: #36363a;
   --fennec-navtoolbox-mx-left: 6.5px;
-  
   --fen-urlbar-alignment: calc(3px - var(--fennec-navtoolbox-mx-left));
 }
 
@@ -318,11 +317,10 @@ body:has(#browser > #sidebar-box[width^="5"]) #urlbar:is(
 body:has(#identity-box.notSecure) #identity-icon-label {
   color: red;
 }
-
-/* always shown identity-icon label if not secure */
 #identity-box[pageproxystate="valid"].notSecureText #identity-icon-label {
 	display: block !important;
 }
+/* always shown identity-icon label if not secure */
 #identity-box[pageproxystate="valid"].notSecureText #identity-icon-box {
   flex-shrink: 0 !important;
   min-width: 125px;
@@ -442,7 +440,7 @@ Preserve these (security warnings):
   top: 58px;
   left: 6px;
   height: 32px;
-  width: calc(100% - 7px);
+  width: calc(100% - 9px);
   pointer-events: none;
   box-sizing: border-box;
   background-color: rgba(0,0,0,0.3);

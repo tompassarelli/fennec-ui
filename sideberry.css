@@ -1,9 +1,15 @@
+#root.root {--tabs-margin: 6px;}
 :root {
-  --fen-pl: 6px;
+ --fen-pl: 6px;
 }
-   
+
 body {
   padding-left: var(--fen-pl);
+}
+
+.top-horizontal-box {
+	width: calc(100% - 4px);
+  margin-bottom: var(--tabs-margin);
 }
 
 /* aligns tab text with url text */
@@ -14,4 +20,8 @@ body {
 .AnimatedTabList > .Tab {
   margin-left: 0px;
 }
-   
+
+/* don't allow tab margin to resize width */
+.Tab {
+  width: calc(100% - 4px)
+}
