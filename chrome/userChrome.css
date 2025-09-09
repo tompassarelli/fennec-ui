@@ -15,10 +15,7 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 
 :root {
   --fennec-color: #36363a;
-  --fennec-navtoolbox-mx-left: 9px;
-  --fennec-panelui-width: 28px;
-  --fennec-nav-icon-width: 36px;
-  --fennec-header-divider-gap: 3px;
+  --fennec-navtoolbox-mx-left: 7.5px;
   
   --fen-urlbar-alignment: calc(3px - var(--fennec-navtoolbox-mx-left));
 }
@@ -76,7 +73,6 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 
 #nav-bar-customization-target {
   background-color: var(--fennec-color);
-  padding-bottom: var(--fennec-header-divider-gap)
 }
 
 /* 
@@ -90,10 +86,11 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 }
 
 #back-button {
-  /*each nav btn is typically 32px content, with 2px of padding, 36px total */
-  /*because the first btn is 28px, we will need to correct for that, 
-  and remove left padding to simplify math */
-  margin-left: calc(var(--fennec-nav-icon-width)) !important;
+  /* each nav btn is typically 32px content, 2px of padding, 36px total */
+  /* what this means is that 4px seperates each button */
+  /* the Panel (settings) button is 30px */
+  /* if we the displacement to 34px, it would be 34-30=>4px*/
+  margin-left: 34px !important;
   padding-left: 0px !important;
 }
 
@@ -146,13 +143,13 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 /* settings menu */ 
 #PanelUI-button {
   position: absolute !important;
-  width: 28px !important;
+  width: 30px !important;
   margin: 0px !important;
   padding: 0px !important;
 }
 
 #PanelUI-menu-button {
-  width: 28px !important;
+  width: 30px !important;
   margin: 0px !important;
   padding: 0px !important;
 }
@@ -279,6 +276,10 @@ body:has(#browser > #sidebar-box[width^="5"]) #urlbar:is(
 /* this will show "Not secure" if the connection is not secure, 
    there is already an icon, only selectively hide if safe  */
 /* #identity-icon-label {} */
+
+#identity-box {
+	transform: translateX(-0.0px);
+}
 
 /* shows Firefox if on settings, not strictly needed */
 #identity-box.chromeUI #identity-icon-label {

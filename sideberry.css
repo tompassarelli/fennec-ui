@@ -1,15 +1,12 @@
-.ScrollBox {
+body {
   padding-left: 6px;
 }
 
 .t-box {
   padding-left: 4px;
-} 
-
-.NavigationBar .main-items {
-  padding-left: 6px;
 }
 
-.PinnedTabsBar .tab-wrapper {
-  padding-left: 6px;
+.Tab {
+  padding-top: 2px;
+  padding-bottop: 2px;
 }
