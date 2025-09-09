@@ -15,7 +15,7 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 
 :root {
   --fennec-color: #36363a;
-  --fennec-navtoolbox-mx-left: 7.5px;
+  --fennec-navtoolbox-mx-left: 6.5px;
   
   --fen-urlbar-alignment: calc(3px - var(--fennec-navtoolbox-mx-left));
 }
@@ -453,7 +453,7 @@ Preserve these (security warnings):
 .sidebar-browser-stack::before {
   content: "";
   position: fixed;
-  top: 41px;
+  top: 40px;
   left: 9px;
   width: 96%;
   pointer-events: none;

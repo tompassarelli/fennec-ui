@@ -1,12 +1,17 @@
+:root {
+  --fen-pl: 6px;
+}
+   
 body {
-  padding-left: 6px;
+  padding-left: var(--fen-pl);
 }
 
+/* aligns tab text with url text */
 .t-box {
   padding-left: 4px;
 }
 
-.Tab {
-  padding-top: 2px;
-  padding-bottom: 2px;
+.AnimatedTabList > .Tab {
+  margin-left: 0px;
 }
+   
