@@ -16,9 +16,10 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 :root {
   --fen-color: #36363a; /* default look if no theme selected */
   
-  --fen-nav-bar-height: 5px;
   --fen-nav-toolbox-mx-left: 6.5px;
   --fen-urlbar-alignment: calc(3px - var(--fen-nav-toolbox-mx-left));
+  
+  --fen-nav-bar-height: 5px;
 
 }
 
@@ -404,9 +405,9 @@ Preserve these (security warnings):
 
 /* when sidebar is hidden show warning on not secure sites */
 /* style 1 - hide when all UI */
-:root[titlepreface*="᠎"] {
+/* :root[titlepreface*="᠎"] {
   body:has(#identity-box.notSecure)::before {
-    content: "🦊 Fennec UI Alerts: Not Secure";
+    content: "🦊 Fennec UI - Security Alert: Not Secure";
     text-align: center;
     font-size: 24px;
     margin-left: 0px;
@@ -419,6 +420,21 @@ Preserve these (security warnings):
     box-sizing: border-box;
     background-color: var(--fen-color);
   }
+} */
+
+body:has(#sidebar-box[hidden="true"])::before {
+    content: "🦊 Fennec UI - HTTP Alert: Not Secure";
+    text-align: center;
+    font-size: 24px;
+    margin-left: 0px;
+    display: block;
+    position: inherit;
+    z-index: 3;
+    width: 100%;
+    height: 46px;
+    padding-top: 8px;
+    box-sizing: border-box;
+    background-color: var(--fen-color);
 }
 
 /* on right-side of urlbar, favorite button, some other things I don't care */
