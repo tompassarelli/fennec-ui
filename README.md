@@ -52,7 +52,7 @@ This elegant toggle gives you the best of both worlds - organized tab management
 
 ## Disclaimer
 
-- The install guide directs users to download third party Firefox extensions (sideberry). Any extensions can become security vulnerabilties or actively attempt to steal your data, as of 09/09/2025 sideberry is audited.
+- The install guide directs users to download third party Firefox extensions (sideberry). Any extension can introduce security vulnerabilties or actively attempt to steal your data, as of 09/09/2025 sideberry is audited.
 - **Use at your own risk** - The author is not liable for any security issues, data breaches, or other damages
 - **You are responsible** for verifying the security of websites you visit
 - Always keep Firefox and your extensions updated
