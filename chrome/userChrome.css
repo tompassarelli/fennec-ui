@@ -452,7 +452,7 @@ Preserve these (security warnings):
 .sidebar-browser-stack::before {
   content: "";
   position: fixed;
-  top: 4.5%;
+  top: 5%;
   left: 9px;
   height: 2px;
   width: 96%;
