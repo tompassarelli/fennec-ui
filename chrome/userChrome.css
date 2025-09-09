@@ -51,7 +51,7 @@ body:has(#sidebar-box[hidden="true"]) #navigator-toolbox {
   width: 0px !important;
 }
 
-body:has(#sidebar-box[hidden="true"]) #urlbar-container {
+body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   width: 0px !important;
 }
 
@@ -211,76 +211,77 @@ body:has(#sidebar-box[hidden="true"]) #urlbar-container {
 /* 224 appears to be min-width default for sidebar */
 
 /* 200s */
-body:has(#browser > #sidebar-box[width^="23"]) #urlbar-container { width: 221px !important; }
-body:has(#browser > #sidebar-box[width^="23"]) #urlbar-container { width: 221px !important; }
-body:has(#browser > #sidebar-box[width^="24"]) #urlbar-container { width: 231px !important; }
-body:has(#browser > #sidebar-box[width^="25"]) #urlbar-container { width: 241px !important; }
-body:has(#browser > #sidebar-box[width^="26"]) #urlbar-container { width: 251px !important; }
-body:has(#browser > #sidebar-box[width^="27"]) #urlbar-container { width: 261px !important; }
-body:has(#browser > #sidebar-box[width^="28"]) #urlbar-container { width: 271px !important; }
-body:has(#browser > #sidebar-box[width^="29"]) #urlbar-container { width: 281px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 23"]) #urlbar-container { width: 221px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 23"]) #urlbar-container { width: 221px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 24"]) #urlbar-container { width: 231px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 25"]) #urlbar-container { width: 241px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 26"]) #urlbar-container { width: 251px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 27"]) #urlbar-container { width: 261px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 28"]) #urlbar-container { width: 271px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 29"]) #urlbar-container { width: 281px !important; }
 
 /* 300s */
-body:has(#browser > #sidebar-box[width^="30"]) #urlbar-container { width: 291px !important; }
-body:has(#browser > #sidebar-box[width^="31"]) #urlbar-container { width: 301px !important; }
-body:has(#browser > #sidebar-box[width^="32"]) #urlbar-container { width: 311px !important; }
-body:has(#browser > #sidebar-box[width^="33"]) #urlbar-container { width: 321px !important; }
-body:has(#browser > #sidebar-box[width^="34"]) #urlbar-container { width: 331px !important; }
-body:has(#browser > #sidebar-box[width^="35"]) #urlbar-container { width: 341px !important; }
-body:has(#browser > #sidebar-box[width^="36"]) #urlbar-container { width: 351px !important; }
-body:has(#browser > #sidebar-box[width^="37"]) #urlbar-container { width: 361px !important; }
-body:has(#browser > #sidebar-box[width^="38"]) #urlbar-container { width: 371px !important; }
-body:has(#browser > #sidebar-box[width^="39"]) #urlbar-container { width: 381px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 30"]) #urlbar-container { width: 291px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 31"]) #urlbar-container { width: 301px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 32"]) #urlbar-container { width: 311px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 33"]) #urlbar-container { width: 321px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 34"]) #urlbar-container { width: 331px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 35"]) #urlbar-container { width: 341px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 36"]) #urlbar-container { width: 351px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 37"]) #urlbar-container { width: 361px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 38"]) #urlbar-container { width: 371px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 39"]) #urlbar-container { width: 381px !important; }
 
 /* 400s */
-body:has(#browser > #sidebar-box[width^="40"]) #urlbar-container { width: 391px !important; }
-body:has(#browser > #sidebar-box[width^="41"]) #urlbar-container { width: 401px !important; }
-body:has(#browser > #sidebar-box[width^="42"]) #urlbar-container { width: 411px !important; }
-body:has(#browser > #sidebar-box[width^="43"]) #urlbar-container { width: 421px !important; }
-body:has(#browser > #sidebar-box[width^="44"]) #urlbar-container { width: 431px !important; }
-body:has(#browser > #sidebar-box[width^="45"]) #urlbar-container { width: 441px !important; }
-body:has(#browser > #sidebar-box[width^="46"]) #urlbar-container { width: 451px !important; }
-body:has(#browser > #sidebar-box[width^="47"]) #urlbar-container { width: 461px !important; }
-body:has(#browser > #sidebar-box[width^="48"]) #urlbar-container { width: 471px !important; }
-body:has(#browser > #sidebar-box[width^="49"]) #urlbar-container { width: 481px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 40"]) #urlbar-container { width: 391px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 41"]) #urlbar-container { width: 401px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 42"]) #urlbar-container { width: 411px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 43"]) #urlbar-container { width: 421px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 44"]) #urlbar-container { width: 431px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 45"]) #urlbar-container { width: 441px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 46"]) #urlbar-container { width: 451px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 47"]) #urlbar-container { width: 461px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 48"]) #urlbar-container { width: 471px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 49"]) #urlbar-container { width: 481px !important; }
 
 /* 500s */
-body:has(#browser > #sidebar-box[width^="50"]) #urlbar-container { width: 491px !important; }
-body:has(#browser > #sidebar-box[width^="51"]) #urlbar-container { width: 501px !important; }
-body:has(#browser > #sidebar-box[width^="52"]) #urlbar-container { width: 511px !important; }
-body:has(#browser > #sidebar-box[width^="53"]) #urlbar-container { width: 521px !important; }
-body:has(#browser > #sidebar-box[width^="54"]) #urlbar-container { width: 531px !important; }
-body:has(#browser > #sidebar-box[width^="55"]) #urlbar-container { width: 541px !important; }
-body:has(#browser > #sidebar-box[width^="56"]) #urlbar-container { width: 551px !important; }
-body:has(#browser > #sidebar-box[width^="57"]) #urlbar-container { width: 561px !important; }
-body:has(#browser > #sidebar-box[width^="58"]) #urlbar-container { width: 571px !important; }
-body:has(#browser > #sidebar-box[width^="59"]) #urlbar-container { width: 581px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 50"]) #urlbar-container { width: 491px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 51"]) #urlbar-container { width: 501px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 52"]) #urlbar-container { width: 511px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 53"]) #urlbar-container { width: 521px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 54"]) #urlbar-container { width: 531px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 55"]) #urlbar-container { width: 541px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 56"]) #urlbar-container { width: 551px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 57"]) #urlbar-container { width: 561px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 58"]) #urlbar-container { width: 571px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 59"]) #urlbar-container { width: 581px !important; }
 
 /* 600 */
-body:has(#browser > #sidebar-box[width^="6"]) #urlbar-container { width: 591px !important; }
+body:has(#browser > #sidebar-box[style*="; width: 6"]) #urlbar-container { width: 591px !important; }
 
 /* set a minimum width for the url search */
-body:has(#browser > #sidebar-box[width^="2"]) #urlbar:is(
+body:has(#browser > #sidebar-box[style*="; width: 2"]) #urlbar:is(
   [focused][breakout-extend]
 ) {
   width: 400px !important;
 }
 
-body:has(#browser > #sidebar-box[width^="3"]) #urlbar:is(
+body:has(#browser > #sidebar-box[style*="; width: 3"]) #urlbar:is(
   [focused][breakout-extend]
 ) {
   width: 400px !important;
 }
-body:has(#browser > #sidebar-box[width^="4"]) #urlbar:is(
+body:has(#browser > #sidebar-box[style*="; width: 4"]) #urlbar:is(
   [focused][breakout-extend]
 ) {
   width: 500px !important;
 }
-body:has(#browser > #sidebar-box[width^="5"]) #urlbar:is(
+body:has(#browser > #sidebar-box[style*="; width: 5"]) #urlbar:is(
   [focused][breakout-extend]
 ) {
   width: 600px !important;
 }
+
 
 /* remove google icon crowding search bar */
 #urlbar-searchmode-switcher {
