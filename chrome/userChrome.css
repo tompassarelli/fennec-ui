@@ -14,9 +14,18 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 */
 
 :root {
-  --fennec-color: #36363a;
+  --fennec-color: #36363a; /* default look if no theme selected */
+  
+  --fen-nav-bar-height: 6px;
   --fennec-navtoolbox-mx-left: 6.5px;
   --fen-urlbar-alignment: calc(3px - var(--fennec-navtoolbox-mx-left));
+
+}
+
+/* if a theme is present, we will apply it with some sideberry optimizations */
+:root[lwtheme] {
+  --fennec-color: var(--toolbar-bgcolor);
+  --sidebar-background-color: var(--toolbar-bgcolor);
 }
 
 /* ---------------------------------------- */
@@ -48,10 +57,14 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 #navigator-toolbox {
   position: absolute !important;
   top: 0px;
+  width: 607px;
+  height: 44px;
   z-index: 2 !important;  /* 3 spills extensions on page*/
   border: none !important;
-  margin-top: 4px;
-  margin-left: var(--fennec-navtoolbox-mx-left);
+  padding-top: var(--fen-nav-bar-height);
+  padding-left: var(--fennec-navtoolbox-mx-left);
+  padding-right: calc(var(--fennec-navtoolbox-mx-left) - 1.5px);
+  background-color: var(--fennec-color) !important;
 }
 
 /* the thing that comes up when you hold alt, there's already settings menu */
@@ -68,7 +81,9 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 
 /*  #nav-bar is basically fennec's header section, stubbed for structural reference */
 
-/* #nav-bar {} */
+#nav-bar {
+  border-top: 0px !important;
+}
 
 #nav-bar-customization-target {
   background-color: var(--fennec-color);
@@ -167,7 +182,7 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 /* Pin Search Bar / Url bar above the sideberry tabs, and below the zen-sidebar top buttons */
 #urlbar-container {
   position: absolute;
-  top: 50px;
+  top: calc(54px - var(--fen-nav-bar-height));
   width: 215px !important; /* probably need to use a few `has` selectors to ensure its always bigger than sidebar */
   left: var(--fen-urlbar-alignment) !important;
 }
@@ -300,12 +315,13 @@ body:has(#browser > #sidebar-box[width^="5"]) #urlbar:is(
 }
 
 /* keep it dark, except when breakout-extend=true, maps to focused it looks like */
-#urlbar:not([focused]) #identity-icon-box {
+/* #urlbar:not([focused]) #identity-icon-box {
   background-color: #252528 !important;
-}
-#urlbar:is([breakout-extend]) #identity-icon-box {
+} */
+/* #urlbar:is([breakout-extend]) #identity-icon-box {
   background-color: #38383c !important;
-}
+} */
+
 
 /* align url icon position with sideberry */
 #identity-icon-box {
@@ -409,6 +425,8 @@ Preserve these (security warnings):
 /* style 1 - hide when all UI */
 #sidebar-box {
   max-width: 600px !important;
+  padding-left: 6px;
+  background-color: var(--fennec-color) !important;
 }
 
 :root[titlepreface*="᠎"] {
@@ -431,6 +449,7 @@ Preserve these (security warnings):
   pointer-events: none;
   box-sizing: border-box;
   background-color: var(--fennec-color);
+  color: aliceblue;
 }
 
 /* custom urlbar background so its aligned with tabs */
@@ -448,16 +467,19 @@ Preserve these (security warnings):
 }
 
 /* create a horizontal divider before icons */
-.sidebar-browser-stack::before {
+/* .sidebar-browser-stack::before {
   content: "";
   position: fixed;
-  top: 40px;
+  top: 44px;
   left: 9px;
   width: 96%;
+  height: 1px;
+  background-color: var(--toolbarbutton-icon-fill);
+  opacity: 0.5 !important;
   pointer-events: none;
   box-sizing: border-box;
-  border-bottom: 1px solid rgba(255,255,255,0.3) !important;
-}
+} */
+
 
 /* increase ::before height if notifications are live */
 /* body:has(#notifications-toolbar) {

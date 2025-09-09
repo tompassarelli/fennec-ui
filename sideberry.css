@@ -3,12 +3,8 @@
  --fen-pl: 6px;
 }
 
-body {
-  padding-left: var(--fen-pl);
-}
-
 .top-horizontal-box {
-	width: calc(100% - 4px);
+/* 	width: calc(100% - 4px); */
   margin-bottom: var(--tabs-margin);
 }
 
@@ -17,11 +13,8 @@ body {
   padding-left: 4px;
 }
 
-.AnimatedTabList > .Tab {
-  margin-left: 0px;
-}
-
 /* don't allow tab margin to resize width */
-.Tab {
-  width: calc(100% - 4px)
+.AnimatedTabList > .Tab {
+  width: 100%;
+  margin-left: 0px;
 }
