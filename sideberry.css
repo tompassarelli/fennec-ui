@@ -5,3 +5,12 @@
 .t-box {
   padding-left: 4px;
 } 
+
+.NavigationBar .main-items {
+	padding-left: 6px;
+}
+
+.PinnedTabsBar .tab-wrapper {
+	position: relative;
+	padding-left: 6px;
+}
