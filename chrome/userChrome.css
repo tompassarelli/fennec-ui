@@ -14,17 +14,17 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 */
 
 :root {
-  --fennec-color: #36363a; /* default look if no theme selected */
+  --fen-color: #36363a; /* default look if no theme selected */
   
-  --fen-nav-bar-height: 6px;
-  --fennec-navtoolbox-mx-left: 6.5px;
-  --fen-urlbar-alignment: calc(3px - var(--fennec-navtoolbox-mx-left));
+  --fen-nav-bar-height: 5px;
+  --fen-nav-toolbox-mx-left: 6.5px;
+  --fen-urlbar-alignment: calc(3px - var(--fen-nav-toolbox-mx-left));
 
 }
 
 /* if a theme is present, we will apply it with some sideberry optimizations */
 :root[lwtheme] {
-  --fennec-color: var(--toolbar-bgcolor);
+  --fen-color: var(--toolbar-bgcolor);
   --sidebar-background-color: var(--toolbar-bgcolor);
 }
 
@@ -40,9 +40,20 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
    because we are hiding the element early, interfering
    with firefox's javascript loading the UI it seems*/
 
+/* so we can just set width to 0px to avoid interfering
+   with firefox's chrome loading pipeline */
+
 /* body:has(#sidebar-box[hidden="true"]) #navigator-toolbox {
   display: none !important;
 } */
+
+body:has(#sidebar-box[hidden="true"]) #navigator-toolbox {
+  width: 0px !important;
+}
+
+body:has(#sidebar-box[hidden="true"]) #urlbar-container {
+  width: 0px !important;
+}
 
 /* ---------------------------------------- */
 
@@ -58,13 +69,13 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
   position: absolute !important;
   top: 0px;
   width: 607px;
-  height: 44px;
+  height: calc(32px + 2*var(--fen-nav-bar-height));
   z-index: 2 !important;  /* 3 spills extensions on page*/
   border: none !important;
   padding-top: var(--fen-nav-bar-height);
-  padding-left: var(--fennec-navtoolbox-mx-left);
-  padding-right: calc(var(--fennec-navtoolbox-mx-left) - 1.5px);
-  background-color: var(--fennec-color) !important;
+  padding-left: var(--fen-nav-toolbox-mx-left);
+  padding-right: calc(var(--fen-nav-toolbox-mx-left) - 1.5px);
+  background-color: var(--fen-color) !important;
 }
 
 /* the thing that comes up when you hold alt, there's already settings menu */
@@ -86,7 +97,7 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 }
 
 #nav-bar-customization-target {
-  background-color: var(--fennec-color);
+  background-color: var(--fen-color);
 }
 
 /* 
@@ -387,7 +398,7 @@ Preserve these (security warnings):
   min-width: 85%;
   height: 46px;
   box-sizing: border-box;
-  background-color: var(--fennec-color);
+  background-color: var(--fen-color);
 } */
 
 /* when sidebar is hidden show warning on not secure sites */
@@ -405,7 +416,7 @@ Preserve these (security warnings):
     height: 46px;
     padding-top: 8px;
     box-sizing: border-box;
-    background-color: var(--fennec-color);
+    background-color: var(--fen-color);
   }
 }
 
@@ -426,7 +437,7 @@ Preserve these (security warnings):
 #sidebar-box {
   max-width: 600px !important;
   padding-left: 6px;
-  background-color: var(--fennec-color) !important;
+  background-color: var(--fen-color) !important;
 }
 
 :root[titlepreface*="᠎"] {
@@ -448,7 +459,7 @@ Preserve these (security warnings):
   width: 100%;
   pointer-events: none;
   box-sizing: border-box;
-  background-color: var(--fennec-color);
+  background-color: var(--fen-color);
   color: aliceblue;
 }
 
@@ -499,7 +510,7 @@ Preserve these (security warnings):
 /* the gutter between the sidebar and page */
 #sidebar-splitter {
   margin: 0px !important;
-  background-color: var(--fennec-color) !important;
+  background-color: var(--fen-color) !important;
   border: 0px !important;
   width: 7px !important;
 }
