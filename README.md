@@ -33,7 +33,7 @@ Note: Please see [disclaimer](#disclaimer) before installing
    - Click on Open Profile Folder. This will open the folder which contains your user data.
    - On the Flatpak version of Firefox the directory is `~/.var/app/org.mozilla.firefox/.mozilla/firefox/<profile>`
 4. Now create a `chrome` folder in your profile folder if it doesn't exist
-5. Copy `userChrome.css` to the `chrome` folder
+5. Copy `userChrome.css` to the `chrome` folder, from this repo's chrome folder
 6. Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
 7. Use sideberry.css in the sideberry custom css settings
 9. Install [Userchrome Toggle Extended](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle-extended/). then set style 1 and Default: no toggled, in preferences
