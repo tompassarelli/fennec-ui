@@ -225,6 +225,10 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   margin-left: var(--fen-drawer-gap-x) !important;
   top: calc(42px + var(--fen-drawer-gap-y));
 }
+/* moz setting: "Show sidebar" active */
+body:not(:has(#sidebar-main[hidden])) #urlbar-container {
+  margin-left: 57.63px !important;
+}
 
 /* because we use a custom urlbar-background that tracks sidebar width
    we need to hide default background unless active */
@@ -237,6 +241,11 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   margin-left: var(--fen-drawer-gap-x) !important;
   border-radius: 8px !important;
 }
+/* moz setting: "Show sidebar" active */
+body:not(:has(#sidebar-main[hidden])) #urlbar-background {
+  margin-left: 0px !important;
+}
+
 
 /* eager width adjustments for urlbar as sidebar width changes
    math - aesthetically urlbar width of 215 maps to a sidebar width of 224px
@@ -401,6 +410,12 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
 /* Remove the "Sideberry", "History", etc. sidepanel header  */
 #sidebar-header {
   display: none;
+}
+
+box#sidebar-main {
+  position: relative !important;
+  top: var(--fen-header-height-y) !important;
+  height: calc(100vh - var(--fen-header-height-y)) !important;
 }
 
 /* create space for urlbar area inside the sidebar */
