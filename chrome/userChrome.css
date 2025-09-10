@@ -16,7 +16,7 @@ CC - conceptual component not actually in DOM, but a layout objective
 
 Style Guide
 
-Fennec's drawer has 6px of left/right gap, set by --fen-drawer-gap
+Fennec's drawer has 6px of left/right gap, set by --fen-drawer-gap-x
 - the left gap is generally implemented as padding on container components in the drawer
   - examples include: navigator-toolbox, urlbar-container, sidebar-box
 - the right gap is implemented by setting the sidebar-spliter (drag-line) width to gap value
@@ -28,13 +28,14 @@ code below tends to be ordered with respect to the DOM top-bottom, left-right
   --fen-color: #36363a; /* default look if no theme selected */
   
   /* padding/margin of the drawer components */
-  --fen-nav-bar-height: 5px;
-  --fen-drawer-gap: 6px;
-  --fen-urlbar-alignment: calc(2px - var(--fen-drawer-gap));
+  --fen-drawer-gap-y: 6px;
+  --fen-drawer-gap-x: 6px;
+  --fen-header-height-y: calc(32px + 2*var(--fen-drawer-gap-y));
+  
+  --fen-urlbar-bg-height: 36px;
   
   /* not technically nessecary, mainly to minimize media query sprawl on constantly resizing urlbar */
   --fen-drawer-max-width: 600px;
-
 }
 
 /* if a theme is present, we will apply it with some sideberry opinonated overrides */
@@ -63,13 +64,11 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
 #navigator-toolbox {
   position: absolute !important;
   /* should cover the entire drawer area */
-  width: calc(var(--fen-drawer-max-width) + var(--fen-drawer-gap));
-  height: calc(32px + 2*var(--fen-nav-bar-height));
+  width: calc(var(--fen-drawer-max-width) + var(--fen-drawer-gap-x));
+  height: var(--fen-header-height-y);
   z-index: 2 !important;  /* 3 spills extensions onto page*/
   border: none !important;
-  padding-top: var(--fen-nav-bar-height);
-  padding-left: var(--fen-drawer-gap);
-  padding-right: calc(var(--fen-drawer-gap) - 1.5px);
+  padding-top: var(--fen-drawer-gap-y);
   background-color: var(--fen-color) !important;
 }
 
@@ -88,11 +87,13 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
 /*  #nav-bar is basically fennec's header section, stubbed for structural reference */
 
 #nav-bar {
+  width: calc(600px - var(--fen-drawer-gap-x));
   border-top: 0px !important;
 }
 
 #nav-bar-customization-target {
   background-color: var(--fen-color);
+  min-width: calc(var(--fen-drawer-max-width) + var(--fen-drawer-gap-x)) !important;
 }
 
 /* 
@@ -106,12 +107,11 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
 }
 
 #back-button {
-  /* each nav btn is typically 32px content, 2px of padding, 36px total */
-  /* what this means is that 4px seperates each button */
-  /* the Panel (settings) button is 30px */
-  /* if we the displacement to 34px, it would be 34-30=>4px*/
-  margin-left: 34px !important;
-  padding-left: 0px !important;
+  /* each nav btn is typically 32px, then 2px of padding */
+  /* so we have to mock a 34px btn */
+  /* so factor gap delta, then mock the btn */
+  margin-left: calc(34px + var(--fen-drawer-gap-x)) !important;
+  padding-left: 2px !important;
 }
 
 /* #forward-button {
@@ -165,7 +165,7 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   position: absolute !important;
   width: 30px !important;
   margin: 0px !important;
-  padding: 0px !important;
+  padding-left: var(--fen-drawer-gap-x) !important;
 }
 
 #PanelUI-menu-button {
@@ -188,9 +188,10 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
 /* Pin Search Bar / Url bar above the sideberry tabs, and below the zen-sidebar top buttons */
 #urlbar-container {
   position: absolute;
-  top: calc(54px - var(--fen-nav-bar-height));
-  width: 215px !important; /* probably need to use a few `has` selectors to ensure its always bigger than sidebar */
-  left: var(--fen-urlbar-alignment) !important;
+  width: 215px !important; 
+  margin: 0px !important;
+  margin-left: var(--fen-drawer-gap-x) !important;
+  top: calc(42px + var(--fen-drawer-gap-y));
 }
 
 /* hide default url background unless active */
@@ -201,10 +202,17 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   display: none !important;
 }
 
+/* when it pops out, position with respect to drawer gap */
+#urlbar-background {
+  margin-left: var(--fen-drawer-gap-x) !important;
+  border-radius: 8px !important;
+}
+
 /* eager width adjustments for urlbar as sidebar width changes */
 /* math - aesthetically urlbar width of 215 maps to a sidebar width of 224px */
 /* 224 appears to be min-width default for sidebar */
 
+/* selecting style instead of width because width isn't available at start */
 /* 200s */
 body:has(#browser > #sidebar-box[style*="; width: 23"]) #urlbar-container { width: 221px !important; }
 body:has(#browser > #sidebar-box[style*="; width: 23"]) #urlbar-container { width: 221px !important; }
@@ -255,38 +263,14 @@ body:has(#browser > #sidebar-box[style*="; width: 59"]) #urlbar-container { widt
 body:has(#browser > #sidebar-box[style*="; width: 6"]) #urlbar-container { width: 591px !important; }
 
 /* set a minimum width for the url search */
-body:has(#browser > #sidebar-box[style*="; width: 2"]) #urlbar:is(
-  [focused][breakout-extend]
-) {
-  width: 400px !important;
-}
-
-body:has(#browser > #sidebar-box[style*="; width: 3"]) #urlbar:is(
-  [focused][breakout-extend]
-) {
-  width: 400px !important;
-}
-body:has(#browser > #sidebar-box[style*="; width: 4"]) #urlbar:is(
-  [focused][breakout-extend]
-) {
-  width: 500px !important;
-}
-body:has(#browser > #sidebar-box[style*="; width: 5"]) #urlbar:is(
-  [focused][breakout-extend]
-) {
+#urlbar:is([focused][breakout-extend]) {
   width: 600px !important;
 }
-
 
 /* remove google icon crowding search bar */
 #urlbar-searchmode-switcher {
   display: none;
 }
-
-/* TODO after removing search move switcher, urlbar when */
-/* .urlbar-input-container {
-  padding-left: 5px !important;
-} */
 
 /* shield icon for tracking protections, don't need */
 /* TODO make this shown on hover, rather than always hide */
@@ -294,44 +278,42 @@ body:has(#browser > #sidebar-box[style*="; width: 5"]) #urlbar:is(
   display: none;
 }
 
-/* this will show "Not secure" if the connection is not secure, 
+/* the component selector this selector targets will show
+   "Not secure" if the connection is not secure, 
    there is already an icon, only selectively hide if safe  */
 /* #identity-icon-label {} */
-
-#identity-box {
-	transform: translateX(-0.0px);
-}
-
-/* shows Firefox if on settings, not strictly needed */
-#identity-box.chromeUI #identity-icon-label {
-  display: none;
-}
 
 /* shows "Sideberry" if on its extension page, not strictly needed */
 /* #identity-box.extensionPage #identity-icon-label {
   display: none;
 } */
 
+/* shows Firefox if on settings, not strictly needed */
+#identity-box.chromeUI #identity-icon-label {
+  display: none;
+}
+
+/* align text with tabs */
+box#identity-box.chromeUI {
+  margin-right: 6px !important;
+}
+
 /* align tab and url text - on extension page */
-#identity-box.extensionPage {
+box#identity-box.extensionPage {
   margin-right: 5px !important;
 }
 /* align tab and url text - when label text like not secure is present */
-#identity-box #identity-icon-label {
+box#identity-box #identity-icon-label {
   margin-left: 6px !important;
 }
 
-/* keep it dark, except when breakout-extend=true, maps to focused it looks like */
-/* #urlbar:not([focused]) #identity-icon-box {
-  background-color: #252528 !important;
-} */
-/* #urlbar:is([breakout-extend]) #identity-icon-box {
-  background-color: #38383c !important;
-} */
-
+/* align tab and url text - on verified pages */
+box#identity-box.verifiedDomain {
+  margin-right: 5px !important;
+}
 
 /* align url icon position with sideberry */
-#identity-icon-box {
+box#identity-icon-box {
   padding-left: 5px !important;
   padding-right: 5px !important;
 }
@@ -340,14 +322,23 @@ body:has(#browser > #sidebar-box[style*="; width: 5"]) #urlbar:is(
 body:has(#identity-box.notSecure) #identity-icon-label {
   color: red;
 }
-#identity-box[pageproxystate="valid"].notSecureText #identity-icon-label {
+box#identity-box[pageproxystate="valid"].notSecureText box#identity-icon-label {
 	display: block !important;
 }
 /* always shown identity-icon label if not secure */
-#identity-box[pageproxystate="valid"].notSecureText #identity-icon-box {
+box#identity-box[pageproxystate="valid"].notSecureText box#identity-icon-box {
   flex-shrink: 0 !important;
   min-width: 125px;
 }
+
+
+/* keep it dark, except when breakout-extend=true, maps to focused it looks like */
+/* #urlbar:not([focused]) #identity-icon-box {
+  background-color: #252528 !important;
+} */
+/* #urlbar:is([breakout-extend]) #identity-icon-box {
+  background-color: #38383c !important;
+} */
 
 /*
 FIREFOX SECURITY STATES REFERENCE
@@ -380,22 +371,6 @@ Preserve these (security warnings):
   width: 0px;
 } */
 
-/* option to show warning if the site is not secure when sidebar is open */
-/* z-index 2 is above #nav-bar, ensure we are above it */
-/* body:has(#identity-box.notSecure)::before {
-  content: "🦊 Fennec UI Alerts: Not Secure";
-  text-align: center;
-  font-size: 24px;
-  margin-left:15%;
-  padding-top: 8px;
-  display: block;
-  position: absolute;
-  z-index: 3;
-  min-width: 85%;
-  height: 46px;
-  box-sizing: border-box;
-  background-color: var(--fen-color);
-} */
 
 body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
     content: "🦊 Fennec UI - HTTP Alert: Not Secure";
@@ -411,9 +386,8 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
     box-sizing: border-box;
     background-color: var(--fen-color);
 }
-/* need to add #identity-box.notSecure as a check to the above */
 
-/* on right-side of urlbar, favorite button, some other things I don't care */
+/* remove from right-side of urlbar: favorite button, misc other things */
 #page-action-buttons {
   display: none !important;
 }
@@ -429,7 +403,7 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
 /* style 1 - hide when all UI */
 #sidebar-box {
   max-width: 600px !important;
-  padding-left: 6px;
+  padding-left: var(--fen-drawer-gap-x);
   background-color: var(--fen-color) !important;
 }
 
@@ -460,24 +434,32 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
 #sidebar-box::after {
   content: "";
   position: absolute;
-  top: 58px;
-/*  left: var(--fen-drawer-gap); */ /*shouldn't be needed to be set if css is proper*/
-  height: 32px;
-  width: 100%;
+  top: calc(31px + var(--fen-header-height-y) - 0.5*var(--fen-urlbar-bg-height));
+  height: var(--fen-urlbar-bg-height);
+  width: calc(100% - var(--fen-drawer-gap-x));
   pointer-events: none;
   box-sizing: border-box;
   background-color: rgba(0,0,0,0.3);
+  border-radius: 8px !important;
 }
 
-/* Only apply divider when lwtheme is NOT present */
+.sidebar-browser-stack {
+  padding-bottom: var(--fen-drawer-gap-y)
+}
+
+/* panel#notification-popup {
+  margin-left: 1px !important;
+} */
+
+/* fennec header divider when lwtheme is NOT present */
 :root:not([lwtheme]) .sidebar-browser-stack::before {
   content: "";
   position: fixed;
-  top: 42px;
-  width: 100%;
+  top: var(--fen-header-height-y);
+  width: calc(100% - var(--fen-drawer-gap-x));
   height: 1px;
   background-color: var(--toolbarbutton-icon-fill);
-  opacity: 0.5 !important;
+  opacity: 0.3 !important;
   pointer-events: none;
   box-sizing: border-box;
 }
@@ -500,9 +482,21 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
 /* the gutter between the sidebar and page */
 #sidebar-splitter {
   margin: 0px !important;
-  background-color: var(--fen-color) !important;
+  width: var(--fen-drawer-gap-x);
   border: 0px !important;
-  width: var(--fen-drawer-gap) !important;
+  /* for theme support... */
+  /* make top y% see-through, rest uses --fen-color */
+  /* allows the splitter to be useable near nav buttons, 
+     but stops it from clipping some backgrounds  */
+  background-color: transparent !important;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 5%,
+    var(--fen-color) 5%,
+    var(--fen-color) 100%
+  ) !important;
+  background-repeat: no-repeat !important;
 }
 
 /* style 1 - hide when all UI */
