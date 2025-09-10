@@ -8,7 +8,7 @@ A minimal Firefox CSS theme designed for **first-class Sideberry support** witho
 
 Perfect for users who want the stability of using the Firefox with modenr aesthetics
 
-- 🍓 **Seamless Sideberry Integration** - Urlbar inside the sidebar-box, aligned url and icons
+- 🔗 **Seamless Sideberry Integration** - Urlbar inside the sidebar-box, aligned url and icons
 
 - ✨ **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
 
