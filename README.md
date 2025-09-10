@@ -11,7 +11,7 @@ Not a fork! Perfect for users who want the stability of Firefox with a few quali
 - 🔗 **Seamless Sideberry Integration** - Urlbar inside the sidebar-box, aligned url and icons
 
 - 🧘 **Zen-Mode** - Toggle the entire ui by toggling the sidebar (fullscreen mode not required), with notable benefit for tiling the browser next to other applications.
-  - 🔒 **Zen-Mode: Security** - Hiding the UI can suppress security signals, care was taken to institute guardrails like surfacing some security warnings (ex. HTTP site not secure).
+  - 🔒 **Zen-Mode: Security** - Hiding the UI suppresses security signals, but care was taken to institute guardrails like surfacing some security warnings (ex. HTTP site not secure).
 
 - ✨ **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
 
@@ -19,7 +19,7 @@ Not a fork! Perfect for users who want the stability of Firefox with a few quali
 
 ![Demo Screenshot](demo-security.png)
 
-When the UI is completely hidden, fennec will attempt (no garuntee, firefox chrome changes can break logic) to surface some but not all security relevant signals (like http warning). This is not a solution against phishing and many other attacks, users should only toggle the UI after url/content has been verified as secure
+When the UI is completely hidden, fennec will attempt (no garuntee, firefox chrome changes can break logic) to surface some but not all security relevant signals (like http warning). This is not a solution against phishing and many other attacks, users should only toggle the UI after url/content has been verified as secure and trustworthy.
 
 ## Installation
 
