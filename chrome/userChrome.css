@@ -144,7 +144,7 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
 
 /*  #nav-bar is basically fennec's header section, stubbed for structural reference */
 #nav-bar {
-  width: calc(600px - var(--fen-drawer-gap-x));
+  min-width: calc(var(--fen-drawer-max-width) - var(--fen-drawer-gap-x));
   border-top: 0px !important;
 }
 
@@ -152,7 +152,6 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
    will cause pinned ext. load failure when browser bootstrap */
 #nav-bar-customization-target {
   background-color: var(--fen-color);
-  width: calc(var(--fen-drawer-max-width) + var(--fen-drawer-gap-x)) !important;
 }
 
 /* sidebar toggle - hide: bloat, just use any panel hotkey */
