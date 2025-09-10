@@ -4,26 +4,40 @@ quick reference:
 -- #nav-bar contains nav buttons (back.. refresh), urlbar, extensions
 #browser is the other primary container, nav toolbox's sibling, contains sidebar
 
-fennec's target structure:
+fennec's structure:
 
-[ header ] - #nav-bar subset: nav buttons, extensions, settings
-[ urlbar ] - #nav-bar.urlbar is moved out of header and put below
-[ sideberry ] - firefox extension
+CC - conceptual component not actually in DOM, but a layout objective
 
-this css code tends to be ordered with respect to dom top-bottom, left-right 
+[drawer] - CC
+  [ header  ] - CC | #nav-bar > buttons: settings, forward/back, refresh, extensions
+  [ urlbar  ] - #nav-bar > urlbar is moved out of header and put below
+  [ sidebar ] - web extensions like sideberry, bookmarks, history
+[/drawer]
+
+Style Guide
+
+Fennec's drawer has 6px of left/right gap, set by --fen-drawer-gap
+- the left gap is generally implemented as padding on container components in the drawer
+  - examples include: navigator-toolbox, urlbar-container, sidebar-box
+- the right gap is implemented by setting the sidebar-spliter (drag-line) width to gap value
+
+code below tends to be ordered with respect to the DOM top-bottom, left-right 
 */
 
 :root {
   --fen-color: #36363a; /* default look if no theme selected */
   
-  --fen-nav-toolbox-mx-left: 6.5px;
-  --fen-urlbar-alignment: calc(3px - var(--fen-nav-toolbox-mx-left));
-  
+  /* padding/margin of the drawer components */
   --fen-nav-bar-height: 5px;
+  --fen-drawer-gap: 6px;
+  --fen-urlbar-alignment: calc(2px - var(--fen-drawer-gap));
+  
+  /* not technically nessecary, mainly to minimize media query sprawl on constantly resizing urlbar */
+  --fen-drawer-max-width: 600px;
 
 }
 
-/* if a theme is present, we will apply it with some sideberry optimizations */
+/* if a theme is present, we will apply it with some sideberry opinonated overrides */
 :root[lwtheme] {
   --fen-color: var(--toolbar-bgcolor);
   --sidebar-background-color: var(--toolbar-bgcolor);
@@ -31,22 +45,9 @@ this css code tends to be ordered with respect to dom top-bottom, left-right
 
 /* ---------------------------------------- */
 
-/* WORK IN PROGRES sidebar toggle:
-   sideberry/history toggles the whole ui 
-   if/when this is integrated, userchrome toggle is not needed */
-
-/* the below css works if applied to browser toolbox after load,
-   but trying to load this eagerly user userChrome.css
-   interferes with Firefox's chrome loading pipeline 
-   because we are hiding the element early, interfering
-   with firefox's javascript loading the UI it seems*/
-
-/* so we can just set width to 0px to avoid interfering
-   with firefox's chrome loading pipeline */
-
-/* body:has(#sidebar-box[hidden="true"]) #navigator-toolbox {
-  display: none !important;
-} */
+/* WORK COMPLETE sidebar toggle:
+   toggle sidebar -> toggle the whole ui 
+   userchrome toggle is no longer needed */
 
 body:has(#sidebar-box[hidden="true"]) #navigator-toolbox {
   width: 0px !important;
@@ -58,24 +59,17 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
 
 /* ---------------------------------------- */
 
-/* style 1 - hide when all UI */
-:root[titlepreface*="᠎"] {
-  #navigator-toolbox {
-    display: none !important;
-  }
-}
-
 /* root node of everything mozilla */
 #navigator-toolbox {
   position: absolute !important;
-  top: 0px;
-  width: 607px;
+  /* should cover the entire drawer area */
+  width: calc(var(--fen-drawer-max-width) + var(--fen-drawer-gap));
   height: calc(32px + 2*var(--fen-nav-bar-height));
-  z-index: 2 !important;  /* 3 spills extensions on page*/
+  z-index: 2 !important;  /* 3 spills extensions onto page*/
   border: none !important;
   padding-top: var(--fen-nav-bar-height);
-  padding-left: var(--fen-nav-toolbox-mx-left);
-  padding-right: calc(var(--fen-nav-toolbox-mx-left) - 1.5px);
+  padding-left: var(--fen-drawer-gap);
+  padding-right: calc(var(--fen-drawer-gap) - 1.5px);
   background-color: var(--fen-color) !important;
 }
 
@@ -403,25 +397,6 @@ Preserve these (security warnings):
   background-color: var(--fen-color);
 } */
 
-/* when sidebar is hidden show warning on not secure sites */
-/* style 1 - hide when all UI */
-/* :root[titlepreface*="᠎"] {
-  body:has(#identity-box.notSecure)::before {
-    content: "🦊 Fennec UI - Security Alert: Not Secure";
-    text-align: center;
-    font-size: 24px;
-    margin-left: 0px;
-    display: block;
-    position: inherit;
-    z-index: 3;
-    width: 100%;
-    height: 46px;
-    padding-top: 8px;
-    box-sizing: border-box;
-    background-color: var(--fen-color);
-  }
-} */
-
 body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
     content: "🦊 Fennec UI - HTTP Alert: Not Secure";
     text-align: center;
@@ -486,13 +461,12 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
   content: "";
   position: absolute;
   top: 58px;
-  left: 6px;
+/*  left: var(--fen-drawer-gap); */ /*shouldn't be needed to be set if css is proper*/
   height: 32px;
-  width: calc(100% - 9px);
+  width: 100%;
   pointer-events: none;
   box-sizing: border-box;
   background-color: rgba(0,0,0,0.3);
-  border-radius: 5px;
 }
 
 /* Only apply divider when lwtheme is NOT present */
@@ -507,20 +481,6 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
   pointer-events: none;
   box-sizing: border-box;
 }
-/* create a horizontal divider before icons */
-/* .sidebar-browser-stack::before {
-  content: "";
-  position: fixed;
-  top: 44px;
-  left: 9px;
-  width: 96%;
-  height: 1px;
-  background-color: var(--toolbarbutton-icon-fill);
-  opacity: 0.5 !important;
-  pointer-events: none;
-  box-sizing: border-box;
-} */
-
 
 /* increase ::before height if notifications are live */
 /* body:has(#notifications-toolbar) {
@@ -542,7 +502,7 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
   margin: 0px !important;
   background-color: var(--fen-color) !important;
   border: 0px !important;
-  width: 7px !important;
+  width: var(--fen-drawer-gap) !important;
 }
 
 /* style 1 - hide when all UI */
