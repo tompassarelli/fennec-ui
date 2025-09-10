@@ -15,7 +15,6 @@
   padding-left: 4px;
 }
 
-
 /* don't allow tab margin to resize width */
 .AnimatedTabList > .Tab {
   width: 100%;

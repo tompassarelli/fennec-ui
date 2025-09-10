@@ -85,7 +85,6 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
 /* ---- s:header ---- */
 
 /*  #nav-bar is basically fennec's header section, stubbed for structural reference */
-
 #nav-bar {
   width: calc(600px - var(--fen-drawer-gap-x));
   border-top: 0px !important;
@@ -185,7 +184,7 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
 
 /* ---- s:urlbar ---- */
 
-/* Pin Search Bar / Url bar above the sideberry tabs, and below the zen-sidebar top buttons */
+/* url bar above the sideberry tabs */
 #urlbar-container {
   position: absolute;
   width: 215px !important; 
@@ -371,7 +370,6 @@ Preserve these (security warnings):
   width: 0px;
 } */
 
-
 body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
     content: "🦊 Fennec UI - HTTP Alert: Not Secure";
     text-align: center;
@@ -499,18 +497,10 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
   background-repeat: no-repeat !important;
 }
 
-/* style 1 - hide when all UI */
-:root[titlepreface*="᠎"] {
-  #sidebar-splitter {
-    display: none !important;
-  }
-}
-
 /* ------ e:sidebar-border ---- */ 
 
-
 /* ------ s:sideberry ---- */
-/* edits are handled in sideberry css file */
+/* done in sideberry css */
 /* ------ e:sideberry ---- */
 
 
