@@ -10,11 +10,11 @@ Not a fork! Perfect for users who want the stability of Firefox with a few quali
 
 - 🔗 **Seamless Sideberry Integration** - Urlbar inside the sidebar-box, aligned url and icons
 
+- 🧘 **Zen-Mode** - Toggle the entire ui by toggling the sidebar (fullscreen mode not required), with notable benefit for tiling the browser next to other applications.
+
 - ✨ **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
 
 - 🎨 **Theme Support** - Use your favorite Firefox themes, with sideberry optimizations done for you
-
-- 🧘 **Zen-Mode** - Toggle the entire ui by toggling the sidebar
 
 
 ![Demo Screenshot](demo-security.png)
