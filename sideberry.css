@@ -1,4 +1,5 @@
 #root.root {--tabs-margin: 6px;}
+
 :root {
  --fen-pl: 6px;
 }
@@ -6,6 +7,7 @@
 .top-horizontal-box {
 /* 	width: calc(100% - 4px); */
   margin-bottom: var(--tabs-margin);
+  right: 2px;
 }
 
 /* aligns tab text with url text */
@@ -13,8 +15,14 @@
   padding-left: 4px;
 }
 
+
 /* don't allow tab margin to resize width */
 .AnimatedTabList > .Tab {
   width: 100%;
   margin-left: 0px;
+}
+
+.PinnedTabsBar {
+  padding: 0px !important;
+  margin-bottom: 6px;
 }
