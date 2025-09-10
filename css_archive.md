@@ -52,3 +52,22 @@ body:has(#notifications-toolbar) {
   }
 }
 ```
+
+## Divider Below Header
+
+aesthetically, after testing, leaning towards no bar pref
+fennec header divider when lwtheme is NOT present
+
+```css
+:root:not([lwtheme]) .sidebar-browser-stack::before {
+  content: "";
+  position: fixed;
+  top: var(--fen-header-height-y);
+  width: calc(100% - var(--fen-drawer-gap-x));
+  height: 1px;
+  background-color: var(--toolbarbutton-icon-fill);
+  opacity: 0.3 !important;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+```
