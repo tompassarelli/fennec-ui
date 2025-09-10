@@ -12,10 +12,11 @@ Not a fork! Perfect for users who want the stability of Firefox with a few quali
 
 - 🧘 **Zen-Mode** - Toggle the entire ui by toggling the sidebar (fullscreen mode not required), with notable benefit for tiling the browser next to other applications.
 
+  - 🔒 **Zen-Mode: Security** Hiding the UI can suppress security signals, care was taken to institute gaurdrails like surfacing some security warnings (ex. HTTP site not secure).
+
 - ✨ **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
 
 - 🎨 **Theme Support** - Use your favorite Firefox themes, with sideberry optimizations done for you
-
 
 ![Demo Screenshot](demo-security.png)
 
