@@ -6,7 +6,7 @@
 
 A minimal Firefox CSS theme designed for **first-class Sideberry support** without the typical Firefox UI baggage. Inspired by the elegant UX philosophy of Zen Browser.
 
-Perfect for users who want the stability of using the Firefox with modenr aesthetics
+Perfect for users who want the stability of using the Firefox with a few quality enhancements. 
 
 - 🔗 **Seamless Sideberry Integration** - Urlbar inside the sidebar-box, aligned url and icons
 
