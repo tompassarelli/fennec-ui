@@ -238,7 +238,7 @@ body:not(:has(#sidebar-main[hidden])) #urlbar-container {
 
 /* when urlbar breaks out, position with respect to drawer gap */
 #urlbar-background {
-  margin-left: var(--fen-drawer-gap-x) !important;
+  margin-left: calc(var(--fen-drawer-gap-x) - 1px) !important;
   border-radius: 8px !important;
 }
 /* moz setting: "Show sidebar" active */
