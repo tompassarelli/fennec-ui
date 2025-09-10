@@ -54,10 +54,9 @@ This elegant toggle gives you the best of both worlds - organized tab management
 
 ## Disclaimer
 
-- The install guide directs users to download third party Firefox extensions (sideberry). Any extension can introduce security vulnerabilties or actively attempt to steal your data, as of 09/09/2025 sideberry is audited.
-- **Use at your own risk** - The author is not liable for any security issues, data breaches, or other damages
-- **You are responsible** for verifying the security of websites you visit
-- Always keep Firefox and your extensions updated
-- Consider the security implications before using any userChrome modifications or extension
+- The install guide directs users to download Firefox extensions, which can introdue security vulnerabilities or take direct hostile actions against users. 
+- **Use at your own risk** - The author is not liable for any security issues, data breaches, or other damages of usage of this repository or mentioned extensions.
+- **You are responsible** for verifying the security of websites, code, and extensions used
+- Always keep Firefox updated
 
 **By using this theme and mentioned Firefox extensions, you acknowledge these risks and agree that the author bears no responsibility for any consequences.**
