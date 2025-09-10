@@ -13,14 +13,17 @@ Not a fork! Perfect for users who want the stability of Firefox with a few quali
 - 🧘 **Zen-Mode** - Toggle the entire ui by toggling the sidebar (fullscreen mode not required), with notable benefit for tiling the browser next to other applications.
   - 🔒 **Zen-Mode: Security** - Hiding the UI suppresses security signals, but care was taken to institute guardrails like surfacing some security warnings (ex. HTTP site not secure).
 
+![Demo Screenshot](demo-security.png)
+
+When the UI is completely hidden, fennec will attempt (no garuntee, firefox chrome changes can break logic) to surface some but not all security relevant signals (like http warning). This is not a solution against phishing and many other attacks, users should only toggle the UI after url/content has been verified as secure and trustworthy.
+
 - ✨ **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
 
 - 🎨 **Theme Support** - Use your favorite Firefox themes, with sideberry optimizations done for you
 
-![Demo Screenshot](demo-security.png)
+![Demo Screenshot](demo-theme.png)
 
-When the UI is completely hidden, fennec will attempt (no garuntee, firefox chrome changes can break logic) to surface some but not all security relevant signals (like http warning). 
-- This is not a solution against phishing and many other attacks, users should only toggle the UI after url/content has been verified as secure and trustworthy.
+[Animated Sea Sunset 02](https://addons.mozilla.org/en-US/firefox/addon/animated-sea-sunset-02/) - A beautiful animated theme showcasing Fennec's theme compatibility
 
 ## Installation
 
