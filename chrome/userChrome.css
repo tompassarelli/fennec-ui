@@ -1,28 +1,89 @@
-/* 
-quick reference:
-#navigator-toolbox is the root container of most firefox elements
--- #nav-bar contains nav buttons (back.. refresh), urlbar, extensions
-#browser is the other primary container, nav toolbox's sibling, contains sidebar
+/* #region dev-docs */
 
-fennec's structure:
+/* #region firefox-chrome
 
-CC - conceptual component not actually in DOM, but a layout objective
+to understand fennec, we fundamentally need to grok firefox chrome
+
+#navigator-toolbox is the root container of most firefox chrome
+  - does not contain sidebar or browser content container
+  - #nav-bar (navigator-toolbox child) contains
+    - left nav buttons (back, forward, refresh)
+      - fennec hides some buttons, like home
+    - customizeable spring1 (spacer)
+      - fennec hides
+    - urlbar
+      - (fennec moves out of nav-bar, placing it above tabs)
+    - customizeable spring2 (spacer)
+      - fennec hides
+    - right buttons (web extensions, settings)
+      - fennec moves settings before left nav buttons
+
+#browser is the other primary container (nav toolbox's sibling) contains 
+  - sidebar-box
+  - sidebar-splitter
+  - tabbrowser-tabbox (contains html page content)
+    - note: can never have z-index priority compared to actual chrome
+      - mozilla does this for security reasons, the author assumes,
+        otherwise users could hide the chrome to confuse users
+
+#endregion firefox-chrome */
+
+/* #region fennec-ui
+
+=== Terms ===
+
+CC: Conceptual Component - not actually in DOM, but a layout objective
+gap: space between components, like padding/margin
+
+=== Components Overview ===
 
 [drawer] - CC
-  [ header  ] - CC | #nav-bar > buttons: settings, forward/back, refresh, extensions
-  [ urlbar  ] - #nav-bar > urlbar is moved out of header and put below
-  [ sidebar ] - web extensions like sideberry, bookmarks, history
+  [ header  ] - CC 
+  [ urlbar  ]
+  [ sidebar ] 
 [/drawer]
 
-Style Guide
+=== Component Details and Style System ===
 
-Fennec's drawer has 6px of left/right gap, set by --fen-drawer-gap-x
-- the left gap is generally implemented as padding on container components in the drawer
+[drawer] 
+- 6px of gap on x-axis: --fen-drawer-gap-x
+- left gap method: set padding on container components in the drawer
   - examples include: navigator-toolbox, urlbar-container, sidebar-box
-- the right gap is implemented by setting the sidebar-spliter (drag-line) width to gap value
+- right gap method: set sidebar-spliter (drag-line) width to gap value
 
-code below tends to be ordered with respect to the DOM top-bottom, left-right 
-*/
+[header]
+- #nav-bar > buttons: settings, forward/back, refresh, extensions
+
+[urlbar]
+- #nav-bar > urlbar is visually positioned out of #nav-bar section
+  and placed below it, aligned to left side of drawer
+- because urlbar is not part of sidebar in chrome, we need to resize it
+  with css type queries on sidebar width
+  - we don't resize it every pizel, but rather in chunks of 10px, so that
+    we can see the urlbar text resize in a more gradual manner
+    - to compensate for imperfect width, the default urlbar background 
+      is hidden when not focused, so that that a custom urlbar background 
+      which tracks sidebar width is visible
+  - whenever the urlbar expands, we extend the width to 600px
+
+[sidebar]
+- web extensions like sideberry, bookmarks, history
+
+=== Code Organization ===
+- code tends to be ordered with respect to the DOM top-bottom, left-right 
+- selectors tend to be ordered with respect to the DOM top-bottom, left-right
+- css is organized into regions, each region is prefixed with #region <region-name>
+- #regions organize sections of code that are related to each other
+  - start is prefixed with #region <region-name>
+  - end is suffixed with #endregion <region-name>
+  - regions can be folded with fold button or `za` key in vim
+
+
+#endregion fennec-ui */
+
+/* #endregion dev-docs */
+
+/* #region css vars and theme handling */
 
 :root {
   --fen-color: #36363a; /* default look if no theme selected */
@@ -30,7 +91,7 @@ code below tends to be ordered with respect to the DOM top-bottom, left-right
   /* padding/margin of the drawer components */
   --fen-drawer-gap-y: 6px;
   --fen-drawer-gap-x: 6px;
-  --fen-header-height-y: calc(32px + 2*var(--fen-drawer-gap-y));
+  --fen-header-height: calc(32px + 2*var(--fen-drawer-gap-y));
   
   --fen-urlbar-bg-height: 36px;
   
@@ -44,28 +105,27 @@ code below tends to be ordered with respect to the DOM top-bottom, left-right
   --sidebar-background-color: var(--toolbar-bgcolor);
 }
 
-/* ---------------------------------------- */
+/* #endregion css variables and theme handling */
 
-/* WORK COMPLETE sidebar toggle:
-   toggle sidebar -> toggle the whole ui 
-   userchrome toggle is no longer needed */
+/* #region dynamic sidebar toggle */
 
+/* toggle the entire ui by toggling the sidebar */
 body:has(#sidebar-box[hidden="true"]) #navigator-toolbox {
   width: 0px !important;
 }
-
 body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   width: 0px !important;
 }
 
-/* ---------------------------------------- */
+/* #endregion dynamic sidebar toggle */
 
-/* root node of everything mozilla */
+/* #region header */
+
 #navigator-toolbox {
   position: absolute !important;
   /* should cover the entire drawer area */
   width: calc(var(--fen-drawer-max-width) + var(--fen-drawer-gap-x));
-  height: var(--fen-header-height-y);
+  height: var(--fen-header-height);
   z-index: 2 !important;  /* 3 spills extensions onto page*/
   border: none !important;
   padding-top: var(--fen-drawer-gap-y);
@@ -82,8 +142,6 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   display: none;
 }
 
-/* ---- s:header ---- */
-
 /*  #nav-bar is basically fennec's header section, stubbed for structural reference */
 #nav-bar {
   width: calc(600px - var(--fen-drawer-gap-x));
@@ -95,69 +153,45 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   min-width: calc(var(--fen-drawer-max-width) + var(--fen-drawer-gap-x)) !important;
 }
 
-/* 
-   #nav-bar.children (below) 
-   note: we free nav-bar.urlbar with position absolute
-*/
-
-/* sidebar toggle - hide this */
+/* sidebar toggle - hide: bloat, just use any panel hotkey */
 #sidebar-button {
   display: none;
 }
 
 #back-button {
-  /* each nav btn is typically 32px, then 2px of padding */
-  /* so we have to mock a 34px btn */
-  /* so factor gap delta, then mock the btn */
+  /* needs extra margin because settings button is not in container */
+  /* each nav-btn is typically 32px, then 2px of padding */
+  /* so we have to mock a 34px btn, and factor in drawer-gap */
   margin-left: calc(34px + var(--fen-drawer-gap-x)) !important;
   padding-left: 2px !important;
 }
 
-/* #forward-button {
-  display: none;
-}  */
+/* #forward-button {} */
 
-/* #stop-reload-button {
-} */
+/* #stop-reload-button {} */
 
-/* home button - hide this */
+/* goes to home page - hide: bloat, new tab should goto home */
 #home-button {
   display: none;
 }
 
-/* START: spring1 (deprecated)
-
-  #customizableui-special-spring1 and 2 are spacers 
-  nav buttons - spring1 - url bar - spring2 - extensions/settings
-*/
-
+/* currently serves no purpose to fennec */
 #customizableui-special-spring1 {
   display: none;
 }
 
-/* END: spring1 (deprecated) */
+/* #urlbar-container{} -- here structurally, styled later */
 
-
-/* child: urlbar is here, we modify it later, just reference */
-/* #urlbar-container{} */
-
-
-/* START: spring2 (deprecated) */
-
-
+/* currently serves no purpose to fennec */
 #customizableui-special-spring2 {
   display: none;
 } 
 
-/* END: spring2 (deprecated) */
+/* #downloads-button {} */
 
-/* #downloads-button {
-} */
+/* #unified-extensions-button {} */
 
-/* #unified-extensions-button {
-} */
-
-/* all pinnned extensions overflow here... */
+/* when ext is pinned, extensions will overflow after unified btn... */
 
 /* settings menu */ 
 #PanelUI-button {
@@ -178,11 +212,9 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   display: none;
 }
 
-/* ---- e:header ---- */
+/* #endregion header */
 
-
-
-/* ---- s:urlbar ---- */
+/* #region urlbar */
 
 /* url bar above the sideberry tabs */
 #urlbar-container {
@@ -193,23 +225,21 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   top: calc(42px + var(--fen-drawer-gap-y));
 }
 
-/* hide default url background unless active */
-/* we use a custom background that tracks sidebar width*/
-#urlbar:not(:is(
-  [breakout-extend]
-)) #urlbar-background {
+/* because we use a custom urlbar-background that tracks sidebar width
+   we need to hide default background unless active */
+#urlbar:not(:is([breakout-extend])) #urlbar-background {
   display: none !important;
 }
 
-/* when it pops out, position with respect to drawer gap */
+/* when urlbar breaks out, position with respect to drawer gap */
 #urlbar-background {
   margin-left: var(--fen-drawer-gap-x) !important;
   border-radius: 8px !important;
 }
 
-/* eager width adjustments for urlbar as sidebar width changes */
-/* math - aesthetically urlbar width of 215 maps to a sidebar width of 224px */
-/* 224 appears to be min-width default for sidebar */
+/* eager width adjustments for urlbar as sidebar width changes
+   math - aesthetically urlbar width of 215 maps to a sidebar width of 224px
+   224 appears to be min-width default for sidebar */
 
 /* selecting style instead of width because width isn't available at start */
 /* 200s */
@@ -277,42 +307,32 @@ body:has(#browser > #sidebar-box[style*="; width: 6"]) #urlbar-container { width
   display: none;
 }
 
-/* the component selector this selector targets will show
-   "Not secure" if the connection is not secure, 
-   there is already an icon, only selectively hide if safe  */
-/* #identity-icon-label {} */
-
-/* shows "Sideberry" if on its extension page, not strictly needed */
-/* #identity-box.extensionPage #identity-icon-label {
-  display: none;
-} */
-
-/* shows Firefox if on settings, not strictly needed */
+/* shows Firefox if on settings page, not strictly needed */
 #identity-box.chromeUI #identity-icon-label {
   display: none;
 }
 
 /* align text with tabs */
-box#identity-box.chromeUI {
+#identity-box.chromeUI {
   margin-right: 6px !important;
 }
 
 /* align tab and url text - on extension page */
-box#identity-box.extensionPage {
+#identity-box.extensionPage {
   margin-right: 5px !important;
 }
 /* align tab and url text - when label text like not secure is present */
-box#identity-box #identity-icon-label {
+#identity-box #identity-icon-label {
   margin-left: 6px !important;
 }
 
 /* align tab and url text - on verified pages */
-box#identity-box.verifiedDomain {
+#identity-box.verifiedDomain {
   margin-right: 5px !important;
 }
 
 /* align url icon position with sideberry */
-box#identity-icon-box {
+#identity-icon-box {
   padding-left: 5px !important;
   padding-right: 5px !important;
 }
@@ -321,23 +341,14 @@ box#identity-icon-box {
 body:has(#identity-box.notSecure) #identity-icon-label {
   color: red;
 }
-box#identity-box[pageproxystate="valid"].notSecureText box#identity-icon-label {
+#identity-box[pageproxystate="valid"].notSecureText #identity-icon-label {
 	display: block !important;
 }
 /* always shown identity-icon label if not secure */
-box#identity-box[pageproxystate="valid"].notSecureText box#identity-icon-box {
+#identity-box[pageproxystate="valid"].notSecureText #identity-icon-box {
   flex-shrink: 0 !important;
   min-width: 125px;
 }
-
-
-/* keep it dark, except when breakout-extend=true, maps to focused it looks like */
-/* #urlbar:not([focused]) #identity-icon-box {
-  background-color: #252528 !important;
-} */
-/* #urlbar:is([breakout-extend]) #identity-icon-box {
-  background-color: #38383c !important;
-} */
 
 /*
 FIREFOX SECURITY STATES REFERENCE
@@ -354,21 +365,6 @@ Preserve these (security warnings):
 - .mixedContentBlocked - HTTPS with blocked mixed content
 - .mixedActiveContent  - HTTPS with active mixed content
 */
-
-/* hide the packlock if not hovered and only if site is secure */
-/* `.mixedContentBlocked` could be worth surfacing, for warnings */
-/* but it seems like .notSecure is always concerning, so we will surface that */
-/* #identity-box:not(.notSecure) {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-#urlbar:not(:hover) #identity-box:not(.notSecure) {
-  opacity: 0;
-  transform: translateX(-20px); 
-  pointer-events: none;
-  width: 0px;
-} */
 
 body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
     content: "🦊 Fennec UI - HTTP Alert: Not Secure";
@@ -390,25 +386,15 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
   display: none !important;
 }
 
+/* #endregion urlbar */
 
-/* ---- e:urlbar ---- */
-
-
-
-/* ---- s:sidebar ---- */
+/* #region sidebar */
 
 /* smallest width seems to be 224px */
-/* style 1 - hide when all UI */
 #sidebar-box {
   max-width: 600px !important;
   padding-left: var(--fen-drawer-gap-x);
   background-color: var(--fen-color) !important;
-}
-
-:root[titlepreface*="᠎"] {
-  #sidebar-box {
-    display: none !important;
-  }
 }
 
 /* Remove the "Sideberry", "History", etc. sidepanel header  */
@@ -432,7 +418,7 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
 #sidebar-box::after {
   content: "";
   position: absolute;
-  top: calc(31px + var(--fen-header-height-y) - 0.5*var(--fen-urlbar-bg-height));
+  top: calc(31px + var(--fen-header-height) - 0.5*var(--fen-urlbar-bg-height));
   height: var(--fen-urlbar-bg-height);
   width: calc(100% - var(--fen-drawer-gap-x));
   pointer-events: none;
@@ -445,15 +431,11 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
   padding-bottom: var(--fen-drawer-gap-y)
 }
 
-/* panel#notification-popup {
-  margin-left: 1px !important;
-} */
-
 /* fennec header divider when lwtheme is NOT present */
 :root:not([lwtheme]) .sidebar-browser-stack::before {
   content: "";
   position: fixed;
-  top: var(--fen-header-height-y);
+  top: var(--fen-header-height);
   width: calc(100% - var(--fen-drawer-gap-x));
   height: 1px;
   background-color: var(--toolbarbutton-icon-fill);
@@ -462,20 +444,16 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
   box-sizing: border-box;
 }
 
-/* increase ::before height if notifications are live */
-/* body:has(#notifications-toolbar) {
-  #sidebar-box::before {
-    height: 300px;
-  }
-} */
+/* #region notifications */
 
 #notifications-toolbar {
 	position: absolute;
 	top: 90px;
 }
 
+/* #endregion notifications */
 
-/* ------ s:sidebar-border ---- */ 
+/* #region sidebar-border */ 
 
 /* the gutter between the sidebar and page */
 #sidebar-splitter {
@@ -497,11 +475,11 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
   background-repeat: no-repeat !important;
 }
 
-/* ------ e:sidebar-border ---- */ 
+/* #endregion sidebar-border */ 
 
-/* ------ s:sideberry ---- */
+/* #region sideberry */
 /* done in sideberry css */
-/* ------ e:sideberry ---- */
+/* #endregion sideberry */
 
 
-/* ---- e:sidebar ---- */
+/* #endregion sidebar */
