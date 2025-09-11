@@ -63,7 +63,7 @@ fennec header divider when lwtheme is NOT present
   content: "";
   position: fixed;
   top: var(--fen-header-height);
-  width: calc(100% - var(--fen-drawer-gap-x));
+  width: calc(100% - var(--fen-gap-x));
   height: 1px;
   background-color: var(--toolbarbutton-icon-fill);
   opacity: 0.3 !important;

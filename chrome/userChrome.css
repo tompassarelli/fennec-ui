@@ -46,7 +46,7 @@ gap: space between components, like padding/margin
 === Component Details and Style System ===
 
 [drawer] 
-- 6px of gap on x-axis: --fen-drawer-gap-x
+- 6px of gap on x-axis: --fen-gap-x
 - left gap method: set padding on container components in the drawer
   - examples include: navigator-toolbox, urlbar-container, sidebar-box
 - right gap method: set sidebar-spliter (drag-line) width to gap value
@@ -64,7 +64,7 @@ gap: space between components, like padding/margin
     - to compensate for imperfect width, the default urlbar background 
       is hidden when not focused, so that that a custom urlbar background 
       which tracks sidebar width is visible
-  - whenever the urlbar expands, we extend the width to 600px
+  - whenever the urlbar expands, we extend the width to --fen-max-width
 
 [sidebar]
 - web extensions like sideberry, bookmarks, history
@@ -86,18 +86,21 @@ gap: space between components, like padding/margin
 /* #region css vars and theme handling */
 
 :root {
-  --fen-color: #36363a; /* default look if no theme selected */
+  /* fennec's default look if no theme selected */
+  --fen-color: #36363a;
   
-  /* padding/margin of the drawer components */
-  --fen-drawer-gap-y: 6px;
-  --fen-drawer-gap-x: 6px;
-  --fen-header-height: calc(32px + 2*var(--fen-drawer-gap-y));
+  /* gap between drawer components and edges of drawer */
+  --fen-gap-y: 6px;
+  --fen-gap-x: 6px;
   
-  /* control the height of the urlbar background */
+  /* header height - currently a partial function of drawer gap */
+  --fen-header-height: calc(32px + 2*var(--fen-gap-y));
+  
+  /* urlbar background height */
   --fen-urlbar-bg-height: 34px;
   
-  /* to minimize supporting media query sprawl on constantly resizing urlbar */
-  --fen-drawer-max-width: 600px;
+  /* minimize media query sprawl for resizing urlbar */
+  --fen-max-width: 600px;
 }
 
 /* if a theme is present, we will apply it with some sideberry opinonated overrides */
@@ -125,11 +128,11 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
 #navigator-toolbox {
   position: absolute !important;
   /* should cover the entire drawer area */
-  width: calc(var(--fen-drawer-max-width) + var(--fen-drawer-gap-x));
+  width: calc(var(--fen-max-width) + var(--fen-gap-x));
   height: var(--fen-header-height);
   z-index: 2 !important;  /* 3 spills extensions onto page*/
   border: none !important;
-  padding-top: var(--fen-drawer-gap-y);
+  padding-top: var(--fen-gap-y);
   background-color: var(--fen-color) !important;
 }
 
@@ -145,7 +148,7 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
 
 /*  #nav-bar is basically fennec's header section, stubbed for structural reference */
 #nav-bar {
-  min-width: calc(var(--fen-drawer-max-width) - var(--fen-drawer-gap-x));
+  min-width: calc(var(--fen-max-width) - var(--fen-gap-x));
   border-top: 0px !important;
 }
 
@@ -164,7 +167,7 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   /* needs extra margin because settings button is not in container */
   /* each nav-btn is typically 32px, then 2px of padding */
   /* so we have to mock a 34px btn, and factor in drawer-gap */
-  margin-left: calc(34px + var(--fen-drawer-gap-x)) !important;
+  margin-left: calc(34px + var(--fen-gap-x)) !important;
   padding-left: 2px !important;
 }
 
@@ -199,7 +202,7 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   position: absolute !important;
   width: 30px !important;
   margin: 0px !important;
-  padding-left: var(--fen-drawer-gap-x) !important;
+  padding-left: var(--fen-gap-x) !important;
 }
 
 #PanelUI-menu-button {
@@ -222,8 +225,8 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   position: absolute;
   width: 215px !important; 
   margin: 0px !important;
-  margin-left: var(--fen-drawer-gap-x) !important;
-  top: calc(42px + var(--fen-drawer-gap-y));
+  margin-left: var(--fen-gap-x) !important;
+  top: calc(42px + var(--fen-gap-y));
 }
 /* moz setting: "Show sidebar" active */
 body:not(:has(#sidebar-main[hidden])) #urlbar-container {
@@ -238,7 +241,7 @@ body:not(:has(#sidebar-main[hidden])) #urlbar-container {
 
 /* when urlbar breaks out, position with respect to drawer gap */
 #urlbar-background {
-  margin-left: calc(var(--fen-drawer-gap-x) - 1px) !important;
+  margin-left: calc(var(--fen-gap-x) - 1px) !important;
   border-radius: 8px !important;
 }
 /* moz setting: "Show sidebar" active */
@@ -303,7 +306,7 @@ body:has(#browser > #sidebar-box[style*="; width: 6"]) #urlbar-container { width
 
 /* set a minimum width for the url search */
 #urlbar:is([focused][breakout-extend]) {
-  width: 600px !important;
+  width: var(--fen-max-width) !important;
 }
 
 /* remove google icon crowding search bar */
@@ -402,8 +405,8 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
 
 /* smallest width seems to be 224px */
 #sidebar-box {
-  max-width: 600px !important;
-  padding-left: var(--fen-drawer-gap-x);
+  max-width: var(--fen-max-width) !important;
+  padding-left: var(--fen-gap-x);
   background-color: var(--fen-color) !important;
 }
 
@@ -436,7 +439,7 @@ box#sidebar-main {
   position: absolute;
   top: calc(31px + var(--fen-header-height) - 0.5*var(--fen-urlbar-bg-height));
   height: var(--fen-urlbar-bg-height);
-  width: calc(100% - var(--fen-drawer-gap-x));
+  width: calc(100% - var(--fen-gap-x));
   pointer-events: none;
   box-sizing: border-box;
   background-color: rgba(0,0,0,0.3);
@@ -444,7 +447,7 @@ box#sidebar-main {
 }
 
 .sidebar-browser-stack {
-  padding-bottom: var(--fen-drawer-gap-y)
+  padding-bottom: var(--fen-gap-y)
 }
 
 /* #region notifications */
@@ -461,7 +464,7 @@ box#sidebar-main {
 /* the gutter between the sidebar and page */
 #sidebar-splitter {
   margin: 0px !important;
-  width: var(--fen-drawer-gap-x);
+  width: var(--fen-gap-x);
   border: 0px !important;
   /* for theme support... */
   /* make top y% see-through, rest uses --fen-color */
