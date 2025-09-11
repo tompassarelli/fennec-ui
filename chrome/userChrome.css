@@ -89,6 +89,9 @@ gap: space between components, like padding/margin
   /* fennec's default look if no theme selected */
   --fen-color: #36363a;
   
+  /* show sidebar gap */
+  --fen-show-sidebar-gap: 6px;
+  
   /* gap between drawer components and edges of drawer */
   --fen-gap-y: 6px;
   --fen-gap-x: 8px;
@@ -171,6 +174,11 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   padding-left: 2px !important;
 }
 
+body:not(:has(#sidebar-main[hidden])) #back-button {
+  margin-left: calc(var(--fen-show-sidebar-gap) + 34px + var(--fen-gap-x)) !important;
+}
+
+
 /* #forward-button {} */
 
 /* #stop-reload-button {} */
@@ -206,13 +214,14 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   left: var(--fen-gap-x) !important;
 }
 
+body:not(:has(#sidebar-main[hidden])) #PanelUI-button {
+  left: calc(var(--fen-show-sidebar-gap) + var(--fen-gap-x)) !important;
+}
+
 #PanelUI-menu-button {
   width: 100%;
   margin: 0px !important;
   padding: 0px !important;
-}
-
-#PanelUI-menu-button > .toolbarbutton-badge-stack {
 }
 
 toolbarbutton {
@@ -225,6 +234,16 @@ toolbarbutton {
 }
 
 /* #endregion header */
+
+/* region vertical sidebar  */
+
+/* an option in mozilla to show side bar under hoziontal/vertical tabs */
+/* appears to the left of fennec url/sidebar */
+.wrapper {
+  background-color: var(--fen-color) !important;
+}
+
+/* endregion vertical sidebar */
 
 /* #region urlbar */
 
