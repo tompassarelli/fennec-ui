@@ -91,11 +91,12 @@ gap: space between components, like padding/margin
   /* padding/margin of the drawer components */
   --fen-drawer-gap-y: 6px;
   --fen-drawer-gap-x: 6px;
-  --fen-header-height-y: calc(32px + 2*var(--fen-drawer-gap-y));
+  --fen-header-height: calc(32px + 2*var(--fen-drawer-gap-y));
   
-  --fen-urlbar-bg-height: 36px;
+  /* control the height of the urlbar background */
+  --fen-urlbar-bg-height: 34px;
   
-  /* not technically nessecary, mainly to minimize media query sprawl on constantly resizing urlbar */
+  /* to minimize supporting media query sprawl on constantly resizing urlbar */
   --fen-drawer-max-width: 600px;
 }
 
@@ -125,7 +126,7 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   position: absolute !important;
   /* should cover the entire drawer area */
   width: calc(var(--fen-drawer-max-width) + var(--fen-drawer-gap-x));
-  height: var(--fen-header-height-y);
+  height: var(--fen-header-height);
   z-index: 2 !important;  /* 3 spills extensions onto page*/
   border: none !important;
   padding-top: var(--fen-drawer-gap-y);
@@ -191,8 +192,7 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
 /* #downloads-button {} */
 
 /* #unified-extensions-button {} */
-
-/* when ext is pinned, extensions will overflow after unified btn... */
+/* when ext is pinned, extensions will overflow after unified button */
 
 /* settings menu */ 
 #PanelUI-button {
@@ -414,8 +414,8 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
 
 box#sidebar-main {
   position: relative !important;
-  top: var(--fen-header-height-y) !important;
-  height: calc(100vh - var(--fen-header-height-y)) !important;
+  top: var(--fen-header-height) !important;
+  height: calc(100vh - var(--fen-header-height)) !important;
 }
 
 /* create space for urlbar area inside the sidebar */
@@ -434,7 +434,7 @@ box#sidebar-main {
 #sidebar-box::after {
   content: "";
   position: absolute;
-  top: calc(31px + var(--fen-header-height-y) - 0.5*var(--fen-urlbar-bg-height));
+  top: calc(31px + var(--fen-header-height) - 0.5*var(--fen-urlbar-bg-height));
   height: var(--fen-urlbar-bg-height);
   width: calc(100% - var(--fen-drawer-gap-x));
   pointer-events: none;

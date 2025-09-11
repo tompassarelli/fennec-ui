@@ -62,7 +62,7 @@ fennec header divider when lwtheme is NOT present
 :root:not([lwtheme]) .sidebar-browser-stack::before {
   content: "";
   position: fixed;
-  top: var(--fen-header-height-y);
+  top: var(--fen-header-height);
   width: calc(100% - var(--fen-drawer-gap-x));
   height: 1px;
   background-color: var(--toolbarbutton-icon-fill);
