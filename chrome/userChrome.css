@@ -91,13 +91,13 @@ gap: space between components, like padding/margin
   
   /* gap between drawer components and edges of drawer */
   --fen-gap-y: 6px;
-  --fen-gap-x: 6px;
+  --fen-gap-x: 8px;
   
   /* header height - currently a partial function of drawer gap */
   --fen-header-height: calc(32px + 2*var(--fen-gap-y));
   
   /* urlbar background height */
-  --fen-urlbar-bg-height: 34px;
+  --fen-urlbar-bg-height: 36px;
   
   /* minimize media query sprawl for resizing urlbar */
   --fen-max-width: 600px;
@@ -199,16 +199,24 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
 
 /* settings menu */ 
 #PanelUI-button {
-  position: absolute !important;
+  position:  absolute !important;
   width: 30px !important;
   margin: 0px !important;
-  padding-left: var(--fen-gap-x) !important;
+  top: 0px !important;;
+  left: var(--fen-gap-x) !important;
 }
 
 #PanelUI-menu-button {
-  width: 30px !important;
+  width: 100%;
   margin: 0px !important;
   padding: 0px !important;
+}
+
+#PanelUI-menu-button > .toolbarbutton-badge-stack {
+}
+
+toolbarbutton {
+  opacity: 0.7;
 }
 
 /* bookmarks area - always disable */
@@ -241,7 +249,7 @@ body:not(:has(#sidebar-main[hidden])) #urlbar-container {
 
 /* when urlbar breaks out, position with respect to drawer gap */
 #urlbar-background {
-  margin-left: calc(var(--fen-gap-x) - 1px) !important;
+  margin-left: calc(0.5*var(--fen-gap-x)) !important;
   border-radius: 8px !important;
 }
 /* moz setting: "Show sidebar" active */
@@ -349,6 +357,9 @@ body:has(#browser > #sidebar-box[style*="; width: 6"]) #urlbar-container { width
   padding-left: 5px !important;
   padding-right: 5px !important;
 }
+#identity-icon-box > image#identity-icon {
+  transform: scaleX(1.05) !important;
+}
 
 /* warn if not secure */
 body:has(#identity-box.notSecure) #identity-icon-label {
@@ -425,11 +436,11 @@ box#sidebar-main {
 #sidebar-box::before {
   content: "";
   display: block;
-  height: 100px;
+  height: calc(22px + var(--fen-header-height) + var(--fen-urlbar-bg-height));
   width: 100%;
   pointer-events: none;
   box-sizing: border-box;
-  background-color: var(--fen-color);
+/*   background-color: var(--fen-color); */
   color: aliceblue;
 }
 
@@ -443,7 +454,7 @@ box#sidebar-main {
   pointer-events: none;
   box-sizing: border-box;
   background-color: rgba(0,0,0,0.3);
-  border-radius: 8px !important;
+  border-radius: 4px !important;
 }
 
 .sidebar-browser-stack {
@@ -464,7 +475,7 @@ box#sidebar-main {
 /* the gutter between the sidebar and page */
 #sidebar-splitter {
   margin: 0px !important;
-  width: var(--fen-gap-x);
+  width: calc(var(--fen-gap-x) + 2px);
   border: 0px !important;
   /* for theme support... */
   /* make top y% see-through, rest uses --fen-color */
