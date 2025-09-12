@@ -392,6 +392,11 @@ body:has(#browser > #sidebar-box[style*="; width: 6"]) #urlbar-container { width
   margin-right: 6px !important;
 }
 
+/* give url text some padding when typing */
+body:has(#identity-box[pageproxystate="invalid"]) #urlbar-input {
+  padding-left: 5px !important;
+}
+
 /* align tab and url text - on extension page */
 #identity-box.extensionPage {
   margin-right: 5px !important;
