@@ -17,10 +17,6 @@ Perfect for people who want the stability of Firefox with a few quality enhancem
 
 🎨 **Theme Support** - Use your favorite Firefox themes, with additional sideberry optimizations
 
-![Demo Screenshot](demo-theme.png)
-
-[Animated Sea Sunset 02](https://addons.mozilla.org/en-US/firefox/addon/animated-sea-sunset-02/) - A beautiful animated theme showcasing Fennec's theme compatibility
-
 ## Installation
 
 Note: Please see [disclaimer](#disclaimer) before installing
