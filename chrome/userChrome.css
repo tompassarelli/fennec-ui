@@ -46,7 +46,8 @@ gap: space between components, like padding/margin
 === Component Details and Style System ===
 
 [drawer] 
-- 6px of gap on x-axis: --fen-gap-x
+- gap on x-axis: --fen-gap-x
+- gap on y-axis: --fen-gap-y
 - left gap method: set padding on container components in the drawer
   - examples include: navigator-toolbox, urlbar-container, sidebar-box
 - right gap method: set sidebar-spliter (drag-line) width to gap value
@@ -94,7 +95,7 @@ gap: space between components, like padding/margin
   
   /* gap between drawer components and edges of drawer */
   --fen-gap-y: 6px;
-  --fen-gap-x: 8px;
+  --fen-gap-x: 10px;
   
   /* header height - currently a partial function of drawer gap */
   --fen-header-height: calc(32px + 2*var(--fen-gap-y));
@@ -162,6 +163,11 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   background-color: var(--fen-color);
 }
 
+/* dim the header buttons a tad to not draw too much attention */
+toolbarbutton {
+  opacity: 0.7;
+}
+
 /* sidebar toggle - hide: bloat, just use any panel hotkey */
 #sidebar-button {
   display: none;
@@ -174,10 +180,10 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   margin-left: calc(32px + var(--fen-gap-x) + 1px) !important;
 }
 
+/* adjust nav buttons when show sidebar option is enabled */
 body:not(:has(#sidebar-main[hidden])) #back-button {
   margin-left: calc(var(--fen-show-sidebar-gap) + 34px + var(--fen-gap-x)) !important;
 }
-
 
 /* #forward-button {} */
 
@@ -214,6 +220,7 @@ body:not(:has(#sidebar-main[hidden])) #back-button {
   left: calc(var(--fen-gap-x) + 3px) !important;
 }
 
+/* adjust settings buttons when show sidebar option is enabled */
 body:not(:has(#sidebar-main[hidden])) #PanelUI-button {
   left: calc(var(--fen-show-sidebar-gap) + var(--fen-gap-x)) !important;
 }
@@ -222,10 +229,6 @@ body:not(:has(#sidebar-main[hidden])) #PanelUI-button {
   width: 100%;
   margin: 0px !important;
   padding: 0px !important;
-}
-
-toolbarbutton {
-  opacity: 0.7;
 }
 
 /* bookmarks area - always disable */
