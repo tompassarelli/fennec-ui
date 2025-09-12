@@ -1,27 +1,30 @@
 # Fennec UI
 ![Demo Screenshot](demo.png)
 
-A minimal Mozilla Firefox CSS theme designed for **first-class Sideberry support** without the typical UI baggage. Inspired by the elegant UX of Zen Browser.
+A Mozilla Firefox experience designed around minimalism and optimized vertical tab support. Achieved through userChrome.css modifications and cohesive extension integrations that work together seamlessly.
 
-Perfect for people who want the stability of Firefox with a few quality enhancements.
+Inspired by the elegant UX of Zen Browser, GNU/Linux, and Vim.
 
 ## Features
 
-🔗 **Complete Sideberry Integration** - Urlbar inside the sidebar-box, aligned url and icons
+🔗 **Enhanced Sideberry Integration** - Urlbar inside the sidebar-box, tracks sidebar width, and expands when focused
 
-🧘 **Zen Mode** - Toggling the sidebar hides the UI, maximizing screen space and aiding focus when tiled or fullscreen
+🧘 **Zen Mode** - Toggling the sidebar hides the UI, maximizing screen space and aiding focus when tiled or maximized
 
-✨ **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
+✨ **Minimal Chrome** - Only essential objects exposed, coherent with a keyboard driven UX
 
-🔧 **Easily Extendable** - Clean code and detailed docs to support contribution and customization
+🛠️ **Community Minded** - Clean code and detailed docs to support auditing, customization, and contribution, ensuring the project remains maintainable and sustainable
 
-🎨 **Theme Support** - Use your favorite Firefox themes, with additional sideberry optimizations
+🎨 **Theme Support** - Use your favorite Firefox theme to further personalize your experience
 
 ## Installation
 
 Note: Please see [disclaimer](#disclaimer) before installing
 
-1. In Firefox settings, ensure "Horizontal Tabs" is on, "Sidebar off", and the sidebar is configure to be on the left side of the browser
+1. Set Firefox Tab Settings to supported configuration
+   - "Horizontal Tabs" enabled
+   - "Show Sidebar" is off (optional, not a prioritized support target, currently it works)
+   -  Sidebar set to the left side of the browser
 2. Enable `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
 3. Navigate to your Firefox profile folder
    - Open Firefox
