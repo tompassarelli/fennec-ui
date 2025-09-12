@@ -19,7 +19,7 @@ Inspired by the elegant UX of Zen Browser, GNU/Linux, and Vim.
 
 ## Installation
 
-Note: Please see [disclaimer](#disclaimer) before installing
+Note: Please see [security considerations](#security-considerations) before installing
 
 1. Set Firefox Tab Settings to supported configuration
    - "Horizontal Tabs" enabled
@@ -51,7 +51,7 @@ This elegant toggle gives you the best of both worlds - organized tab management
 
 👾 **[Known Issues & Troubleshooting](https://github.com/tompassarelli/fennec-ui/wiki/Troubleshooting)** - noted some common issues and workarounds 
 
-## Disclaimer
+## Security Considerations
 
 - The install guide directs users to download Firefox extensions. Firefox extensions can introduce security vulnerabilities or take direct hostile actions against users. 
 - Zen Mode hides the UI which obviously suppresses security signals like padlock warnings. In appreciation of this concern, Fennec will still attempt to surface some security warnings (ex. HTTP Not Secure) prepended to page content as a header alert. Not a solution against phishing and other attacks, only toggle the UI after the page has been verified as secure and trustworthy.
