@@ -53,7 +53,7 @@ This elegant toggle gives you the best of both worlds - organized tab management
 
 ## Security Considerations
 
-- The install guide directs users to download Firefox extensions. Firefox extensions can introduce security vulnerabilities or take direct hostile actions against users. 
+- The install guide directs users to download Firefox extensions. Firefox extensions can introduce security vulnerabilities and/or take direct hostile actions against users. 
 - Zen Mode hides the UI which obviously suppresses security signals like padlock warnings. In appreciation of this concern, Fennec will still attempt to surface some security warnings (ex. HTTP Not Secure) prepended to page content as a header alert. Not a solution against phishing and other attacks/vulnerabilities, only toggle the UI after the page has been verified as secure and trustworthy.
 - **Use at your own risk** - The author is not liable for any security issues, data breaches, or other damages of usage of this repository or mentioned extensions.
 - **You are responsible** for verifying the security of websites, code, and extensions used
