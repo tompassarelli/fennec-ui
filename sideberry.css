@@ -4,10 +4,24 @@
  --fen-pl: 6px;
 }
 
-.top-horizontal-box {
-/* 	width: calc(100% - 4px); */
-  margin-bottom: var(--tabs-margin);
-  right: 2px;
+#nav_bar {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.main-box {
+  padding-top: 6px;
+}
+
+.main-items {
+  padding-left: 1px;
+}
+
+.main-items > .nav-item {
+	width: 26px;
+	height: 28px;
+	margin-top: 1px;
+	margin-left: 3px;
 }
 
 /* aligns tab text with url text */
@@ -15,13 +29,25 @@
   padding-left: 4px;
 }
 
+
 /* don't allow tab margin to resize width */
 .AnimatedTabList > .Tab {
   width: 100%;
-  margin-left: 0px;
+  margin-left: 0px; /*override to 0 */
 }
+
+.AnimatedTabList > .Tab > div.body > .fav {
+  margin-left: 8px;
+}
+
 
 .PinnedTabsBar {
   padding: 0px !important;
+  padding-left: 1px !important;
   margin-bottom: 6px;
+}
+
+.BottomBar {
+  padding-left: 0px;
+  padding-right: 0px;
 }
