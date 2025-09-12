@@ -4,22 +4,22 @@
 
 *Clean browsing with integrated Sideberry sidebar - no visual clutter, just pure functionality.*
 
-A minimal Firefox CSS theme designed for **first-class Sideberry support** without the typical Firefox UI baggage. Inspired by the elegant UX philosophy of Zen Browser.
+A minimal Mozilla Firefox CSS theme designed for **first-class Sideberry support** without the typical UI baggage. Inspired by the elegant UX of Zen Browser.
 
-Not a fork! Perfect for users who want the stability of Firefox with a few quality enhancements.
+Perfect for people who want the stability of Firefox with a few quality enhancements.
 
-- 🔗 **Seamless Sideberry Integration** - Urlbar inside the sidebar-box, aligned url and icons
+## Features
 
-- 🧘 **Zen-Mode** - Toggle the entire ui by toggling the sidebar (fullscreen mode not required), with notable benefit for tiling the browser next to other applications.
-  - 🔒 **Zen-Mode: Security** - Hiding the UI suppresses security signals, but care was taken to institute guardrails like surfacing some security warnings (ex. HTTP site not secure).
+🔗 **Complete Sideberry Integration** - Urlbar inside the sidebar-box, aligned url and icons
 
-![Demo Screenshot](demo-security.png)
+🧘 **Zen Mode** - Toggle the entire ui by toggling the sidebar, maximizing screen space and aiding focus when tiled or fullscreen.
+  - Be advised that hiding the UI obviously suppresses security signals. In appreciation of this concern, Fennec will still attempt to surface some security warnings (ex. HTTP Not Secure). Note that this is not a solution against phishing and many other attacks, users should only toggle the UI after the page has been verified as secure and trustworthy.
 
-When the UI is completely hidden, fennec will attempt (no garuntee, firefox chrome changes can break logic) to surface some but not all security relevant signals (like http warning). This is not a solution against phishing and many other attacks, users should only toggle the UI after url/content has been verified as secure and trustworthy.
+✨ **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
 
-- ✨ **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
+🔧 **Easily Extendable** - Clean code and detailed docs to support contribution and customization
 
-- 🎨 **Theme Support** - Use your favorite Firefox themes, with sideberry optimizations done for you
+🎨 **Theme Support** - Use your favorite Firefox themes, with additional sideberry optimizations
 
 ![Demo Screenshot](demo-theme.png)
 

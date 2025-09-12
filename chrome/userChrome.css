@@ -100,7 +100,7 @@ gap: space between components, like padding/margin
   --fen-header-height: calc(32px + 2*var(--fen-gap-y));
   
   /* urlbar */
-  --fen-urlbar-bg-height: 38px;
+  --fen-urlbar-bg-height: 36px;
   --fen-urlbar-border-radius: 4px;
   
   /* minimize media query sprawl for resizing urlbar */
