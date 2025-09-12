@@ -13,7 +13,7 @@ Perfect for people who want the stability of Firefox with a few quality enhancem
 🔗 **Complete Sideberry Integration** - Urlbar inside the sidebar-box, aligned url and icons
 
 🧘 **Zen Mode** - Toggle the entire ui by toggling the sidebar, maximizing screen space and aiding focus when tiled or fullscreen.
-  - Be advised that hiding the UI obviously suppresses security signals. In appreciation of this concern, Fennec will still attempt to surface some security warnings (ex. HTTP Not Secure). Note that this is not a solution against phishing and many other attacks, users should only toggle the UI after the page has been verified as secure and trustworthy.
+  - Be advised that hiding the UI obviously suppresses security signals. In appreciation of this concern, Fennec will still attempt to surface some security warnings (ex. HTTP Not Secure). Not a solution against phishing and other attacks, only toggle the UI after the page has been verified as secure and trustworthy.
 
 ✨ **Minimal Chrome** - Remove unnecessary Firefox UI elements that clutter the experience  
 
