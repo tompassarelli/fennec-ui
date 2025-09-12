@@ -100,6 +100,9 @@ gap: space between components, like padding/margin
   /* header height - currently a partial function of drawer gap */
   --fen-header-height: calc(32px + 2*var(--fen-gap-y));
   
+  /* dim header buttons a bit */
+  --fen-header-btn-dim: 0.7;
+  
   /* urlbar */
   --fen-urlbar-bg-height: 36px;
   --fen-urlbar-border-radius: 4px;
@@ -121,9 +124,16 @@ gap: space between components, like padding/margin
 /* toggle the entire ui by toggling the sidebar */
 body:has(#sidebar-box[hidden="true"]) #navigator-toolbox {
   width: 0px !important;
+  pointer-events: none;
 }
+
 body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   width: 0px !important;
+  pointer-events: none;
+}
+/* hide the identity icon box background when sidebar is hidden */
+body:has(#sidebar-box[hidden="true"]) #identity-icon-box {
+	background-color: transparent !important;
 }
 
 /* #endregion dynamic sidebar toggle */
@@ -157,6 +167,11 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   border-top: 0px !important;
 }
 
+/* dim the header buttons a tad to not draw too much attention */
+#nav-bar > toolbaritem {
+  opacity: var(--fen-header-btn-dim);
+}
+
 /* warning this object if set min-width statically 
    will cause pinned ext. load failure when browser bootstrap */
 #nav-bar-customization-target {
@@ -164,9 +179,15 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
 }
 
 /* dim the header buttons a tad to not draw too much attention */
-toolbarbutton {
-  opacity: 0.7;
+#nav-bar-customization-target > toolbarbutton {
+  opacity: var(--fen-header-btn-dim);
 }
+
+/* dim the header buttons a tad to not draw too much attention */
+#nav-bar-customization-target > toolbaritem {
+  opacity: var(--fen-header-btn-dim);
+}
+
 
 /* sidebar toggle - hide: bloat, just use any panel hotkey */
 #sidebar-button {
@@ -388,10 +409,12 @@ body:has(#browser > #sidebar-box[style*="; width: 6"]) #urlbar-container { width
   transform: scaleX(1.05) !important;
 }
 
-/* warn if not secure */
-body:has(#identity-box.notSecure) #identity-icon-label {
+/* highlight warning if not secure */
+/* deprecate to support themes more clenaly */
+/* body:has(#identity-box.notSecure) #identity-icon-label {
   color: red;
-}
+} */
+
 #identity-box[pageproxystate="valid"].notSecureText #identity-icon-label {
 	display: block !important;
 }
