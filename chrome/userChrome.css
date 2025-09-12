@@ -97,6 +97,13 @@ gap: space between components, like padding/margin
   --fen-gap-y: 6px;
   --fen-gap-x: 10px;
   
+  /* panelui gap */
+  --fen-panelui-gap: 3px;
+  --fen-nav-btn-width: 32px;
+  --fen-nav-btn-gap: calc(
+    var(--fen-nav-btn-width) + var(--fen-gap-x) + var(--fen-panelui-gap) - 2px
+    );
+  
   /* header height - currently a partial function of drawer gap */
   --fen-header-height: calc(32px + 2*var(--fen-gap-y));
   
@@ -131,7 +138,6 @@ body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
   width: 0px !important;
   pointer-events: none;
 }
-/* hide the identity icon box background when sidebar is hidden */
 body:has(#sidebar-box[hidden="true"]) #identity-icon-box {
 	background-color: transparent !important;
 }
@@ -198,12 +204,12 @@ body:has(#sidebar-box[hidden="true"]) #identity-icon-box {
   /* needs extra margin because settings button is not in container */
   /* each nav-btn is typically 32px, then 2px of padding */
   /* so we have to mock a btn, and factor in drawer-gap */
-  margin-left: calc(32px + var(--fen-gap-x) + 1px) !important;
+  margin-left: var(--fen-nav-btn-gap) !important;
 }
 
 /* adjust nav buttons when show sidebar option is enabled */
 body:not(:has(#sidebar-main[hidden])) #back-button {
-  margin-left: calc(var(--fen-show-sidebar-gap) + 34px + var(--fen-gap-x)) !important;
+  margin-left: calc(var(--fen-show-sidebar-gap) + var(--fen-nav-btn-gap)) !important;
 }
 
 /* #forward-button {} */
@@ -238,7 +244,7 @@ body:not(:has(#sidebar-main[hidden])) #back-button {
   width: 26px !important;
   margin: 0px !important;
   top: 0px !important;;
-  left: calc(var(--fen-gap-x) + 3px) !important;
+  left: calc(var(--fen-gap-x) + var(--fen-panelui-gap)) !important;
 }
 
 /* adjust settings buttons when show sidebar option is enabled */
@@ -397,7 +403,7 @@ body:has(#browser > #sidebar-box[style*="; width: 6"]) #urlbar-container { width
 
 /* align tab and url text - on verified pages */
 #identity-box.verifiedDomain {
-  margin-right: 5px !important;
+  margin-right: 6px !important;
 }
 
 /* align url icon position with sideberry */
