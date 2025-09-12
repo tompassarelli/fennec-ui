@@ -2,7 +2,7 @@
 
 ![Demo Screenshot](demo.png)
 
-*Clean browsing with integrated Sideberry sidebar - no visual clutter, just pure functionality.*
+*Clean browsing featuring no visual clutter*
 
 A minimal Mozilla Firefox CSS theme designed for **first-class Sideberry support** without the typical UI baggage. Inspired by the elegant UX of Zen Browser.
 
