@@ -1,8 +1,5 @@
 # 🦊 Fennec UI
-
 ![Demo Screenshot](demo.png)
-
-*Clean browsing featuring no visual clutter*
 
 A minimal Mozilla Firefox CSS theme designed for **first-class Sideberry support** without the typical UI baggage. Inspired by the elegant UX of Zen Browser.
 
