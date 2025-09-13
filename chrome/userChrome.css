@@ -99,12 +99,12 @@ gap: space between components, like padding/margin
   --fen-sidebar-splitter-width: calc(1.25*var(--fen-gap-x));
   
   /* header buttons */
-  /* nav btns need extra margin because settings btn is not in container */
-  /* each nav-btn is typically 32px, then 2px of padding */
-  /* so we have to mock a btn, and factor in drawer-gap */
-  --fen-panelui-gap: 2.5px;
+  /* - nav btns need extra margin because settings btn is not in container */
+  /* - each nav-btn is typically 32px, then 2px of padding */
+  /* - so we have to mock a btn, and factor in drawer-gap */
+  --fen-panelui-gap: 4px;
   --fen-nav-btn-width: 32px;
-  --fen-nav-btn-gap: calc(var(--fen-gap-x) + var(--fen-nav-btn-width) + var(--fen-panelui-gap) - 1px);
+  --fen-nav-btn-gap: calc(var(--fen-gap-x) + var(--fen-nav-btn-width) + var(--fen-panelui-gap) + 1px);
   
   /* header height - currently a partial function of drawer gap */
   --fen-header-height: calc(32px + 2*var(--fen-gap-y));
@@ -113,7 +113,7 @@ gap: space between components, like padding/margin
   --fen-header-btn-dim: 0.7;
   
   /* urlbar */
-  --fen-urlbar-bg-height: 36px;
+  --fen-urlbar-bg-height: 38px;
   --fen-urlbar-border-radius: 4px;
   
   /* tab bar and notifications */
@@ -181,6 +181,20 @@ body:has(#sidebar-box[hidden="true"]) #identity-icon-box {
 #nav-bar > toolbaritem {
   opacity: var(--fen-header-btn-dim);
 }
+
+/* this was to align hover backgrounds nicer with padlock */
+/* instead going to shift lock icon and tabs over 2px */
+/* #nav-bar-customization-target image:is(.toolbarbutton-icon, .toolbaritem) {
+  width: 28px !important;
+  height: 28px !important;
+  padding: 6px !important;
+  margin-top: 3px !important;
+  margin-left: 4px !important;
+} */
+/* #PanelUI-menu-button > stack.toolbarbutton-badge-stack {
+	padding: 6px !important;
+	margin-top: 3px !important;
+}  */
 
 /* warning this object if set min-width statically 
    will cause pinned ext. load failure when browser bootstrap */
@@ -381,6 +395,10 @@ body:has(#browser > #sidebar-box[style*="; width: 6"]) #urlbar-container { width
 /* TODO make this shown on hover, rather than always hide */
 .urlbar-input-container #tracking-protection-icon-container {
   display: none;
+}
+
+#identity-box {
+  margin-left: 2px !important;
 }
 
 /* shows Firefox if on settings page, not strictly needed */

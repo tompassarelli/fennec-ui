@@ -1,5 +1,9 @@
+#root.root {--tabs-font: 0.9625 rem sans-serif;}
+#root.root {--tabs-height: 32px;}
 #root.root {
-  --tabs-margin: 6px;
+  --tabs-margin: 4px;
+  --tabs-inner-gap: 8px; /* align text with url */
+  --fen-gap: 1px;
 }
 
 #nav_bar {
@@ -8,11 +12,11 @@
 }
 
 .main-box {
-  padding-top: 6px;
+  padding-top: 3px;
 }
 
 .main-items {
-  padding-left: 1px;
+  padding-left: calc(var(--fen-gap) + 1px);
 }
 
 .main-items > .nav-item {
@@ -20,11 +24,6 @@
 	height: 28px;
 	margin-top: 1px;
 	margin-left: 3px;
-}
-
-/* aligns tab text with url text */
-.t-box {
-  padding-left: 4px;
 }
 
 
@@ -35,13 +34,12 @@
 }
 
 .AnimatedTabList > .Tab > div.body > .fav {
-  margin-left: 9px;
+  margin-left: calc(9px + var(--fen-gap));
 }
-
 
 .PinnedTabsBar {
   padding: 0px !important;
-  padding-left: 1px !important;
+  padding-left: calc(1px + var(--fen-gap)) !important;
   margin-bottom: 6px;
 }
 
