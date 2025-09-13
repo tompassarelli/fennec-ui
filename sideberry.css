@@ -3,7 +3,7 @@
 #root.root {
   --tabs-margin: 4px;
   --tabs-inner-gap: 8px; /* align text with url */
-  --fen-gap: 1px;
+  --fen-gap: 0.5px;
 }
 
 #nav_bar {

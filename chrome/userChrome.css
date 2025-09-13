@@ -101,10 +101,11 @@ gap: space between components, like padding/margin
   /* header buttons */
   /* - nav btns need extra margin because settings btn is not in container */
   /* - each nav-btn is typically 32px, then 2px of padding */
-  /* - so we have to mock a btn, and factor in drawer-gap */
+  /* - but panelui padding/margin will not impat, not in container */
+  /* - so we mock a btn, and use panelui-gap for whatever padding is */
   --fen-panelui-gap: 4px;
   --fen-nav-btn-width: 32px;
-  --fen-nav-btn-gap: calc(var(--fen-gap-x) + var(--fen-nav-btn-width) + var(--fen-panelui-gap) + 1px);
+  --fen-nav-btn-gap: calc(var(--fen-gap-x) + var(--fen-nav-btn-width) + var(--fen-panelui-gap));
   
   /* header height - currently a partial function of drawer gap */
   --fen-header-height: calc(32px + 2*var(--fen-gap-y));
