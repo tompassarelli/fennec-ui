@@ -96,7 +96,8 @@ gap: space between components, like padding/margin
   /* gap between drawer components and edges of drawer */
   --fen-gap-y: 6px;
   --fen-gap-x: 10px;
-  --fen-sidebar-splitter-width: calc(1.25*var(--fen-gap-x));
+  --fen-tab-mx: 1px;
+  --fen-sidebar-splitter-width: calc(1.2 * var(--fen-gap-x));
   
   /* header buttons */
   /* - nav btns need extra margin because settings btn is not in container */
@@ -127,7 +128,6 @@ gap: space between components, like padding/margin
 /* if a theme is present, we will apply it with some sideberry opinonated overrides */
 :root[lwtheme] {
   --fen-color: var(--toolbar-bgcolor);
-  --sidebar-background-color: var(--toolbar-bgcolor);
 }
 
 /* #endregion css variables and theme handling */
@@ -533,7 +533,7 @@ box#sidebar-main {
   position: absolute;
   top: calc(31px + var(--fen-header-height) - 0.5*var(--fen-urlbar-bg-height));
   height: var(--fen-urlbar-bg-height);
-  width: calc(100% - var(--fen-gap-x));
+  width: calc(100% - var(--fen-gap-x) - var(--fen-tab-mx));
   pointer-events: none;
   box-sizing: border-box;
   background-color: rgba(0,0,0,0.3);
@@ -542,7 +542,7 @@ box#sidebar-main {
 
 .sidebar-browser-stack {
   padding-bottom: var(--fen-gap-x);
-  background-coloR: var(--sidebar-background-color) !important;
+  background-coloR: var(--fennec-color) !important;
 }
 
 /* #region notifications */
