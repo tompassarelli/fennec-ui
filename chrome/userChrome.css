@@ -97,12 +97,13 @@ gap: space between components, like padding/margin
   --fen-gap-y: 6px;
   --fen-gap-x: 10px;
   
-  /* panelui gap */
+  /* header buttons */
+  /* nav btns need extra margin because settings btn is not in container */
+  /* each nav-btn is typically 32px, then 2px of padding */
+  /* so we have to mock a btn, and factor in drawer-gap */
   --fen-panelui-gap: 2.5px;
   --fen-nav-btn-width: 32px;
-  --fen-nav-btn-gap: calc(
-    var(--fen-nav-btn-width) + var(--fen-gap-x) + var(--fen-panelui-gap) - 2px
-    );
+  --fen-nav-btn-gap: calc(var(--fen-gap-x) + var(--fen-nav-btn-width) + var(--fen-panelui-gap) - 2px);
   
   /* header height - currently a partial function of drawer gap */
   --fen-header-height: calc(32px + 2*var(--fen-gap-y));
@@ -113,6 +114,9 @@ gap: space between components, like padding/margin
   /* urlbar */
   --fen-urlbar-bg-height: 36px;
   --fen-urlbar-border-radius: 4px;
+  
+  /* tab bar and notifications */
+  --fen-tab-position-y: calc(22px + var(--fen-header-height) + var(--fen-urlbar-bg-height));
   
   /* minimize media query sprawl for resizing urlbar */
   --fen-max-width: 600px;
@@ -201,9 +205,6 @@ body:has(#sidebar-box[hidden="true"]) #identity-icon-box {
 }
 
 #back-button {
-  /* needs extra margin because settings button is not in container */
-  /* each nav-btn is typically 32px, then 2px of padding */
-  /* so we have to mock a btn, and factor in drawer-gap */
   margin-left: var(--fen-nav-btn-gap) !important;
 }
 
@@ -468,7 +469,8 @@ body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
     background-color: var(--fen-color);
 }
 
-/* remove from right-side of urlbar: favorite button, misc other things */
+/* remove from right-side of urlbar: favorite button, bookmark btn, misc other things */
+#urlbar:not(:is([breakout-extend])) 
 #page-action-buttons {
   display: none !important;
 }
@@ -499,7 +501,7 @@ box#sidebar-main {
 #sidebar-box::before {
   content: "";
   display: block;
-  height: calc(22px + var(--fen-header-height) + var(--fen-urlbar-bg-height));
+  height: var(--fen-tab-position-y);
   width: 100%;
   pointer-events: none;
   box-sizing: border-box;
@@ -528,7 +530,9 @@ box#sidebar-main {
 
 #notifications-toolbar {
 	position: absolute;
-	top: 90px;
+	top: var(--fen-tab-position-y);
+	left: var(--fen-gap-x);
+	max-width: 250px;
 }
 
 /* #endregion notifications */
