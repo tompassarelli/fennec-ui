@@ -3,8 +3,6 @@
 
 A customized Mozilla Firefox experience designed around minimalism and optimized vertical tab support. Achieved through userChrome.css modifications and cohesive extension integrations.
 
-Inspired by the elegant UX of Zen Browser, GNU/Linux, and Vim.
-
 ## Features
 
 🔗 **Enhanced Sideberry Integration** - Urlbar inside the sidebar-box, tracks sidebar width, and expands when focused

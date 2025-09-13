@@ -503,7 +503,6 @@ box#sidebar-main {
   width: 100%;
   pointer-events: none;
   box-sizing: border-box;
-/*   background-color: var(--fen-color); */
   color: aliceblue;
 }
 
@@ -521,7 +520,8 @@ box#sidebar-main {
 }
 
 .sidebar-browser-stack {
-  padding-bottom: var(--fen-gap-y)
+  padding-bottom: var(--fen-gap-x);
+  background-coloR: var(--sidebar-background-color) !important;
 }
 
 /* #region notifications */
@@ -538,7 +538,7 @@ box#sidebar-main {
 /* the gutter between the sidebar and page */
 #sidebar-splitter {
   margin: 0px !important;
-  width: calc(var(--fen-gap-x) + 2px);
+  width: calc(1.25*var(--fen-gap-x));
   border: 0px !important;
   /* for theme support... */
   /* make top y% see-through, rest uses --fen-color */
