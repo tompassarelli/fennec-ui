@@ -96,6 +96,7 @@ gap: space between components, like padding/margin
   /* gap between drawer components and edges of drawer */
   --fen-gap-y: 6px;
   --fen-gap-x: 10px;
+  --fen-sidebar-splitter-width: calc(1.25*var(--fen-gap-x));
   
   /* header buttons */
   /* nav btns need extra margin because settings btn is not in container */
@@ -103,7 +104,7 @@ gap: space between components, like padding/margin
   /* so we have to mock a btn, and factor in drawer-gap */
   --fen-panelui-gap: 2.5px;
   --fen-nav-btn-width: 32px;
-  --fen-nav-btn-gap: calc(var(--fen-gap-x) + var(--fen-nav-btn-width) + var(--fen-panelui-gap) - 2px);
+  --fen-nav-btn-gap: calc(var(--fen-gap-x) + var(--fen-nav-btn-width) + var(--fen-panelui-gap) - 1px);
   
   /* header height - currently a partial function of drawer gap */
   --fen-header-height: calc(32px + 2*var(--fen-gap-y));
@@ -153,7 +154,7 @@ body:has(#sidebar-box[hidden="true"]) #identity-icon-box {
 #navigator-toolbox {
   position: absolute !important;
   /* should cover the entire drawer area */
-  width: calc(var(--fen-max-width) + var(--fen-gap-x));
+  width: calc(var(--fen-max-width) + var(--fen-sidebar-splitter-width));
   height: var(--fen-header-height);
   z-index: 2 !important;  /* 3 spills extensions onto page*/
   border: none !important;
@@ -173,7 +174,6 @@ body:has(#sidebar-box[hidden="true"]) #identity-icon-box {
 
 /*  #nav-bar is basically fennec's header section, stubbed for structural reference */
 #nav-bar {
-  min-width: calc(var(--fen-max-width) - var(--fen-gap-x));
   border-top: 0px !important;
 }
 
@@ -541,8 +541,9 @@ box#sidebar-main {
 
 /* the gutter between the sidebar and page */
 #sidebar-splitter {
+  --splitter-width: var(--fen-sidebar-splitter-width) !important;
+  width: var(--fen-sidebar-splitter-width) !important;
   margin: 0px !important;
-  width: calc(1.25*var(--fen-gap-x));
   border: 0px !important;
   /* for theme support... */
   /* make top y% see-through, rest uses --fen-color */
@@ -551,12 +552,14 @@ box#sidebar-main {
   background-color: transparent !important;
   background-image: linear-gradient(
     to bottom,
-    transparent 0%,
-    transparent 5%,
-    var(--fen-color) 5%,
+    /* transparent until exactly Npx */
+    transparent 0,
+    transparent var(--fen-header-height),
+
+    /* adjacent stop at the exact same position => instant jump (no blend) */
+    var(--fen-color) 0,
     var(--fen-color) 100%
-  ) !important;
-  background-repeat: no-repeat !important;
+  );
 }
 
 /* #endregion sidebar-border */ 
