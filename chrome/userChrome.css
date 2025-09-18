@@ -105,14 +105,14 @@ gap: space between components, like padding/margin
   /* - but panelui padding/margin will not impat, not in container */
   /* - so we mock a btn, and use panelui-gap for whatever padding is */
   --fen-panelui-gap: 4px;
-  --fen-nav-btn-width: 32px;
+  --fen-nav-btn-width: 31px;
   --fen-nav-btn-gap: calc(var(--fen-gap-x) + var(--fen-nav-btn-width) + var(--fen-panelui-gap));
   
   /* header height - currently a partial function of drawer gap */
   --fen-header-height: calc(32px + 2*var(--fen-gap-y));
   
   /* dim header buttons a bit */
-  --fen-header-btn-dim: 0.7;
+  --fen-header-btn-dim: 0.8;
   
   /* urlbar */
   --fen-urlbar-bg-height: 38px;
@@ -128,6 +128,7 @@ gap: space between components, like padding/margin
 /* if a theme is present, we will apply it with some sideberry opinonated overrides */
 :root[lwtheme] {
   --fen-color: var(--toolbar-bgcolor);
+  --fen-header-btn-dim: 1;
 }
 
 /* #endregion css variables and theme handling */
@@ -135,15 +136,17 @@ gap: space between components, like padding/margin
 /* #region dynamic sidebar toggle */
 
 /* toggle the entire ui by toggling the sidebar */
-body:has(#sidebar-box[hidden="true"]) #navigator-toolbox {
+body:has(#sidebar-box[hidden]) #navigator-toolbox {
   width: 0px !important;
   pointer-events: none;
 }
 
-body:has(#sidebar-box[hidden="true"]) #nav-bar toolbaritem#urlbar-container {
+body:has(#sidebar-box[hidden]) toolbaritem#urlbar-container {
   width: 0px !important;
+  max-width: 0px !important;
   pointer-events: none;
 }
+
 body:has(#sidebar-box[hidden="true"]) #identity-icon-box {
 	background-color: transparent !important;
 }
@@ -159,7 +162,7 @@ body:has(#sidebar-box[hidden="true"]) #identity-icon-box {
   height: var(--fen-header-height);
   z-index: 2 !important;  /* 3 spills extensions onto page*/
   border: none !important;
-  padding-top: var(--fen-gap-y);
+  padding-top: var(--fen-gap-y) !important;
   background-color: var(--fen-color) !important;
 }
 
@@ -183,20 +186,6 @@ body:has(#sidebar-box[hidden="true"]) #identity-icon-box {
   opacity: var(--fen-header-btn-dim);
 }
 
-/* this was to align hover backgrounds nicer with padlock */
-/* instead going to shift lock icon and tabs over 2px */
-/* #nav-bar-customization-target image:is(.toolbarbutton-icon, .toolbaritem) {
-  width: 28px !important;
-  height: 28px !important;
-  padding: 6px !important;
-  margin-top: 3px !important;
-  margin-left: 4px !important;
-} */
-/* #PanelUI-menu-button > stack.toolbarbutton-badge-stack {
-	padding: 6px !important;
-	margin-top: 3px !important;
-}  */
-
 /* warning this object if set min-width statically 
    will cause pinned ext. load failure when browser bootstrap */
 #nav-bar-customization-target {
@@ -211,6 +200,10 @@ body:has(#sidebar-box[hidden="true"]) #identity-icon-box {
 /* dim the header buttons a tad to not draw too much attention */
 #nav-bar-customization-target > toolbaritem {
   opacity: var(--fen-header-btn-dim);
+}
+
+#nav-bar-customization-target > toolbaritem.unified-extensions-item {
+  margin-left: 0px !important; /* ext. buttons */
 }
 
 
@@ -308,7 +301,7 @@ body:not(:has(#sidebar-main[hidden])) #urlbar-container {
 
 /* because we use a custom urlbar-background that tracks sidebar width
    we need to hide default background unless active */
-#urlbar:not(:is([breakout-extend])) #urlbar-background {
+#urlbar:not(:is([breakout-extend])) .urlbar-background {
   display: none !important;
 }
 
@@ -534,9 +527,10 @@ box#sidebar-main {
   top: calc(31px + var(--fen-header-height) - 0.5*var(--fen-urlbar-bg-height));
   height: var(--fen-urlbar-bg-height);
   width: calc(100% - var(--fen-gap-x) - var(--fen-tab-mx));
+  left: calc(var(--fen-gap-x) + 1px);
   pointer-events: none;
   box-sizing: border-box;
-  background-color: rgba(0,0,0,0.3);
+  background-color: color-mix(in srgb, var(--toolbar-field-background-color) 80%, black);
   border-radius: var(--fen-urlbar-border-radius) !important;
 }
 
