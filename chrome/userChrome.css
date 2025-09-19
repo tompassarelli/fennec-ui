@@ -85,11 +85,7 @@ gap: space between components, like padding/margin
 /* #endregion dev-docs */
 
 /* #region css vars and theme handling */
-
-:root {
-  /* Enable proper color-scheme support for light/dark OS appearance */
-  color-scheme: light dark;
-  
+:root {  
   /* fennec's adaptive color based on OS appearance */
   --fen-color: light-dark(#fafafb, #36363a);
   --toolbar-bgcolor: var(--fen-color);
@@ -287,6 +283,15 @@ body:not(:has(#sidebar-main[hidden])) #PanelUI-button {
   width: 100%;
   margin: 0px !important;
   padding: 0px !important;
+}
+
+/* when the settings panel is clicked, give the popup container a background
+that ensures the tabs and urlbar aren't visible in the corner */
+panel#appMenu-popup {
+  background-image: linear-gradient(var(--fen-color),var(--fen-color));
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 33.3333% 95%;  
 }
 
 /* bookmarks area - always disable */
