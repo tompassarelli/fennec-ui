@@ -89,6 +89,8 @@ gap: space between components, like padding/margin
 :root {
   /* fennec's default look if no theme selected */
   --fen-color: #36363a;
+  /* Zen Browser bg color */
+  /* --fen-color: #141417; */
   
   /* show sidebar gap */
   --fen-show-sidebar-gap: 6px;
@@ -109,25 +111,30 @@ gap: space between components, like padding/margin
   --fen-nav-btn-gap: calc(var(--fen-gap-x) + var(--fen-nav-btn-width) + var(--fen-panelui-gap));
   
   /* header height - currently a partial function of drawer gap */
-  --fen-header-height: calc(32px + 2*var(--fen-gap-y));
-  
-  /* dim header buttons a bit */
-  --fen-header-btn-dim: 0.8;
+  --fen-header-height: calc(32px + 2*var(--fen-gap-y));  
+  --fen-header-bg-color: var(--fen-color);
+  /* - dim header buttons a bit */
+  --fen-header-btn-dim: .8;
   
   /* tab bar and notifications, urlbar pos is partial function of */
-  --fen-tab-position-y: calc(8px + var(--fen-header-height) + var(--fen-urlbar-bg-height));
+  --fen-tab-position-y: calc(16px + var(--fen-header-height) + var(--fen-urlbar-bg-height));
   
   /* urlbar */
-  /* knob for urlbar position */
+  /* - knob for urlbar position */
+  /* - the constant below if no urlbar-tabgap, means urlbar touches tabs*/
   --fen-urlbar-position-y: calc(
-    var(--fen-tab-position-y) + var(--fen-gap-y) - 50px
+    var(--fen-tab-position-y) + var(--fen-gap-y) - 46px - var(--fen-urlbar-tabbar-gap)
   );
-  /* keep urlbar-bg attached to urlbar, generally don't touch */
+  --fen-urlbar-tabbar-gap: 10px;
+  
+  /* - keep urlbar-bg attached to urlbar, generally don't touch */
   --fen-urlbar-bg-position-y: calc(
     var(--fen-urlbar-position-y) + var(--fen-gap-y) + 1px
   );
-  /* urlbar bg size and style */
+  /* - urlbar bg size and style */
   --fen-urlbar-bg-height: 38px;
+  --fen-urlbar-bg-color: color-mix(in srgb, var(--toolbar-field-background-color) 75%, black);
+/*   --fen-urlbar-bg-color: var(--toolbar-field-background-color); */
   --fen-urlbar-border-radius: 4px;
   
   /* minimize media query sprawl for resizing urlbar */
@@ -137,6 +144,7 @@ gap: space between components, like padding/margin
 /* if a theme is present, we will apply it with some sideberry opinonated overrides */
 :root[lwtheme] {
   --fen-color: var(--toolbar-bgcolor);
+  --fen-header-bg-color: var(--toolbar-bgcolor);
   --fen-header-btn-dim: 1;
 }
 
@@ -172,7 +180,8 @@ body:has(#sidebar-box[hidden="true"]) #identity-icon-box {
   z-index: 2 !important;  /* 3 spills extensions onto page*/
   border: none !important;
   padding-top: var(--fen-gap-y) !important;
-  background-color: var(--fen-color) !important;
+/*   background-color: var(--fen-color) !important; */
+  background-color: var(--fen-header-bg-color) !important;
 }
 
 /* the thing that comes up when you hold alt, there's already settings menu */
@@ -198,7 +207,7 @@ body:has(#sidebar-box[hidden="true"]) #identity-icon-box {
 /* warning this object if set min-width statically 
    will cause pinned ext. load failure when browser bootstrap */
 #nav-bar-customization-target {
-  background-color: var(--fen-color);
+  background-color: var(--fen-header-bg-color);
 }
 
 /* dim the header buttons a tad to not draw too much attention */
@@ -529,7 +538,7 @@ box#sidebar-main {
   color: aliceblue;
 }
 
-/* custom urlbar-background so its aligned with tabs */
+/* urlbar-background (custom) so its aligned with tabs */
 #sidebar-box::after {
   content: "";
   position: absolute;
@@ -539,9 +548,12 @@ box#sidebar-main {
   left: calc(var(--fen-gap-x) + var(--fen-tab-mx));
   pointer-events: none;
   box-sizing: border-box;
-  background-color: color-mix(in srgb, var(--toolbar-field-background-color) 80%, black);
+  background-color: var(--fen-urlbar-bg-color);
   border-radius: var(--fen-urlbar-border-radius) !important;
 }
+/* vbox.urlbarView {
+  background-color: var(--fen-urlbar-bg-color) !important;
+} */
 
 .sidebar-browser-stack {
   padding-bottom: var(--fen-gap-x);
