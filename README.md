@@ -19,22 +19,29 @@ A customized Mozilla Firefox experience designed around minimalism and optimized
 
 Note: Please see [security considerations](#security-considerations) before installing
 
-1. Set Firefox Tab Settings to supported configuration
-   - "Horizontal Tabs" enabled
-   - "Show Sidebar" is off (optional, not a prioritized support target, currently it works)
-   -  Sidebar set to the left side of the browser
-2. Enable `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
-3. Navigate to your Firefox profile folder
-   - Open Firefox
-   - Type `about:support` in the address bar and press enter
-   - Look for the Application Basics section.
-   - Click on Open Profile Folder. This will open the folder which contains your user data.
-   - On the Flatpak version of Firefox the directory is `~/.var/app/org.mozilla.firefox/.mozilla/firefox/<profile>`
-4. Now create a `chrome` folder in your profile folder if it doesn't exist
-5. Copy `userChrome.css` to the `chrome` folder, from this repo's chrome folder
-6. Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
-7. Use sideberry.css in the sideberry custom css settings
-8. Restart Firefox
+1. Set Firefox's Browser Layout to Fennec's supported configuration
+   - Goto settings in firefox
+   - In search bar, Type "Hori".
+     - You should now see "Browser Layout" in the search results
+   - Enable "Horizontal Tabs" if it is not enabled
+   - "Show Sidebar" is off 
+     - not supported (just use hotkeys to switch to history/bookmarks/gpt as desired)
+2. Add userChrome.css to your chrome folder
+   - Enable firefox to be able to use userChrome.css
+     - `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
+   - Navigate to your profile directory
+      - Note: on the Flatpak version of Firefox the profile directory is `~/.var/app/org.mozilla.firefox/.mozilla/firefox/<profile>`
+      - Open Firefox
+      - Type `about:support` in the address bar and press enter
+      - Look for the Application Basics section.
+      - Click on Open Profile Folder. This will open the folder which contains your user data.
+   - Add a chrome folder and userChrome.css
+      - Now create a `chrome` folder in your profile folder if it doesn't exist
+      - Copy `userChrome.css` to the `chrome` folder, from this repo's chrome folder
+3. Configure Sideberry
+   - Install [Sideberry extension](https://addons.mozilla.org/en-US/firefox/addon/sidebery/)
+   - Use sideberry.css from this repo in the sideberry custom css settings
+4. Restart Firefox
 
 ### Optional Recommended Extensions
 - **[Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)** - Keyboard-driven navigation that complements the minimal, distraction-free interface
