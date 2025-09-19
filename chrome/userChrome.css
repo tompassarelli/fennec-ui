@@ -87,8 +87,12 @@ gap: space between components, like padding/margin
 /* #region css vars and theme handling */
 
 :root {
-  /* fennec's default look if no theme selected */
-  --fen-color: #36363a;
+  /* Enable proper color-scheme support for light/dark OS appearance */
+  color-scheme: light dark;
+  
+  /* fennec's adaptive color based on OS appearance */
+  --fen-color: light-dark(#fafafb, #36363a);
+  --toolbar-bgcolor: var(--fen-color);
   /* Zen Browser bg color */
   /* --fen-color: #141417; */
   
@@ -123,9 +127,9 @@ gap: space between components, like padding/margin
   /* - knob for urlbar position */
   /* - the constant below if no urlbar-tabgap, means urlbar touches tabs*/
   --fen-urlbar-position-y: calc(
-    var(--fen-tab-position-y) + var(--fen-gap-y) - 46px - var(--fen-urlbar-tabbar-gap)
+    var(--fen-tab-position-y) + var(--fen-gap-y) - var(--fen-urlbar-tabbar-gap) - 46px
   );
-  --fen-urlbar-tabbar-gap: 10px;
+  --fen-urlbar-tabbar-gap: 12px;
   
   /* - keep urlbar-bg attached to urlbar, generally don't touch */
   --fen-urlbar-bg-position-y: calc(
