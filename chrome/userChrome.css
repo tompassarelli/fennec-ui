@@ -114,12 +114,21 @@ gap: space between components, like padding/margin
   /* dim header buttons a bit */
   --fen-header-btn-dim: 0.8;
   
+  /* tab bar and notifications, urlbar pos is partial function of */
+  --fen-tab-position-y: calc(8px + var(--fen-header-height) + var(--fen-urlbar-bg-height));
+  
   /* urlbar */
+  /* knob for urlbar position */
+  --fen-urlbar-position-y: calc(
+    var(--fen-tab-position-y) + var(--fen-gap-y) - 50px
+  );
+  /* keep urlbar-bg attached to urlbar, generally don't touch */
+  --fen-urlbar-bg-position-y: calc(
+    var(--fen-urlbar-position-y) + var(--fen-gap-y) + 1px
+  );
+  /* urlbar bg size and style */
   --fen-urlbar-bg-height: 38px;
   --fen-urlbar-border-radius: 4px;
-  
-  /* tab bar and notifications */
-  --fen-tab-position-y: calc(22px + var(--fen-header-height) + var(--fen-urlbar-bg-height));
   
   /* minimize media query sprawl for resizing urlbar */
   --fen-max-width: 600px;
@@ -292,7 +301,7 @@ body:not(:has(#sidebar-main[hidden])) #PanelUI-button {
   width: 215px !important; 
   margin: 0px !important;
   margin-left: var(--fen-gap-x) !important;
-  top: calc(43px + var(--fen-gap-y));
+  top: var(--fen-urlbar-position-y);
 }
 /* moz setting: "Show sidebar" active */
 body:not(:has(#sidebar-main[hidden])) #urlbar-container {
@@ -524,10 +533,10 @@ box#sidebar-main {
 #sidebar-box::after {
   content: "";
   position: absolute;
-  top: calc(31px + var(--fen-header-height) - 0.5*var(--fen-urlbar-bg-height));
+  top: var(--fen-urlbar-bg-position-y);
   height: var(--fen-urlbar-bg-height);
   width: calc(100% - var(--fen-gap-x) - var(--fen-tab-mx));
-  left: calc(var(--fen-gap-x) + 1px);
+  left: calc(var(--fen-gap-x) + var(--fen-tab-mx));
   pointer-events: none;
   box-sizing: border-box;
   background-color: color-mix(in srgb, var(--toolbar-field-background-color) 80%, black);
