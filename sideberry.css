@@ -6,9 +6,20 @@
   --fen-gap: 3px;
 }
 
-#nav_bar.NavigationBar.-top {
-	width: calc(100% - 1.5px);
-	left: .5px;
+/* .top-horizontal-box {
+  margin-bottom: 4px;
+} */
+
+/* .top-horizontal-box::after {
+  content: '';
+  height: 8px;
+  display: block;
+} */
+/* when using a theme toggle bg-color  */
+/* background-color: var(--toolbar-bg); */
+
+#nav_bar {
+	width: calc(100% - 1px);
 }
 
 .main-box {
