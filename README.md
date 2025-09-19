@@ -11,7 +11,7 @@ A customized Mozilla Firefox experience designed around minimalism and optimized
 
 ✨ **Minimal Chrome** - Only essential objects exposed, coherent with a keyboard driven UX
 
-🛠️ **Community Minded** - Clean code and detailed docs to support auditing, customization, and contribution, ensuring the project remains maintainable and sustainable
+🛠️ **Community Minded** - Clean code and detailed docs to support customization and contribution, ensuring the project remains maintainable and sustainable
 
 🎨 **Theme Support** - System themes (light-dark) supported. User created Firefox themes are also supported.
 
