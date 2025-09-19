@@ -548,8 +548,8 @@ box#sidebar-main {
   position: absolute;
   top: var(--fen-urlbar-bg-position-y);
   height: var(--fen-urlbar-bg-height);
-  width: calc(100% - var(--fen-gap-x) - var(--fen-tab-mx));
-  left: calc(var(--fen-gap-x) + var(--fen-tab-mx));
+  width: calc(100% - var(--fen-gap-x));
+  left: calc(var(--fen-gap-x));
   pointer-events: none;
   box-sizing: border-box;
   background-color: var(--fen-urlbar-bg-color);

@@ -1,46 +1,33 @@
-#root.root {--tabs-font: 0.95 rem sans-serif;}
-#root.root {--tabs-height: 36px;}
 #root.root {
-  --tabs-margin: 5px;
-  --tabs-inner-gap: 8px; /* align text with url */
-  --fen-gap: 1px;
+  --tabs-height: 32px;
+  --tabs-margin: 4px;
   --fen-tab-margin-left: 1px;
+  --tabs-inner-gap: 8px; /* align text with url */
+  --fen-gap: 3px;
 }
 
-.top-horizontal-box {
-  margin-bottom: 0px;
+#nav_bar.NavigationBar.-top {
+	width: calc(100% - 1.5px);
+	left: .5px;
 }
 
-.top-horizontal-box::after {
-  content: '';
-  height: 8px;
-  display: block;
-/* when using a theme toggle this on: */
-/* background-color: var(--toolbar-bg); */
+.main-box {
+  padding-top: 6px;
 }
-
-#nav_bar {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-/* .main-box {
-  padding-top: 4px;
-} */
 
 .central-box {
   margin: 0px !important;
 }
 
 .main-items {
-  padding-left: calc(var(--fen-gap) + 1px);
+  padding-left: calc(var(--fen-gap));
 }
 
 .main-items > .nav-item {
 	width: 26px;
 	height: 28px;
 	margin-top: 1px;
-	margin-left: 3px;
+	margin-left: 0px;
 }
 
 
@@ -51,12 +38,12 @@
 }
 
 .AnimatedTabList > .Tab > div.body > .fav {
-  margin-left: calc(9px + var(--fen-gap) - var(--fen-tab-margin-left));
+  margin-left: calc(6px + var(--fen-gap) - var(--fen-tab-margin-left));
 }
 
 .PinnedTabsBar {
   padding: 0px !important;
-  margin-left: calc(1px + var(--fen-gap));
+  margin-left: calc(var(--fen-gap) - 2px);
   margin-bottom: 6px;
 }
 
