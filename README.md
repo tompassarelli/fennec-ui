@@ -13,7 +13,7 @@ A customized Mozilla Firefox experience designed around minimalism and optimized
 
 🛠️ **Community Minded** - Clean code and detailed docs to support auditing, customization, and contribution, ensuring the project remains maintainable and sustainable
 
-🎨 **Theme Support** - Use your favorite Firefox theme to further personalize your experience
+🎨 **Theme Support** - System themes (light-dark) supported. User created Firefox themes are also supported.
 
 ## Installation
 
