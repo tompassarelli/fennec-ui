@@ -26,6 +26,7 @@ Note: Please see [security considerations](#security-considerations) before inst
    - Enable "Horizontal Tabs" if it is not enabled
    - "Show Sidebar" is off 
      - not supported (just use hotkeys to switch to history/bookmarks/gpt as desired)
+   - Sidebar is configured to appear on left side (browser default)
 2. Add userChrome.css to your chrome folder
    - Enable firefox to be able to use userChrome.css
      - `toolkit.legacyUserProfileCustomizations.stylesheets` in `about:config`
