@@ -518,7 +518,7 @@ Preserve these (security warnings):
 - .mixedActiveContent  - HTTPS with active mixed content
 */
 
-body:has(#sidebar-box[hidden="true"]):has(#identity-box.notSecure)::before {
+body:has(#sidebar-box[hidden]):has(#identity-box.notSecure)::before {
     content: "🦊 Fennec UI - HTTP Alert: Not Secure";
     text-align: center;
     font-size: 24px;
