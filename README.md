@@ -51,9 +51,8 @@ Note: Please see [security considerations](#security-considerations) before inst
 
 ## Usage Guide
 
-Utilizing the chosen hotkey for user chrome toggle hides the whole UI
-
-This elegant toggle gives you the best of both worlds - organized tab management when you need it, a clean browsing experience when you don't
+Sideberry is used for tabs, toggling the extension shortcut set to sideberry toggles the whole UI.
+This also applies to: history, bookmarks, etc. shortcuts
 
 📋 **[Roadmap & Release Notes](https://github.com/tompassarelli/fennec-css/wiki)** - project wiki for roadmap and release notes as inclined.
 
