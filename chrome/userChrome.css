@@ -412,10 +412,20 @@ body:has(#browser > #sidebar-box[style*="; width: 6"]) #urlbar-container { width
   margin-left: 1px !important;
 }
 
-/* shield icon for tracking protections, don't need */
-/* TODO make this shown on hover, rather than always hide */
+/* shield icon for tracking protections - show only when urlbar is focused */
 .urlbar-input-container #tracking-protection-icon-container {
-  display: none;
+  opacity: 0;
+  position: absolute !important;
+}
+
+#urlbar:is([focused]) #tracking-protection-icon-container,
+#tracking-protection-icon-container:has([open]) {
+  transition: opacity 0.2s ease;
+  position: relative !important;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
 }
 
 #identity-box {
