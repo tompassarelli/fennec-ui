@@ -54,7 +54,11 @@ Note: Please see [security considerations](#security-considerations) before inst
 Sideberry is used for tabs, toggling the extension shortcut set to sideberry toggles the whole UI.
 This also applies to: history, bookmarks, etc. shortcuts
 
-📋 **[Roadmap & Release Notes](https://github.com/tompassarelli/fennec-css/wiki)** - project wiki for roadmap and release notes as inclined.
+📋 **[Wiki home](https://github.com/tompassarelli/fennec-css/wiki)** - roadmap, release notes, known issues
+
+📝 **[Release Notes](https://github.com/tompassarelli/fennec-ui/wiki/Release-Notes)** - version history and changelog
+
+🛤️ **[Roadmap](https://github.com/tompassarelli/fennec-ui/wiki/Roadmap)** - planned features and development timeline
 
 👾 **[Known Issues & Troubleshooting](https://github.com/tompassarelli/fennec-ui/wiki/Troubleshooting)** - noted some common issues and workarounds 
 
