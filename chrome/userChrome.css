@@ -429,7 +429,7 @@ body:has(#browser > #sidebar-box[style*="; width: 6"]) #urlbar-container { width
 }
 
 /* cross site cookie configuration - show only when urlbar is focused */
-/* .urlbar-input-container #identity-permission-box {
+.urlbar-input-container #identity-permission-box {
   opacity: 0;
   position: absolute !important;
 }
@@ -441,7 +441,7 @@ body:has(#browser > #sidebar-box[style*="; width: 6"]) #urlbar-container { width
   top: 50%;
   transform: translateY(-50%);
   opacity: 1;
-} */
+}
 
 #identity-box {
   margin-left: 2px !important;
