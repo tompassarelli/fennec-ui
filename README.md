@@ -11,7 +11,7 @@ A customized Mozilla Firefox experience designed around minimalism and optimized
 
 ✨ **Minimal Chrome** - Only essential objects exposed, coherent with a keyboard driven UX
 
-🛠️ **Community Minded** - Clean code and detailed docs to support customization and contribution, ensuring the project remains maintainable and sustainable
+🛠️ **Community Minded** - Clean code and detailed docs to support customization and contribution
 
 🎨 **Theme Support** - System themes (light-dark) supported. User created Firefox themes are also supported.
 
@@ -53,6 +53,8 @@ Note: Please see [security considerations](#security-considerations) before inst
 
 Sideberry is used for tabs, toggling the extension shortcut set to sideberry toggles the whole UI.
 This also applies to: history, bookmarks, etc. shortcuts
+
+Feel free to come hang out on [Discord](https://discord.gg/cPJmK7YT)
 
 📝 **[Release Notes](https://github.com/tompassarelli/fennec-ui/wiki/Release-Notes)** - version history and changelog
 
