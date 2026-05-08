@@ -6,6 +6,21 @@
 
 </div>
 
+> **No longer actively developed.** Palefox v0.43.0 is the final release of
+> this userscript-bundle line. Development moved to a Firefox source fork:
+> **[github.com/tompassarelli/skiff](https://github.com/tompassarelli/skiff)**.
+>
+> Why the move: the userscript bundle hit hard ceilings (couldn't swap
+> the storage backend for FTS5 search, couldn't patch internals, chrome
+> API ABI moved under us between Firefox releases). A real source fork
+> escapes those constraints. Skiff inherits palefox's goals (keyboard-first
+> chrome, tree tabs, hash-pinned loader baked in) but implements them as
+> compiled-in source instead of runtime-loaded `.uc.js`.
+>
+> v0.43.0 still works on current Firefox if you want to keep using it —
+> follow the install instructions below. No security or feature updates are
+> planned for this line.
+
 <div align="center">
 
 <img src="https://github.com/user-attachments/assets/fdefa78a-7847-4769-a532-f40172332ba7" alt="Palefox screenshot" />
